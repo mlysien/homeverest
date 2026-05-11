@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://homeverest.pl/sitemap-index.xml
+Sitemap: https://mlysien.github.io/sitemap-index.xml
