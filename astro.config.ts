@@ -14,10 +14,9 @@ import { SITE } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  base: '/homeverest/',
+  base: '/homeverest',
   output: 'static',
   outDir: 'dist',
-  trailingSlash: 'always',
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
