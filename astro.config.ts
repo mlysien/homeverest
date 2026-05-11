@@ -16,6 +16,7 @@ export default defineConfig({
   site: 'https://mlysien.github.io/homeverest',
   base: '/homeverest',
   output: 'static',
+  outDir: 'dist',
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
