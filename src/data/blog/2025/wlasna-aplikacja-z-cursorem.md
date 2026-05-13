@@ -10,7 +10,7 @@ description:
     Tematy związane ze sztuczną inteligencją są teraz tak popularne jak Adam Małysz w sezonie 2000/2001 po zwycięstwie w Turnieju Czterech Skoczni oraz Pucharze Świata - cały świat o tym mówi.
 ---
 
-![banner](/src/assets/blog/2025/wlasna-aplikacja-z-cursorem/42c0a51e-2252-4a00-b114-0d8a712fb46c.png)
+![banner](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/42c0a51e-2252-4a00-b114-0d8a712fb46c.png)
 
 Tematy związane ze sztuczną inteligencją są teraz tak popularne jak Adam Małysz w sezonie 2000/2001 po zwycięstwie w Turnieju Czterech Skoczni oraz Pucharze Świata - cały świat o tym mówi.
 
@@ -24,7 +24,7 @@ Cursor to narzędzie programistyczne wspierane przez sztuczną inteligencję. Ma
 
 To, co wyróżnia Cursora, to głęboka integracja z modelem AI – od edycji kodu, generowanie commitów, przez wykonywanie poleceń w terminalu po sugerowanie zmian. Jest to narzędzie, które nie tyle co uzupełnia kod ale próbuje programować razem z programistą.
 
-![Okno główne Cursora](/src/assets/blog/2025/wlasna-aplikacja-z-cursorem/image-2-1024x550.png)
+![Okno główne Cursora](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/image-2-1024x550.png)
 
 **Najważniejsze funkcje Cursora:**
 
@@ -55,7 +55,7 @@ Wybrałem pierwszą opcję. Interesowało mnie, na ile się dogadamy – czyli c
 
 ### Pomodoro Timer
 
-![pomodoro timer](/src/assets/blog/2025/wlasna-aplikacja-z-cursorem/pomodoro-2.gif)
+![pomodoro timer](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/pomodoro-2.gif)
 
 Jakiś czas temu, [pisałem o technice Pomodoro](https://www.homeverest.pl/technika-pomodoro/) z której korzystam na co dzień. Przez ten czas nic się nie zmieniło – wciąż jej używam i to z dokładnie tą samą aplikacją co wcześniej. Uznałem, że to świetny projekt na zapoznanie się z możliwościami Cursora. Przy okazji w końcu stworzę swój własny Pomodoro Timer.
 
@@ -89,7 +89,7 @@ Dużo rzeczy Cursor robi „przy okazji”. Na przykład przy dodawaniu przycisk
 
 Podtytuł _„Cursor – nowy kolega z zespołu”_ naprawdę dobrze oddaje moje odczucia. Tak jak kolega z zespołu, potrafi czasem coś zepsuć – np. dodając nowy element, przesunąć albo kompletnie „rozjechać” layout. I to zdarzało się kilkukrotnie. Ale kto nigdy nie popsuł czegoś przy dodawaniu nowego feature’a, niech pierwszy rzuci klawiaturą...
 
-![](/src/assets/blog/2025/wlasna-aplikacja-z-cursorem/vwI4mYEHP8k0w.webp)
+![](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/vwI4mYEHP8k0w.webp)
 
 Cursor potrafi też zaskoczyć. Nie jestem grafikiem i ciężko mi stworzyć naprawdę ładny interfejs, więc poprosiłem go, aby zmienił kolorystykę aplikacji na bardziej _„modern-aesthetic”_. Po przeładowaniu projektu zbierałem szczękę z podłogi – sam bym tego lepiej nie wymyślił.
 

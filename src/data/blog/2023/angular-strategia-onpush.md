@@ -10,6 +10,8 @@ description:
   Dziś chciałbym opisać mechanizm wykrywania zmian w komponentach Angularowych. Strategia OnPush umożliwia nam w łatwy sposób zoptymalizowanie pod kątem wydajnościowym naszej aplikacji. Co to jest i jak zastosować? Oraz na co uważać, w tym artykule postaram się odpowiedzieć na te pytania.
 ---
 
+![banner](../../../assets/blog/2023/angular-strategia-onpush/onpus_strategy.png)
+
 Cześć! Dzisiejszym wpisem wracam do tematyki fontendowej z której już jeden wpis się pojawił na moim blogu - [Angular – cykl życia komponentu](https://homeverest.pl/angular-cykl-zycia-komponentu/). Dziś chciałbym opisać mechanizm wykrywania zmian w komponentach Angularowych. Strategia OnPush umożliwia nam w łatwy sposób zoptymalizowanie pod kątem wydajnościowym naszej aplikacji. Co to jest i jak zastosować? Oraz na co uważać, w tym artykule postaram się odpowiedzieć na te pytania.
 
 ## Strategia OnPush - wprowadzenie

@@ -11,7 +11,7 @@ description:
   incididunt ut
 ---
 
-![banner](/src/assets/blog/2022/technika-pomodoro/ChatGPT-Image-Apr-15-2025-05_41_57-PM.png)
+![banner](../../../assets/blog/2022/technika-pomodoro/ChatGPT-Image-Apr-15-2025-05_41_57-PM.png)
 
 Cześć, zapraszam do lektury mojego kolejnego wpisu na blogu. Dziś opiszę moją ulubioną technikę na zwiększanie produktywności w pracy a mianowicie **technikę Pomodoro**. Jeśli interesują cię tematy związane z produktywnością na pewno już słyszałeś o tej technice, może nawet próbowałeś ją stosować. Jeśli pierwszy raz słyszysz o Pomodoro to tym lepiej! Postaram cię zachęcić do wykorzystania jej w swojej codziennej pracy.
 
@@ -22,7 +22,7 @@ Na początek troszeczkę historii, technika Pomodoro powstała w latach 80, jej 
 
 Technika opracowana przez pana Francessco Cirillo służy to zwiększania produktywności podczas wykonywania zadań. Nad zadaniem **pracujemy 25 minut**, po zakończeniu tego czasu mamy **5 minut przerwy** na oderwanie się od zadania. Po przerwie wracamy na kolejne 25 minut do pracy. **Po czterech takich cyklach pracy robimy dłuższą przerwę - 15 minut**.
 
-![Pełny cykl techniki Pomodoro](/src/assets/blog/2022/technika-pomodoro/pomodoro_post.png)
+![Pełny cykl techniki Pomodoro](../../../assets/blog/2022/technika-pomodoro/pomodoro_post.png)
 
 Jak widać technika jest bardzo prosta, nad odmierzaniem czasu czuwa za nas dedykowana aplikacja, czy to na telefon czy komputer. Oczywiście nic nie stoi na przeszkodzie, żeby do odmierzania czasu skorzystać z kuchennego timera - koniecznie w kształcie pomidora!
 
@@ -50,14 +50,14 @@ Warto też wspomnieć o rozpraszaczach w postaci wiadomości na czacie firmowym 
 
 Znając już ogólne zasady dotyczące korzystania z techniki Pomodoro, można skupić się na narzędziu, które nam pomoże, a narzędzi wspierających technikę Pomodoro jest całe mnóstwo. Począwszy od aplikacji mobilnych, poprzez małe aplikacje desktopowe, kończąc na rozwiązaniach webowych. Przeglądając dostępne możliwości można się zdziwić, że do tak prostej techniki powstało tak wiele narzędzi, które de facto wykonują dokładnie to samo. Osobiście i zdecydowanie polecam bardzo prostą aplikację - [Pomotroid](https://splode.github.io/pomotroid/). Jest bardzo minimalistyczna i robi dokładnie to co powinna robić - czyli kontroluje czas i informuje poprzez powiadomienia o zakończeniu sesji.
 
-![Faza skupienia](/src/assets/blog/2022/technika-pomodoro/image-1.png)
+![Faza skupienia](../../../assets/blog/2022/technika-pomodoro/image-1.png)
 
-![Faza odpoczynku](/src/assets/blog/2022/technika-pomodoro/image-2.png)
+![Faza odpoczynku](../../../assets/blog/2022/technika-pomodoro/image-2.png)
 
-![Okno ustawień Pomotroid](/src/assets/blog/2022/technika-pomodoro/image-5.png)
+![Okno ustawień Pomotroid](../../../assets/blog/2022/technika-pomodoro/image-5.png)
 
 Mimo swojej prostoty aplikacja ma duże możliwości konfiguracji. Począwszy od szaty graficznej, poprzez ustawienia dotyczące zachowania aplikacji, kończąc na ustawieniach interwałów - tutaj można już trochę pokombinować. Domyślne wartości są zgodne z założeniami techniki Pomodoro, jednak nic nie stoi na przeszkodzie, aby spróbować zmienić ustawienia i zobaczyć jak się sprawdzą w praktyce. Osobiście próbowałem wydłużać każdą fazę o 5 min, jednak trudno mi było zachować pełną koncentrację na zadaniu a po dłuższej przerwie wrócić do zdania.
 
 ## Podsumowanie
 
-Dziękuję za poświęcony czas na zapoznanie się z artykułem o technice Pomodoro. W artykule starałem się oprócz ogólnych założeń pokazać trochę jak to wygląda od kuchni, jeśli chodzi o pracę programisty. Mam nadzieję, że przekonałem Cię chociaż trochę, żeby spróbować wykorzystać tą technikę w codziennej pracy. Jeśli masz już jakieś swoje doświadczenia z Pomodoro lub znasz jakieś alternatywy to zapraszam do [kontaktu.](https://homeverest.pl/kontakt/) Ze swojego doświadczenia mogę zdecydowanie polecić Pomodoro. Stosuję tę technikę już kilka lat, nawet pisząc i redagując ten artykuł również z niej korzystałem. Najbardziej doceniam ją w momentach kiedy zadania są trudne, ponieważ zmusza mnie do rozbicia problemu na małe elementy z których finalnie uda się zakończyć całe zadanie. Jeszcze raz dziękuję za poświęcony czas i standardowo, jeśli uznasz, że ten materiał mógłby się komuś przydać, proszę o udostępnienie go przez któryś z przycisków poniżej. Dzięki!
+Dziękuję za poświęcony czas na zapoznanie się z artykułem o technice Pomodoro. W artykule starałem się oprócz ogólnych założeń pokazać trochę jak to wygląda od kuchni, jeśli chodzi o pracę programisty. Mam nadzieję, że przekonałem Cię chociaż trochę, żeby spróbować wykorzystać tą technikę w codziennej pracy. Ze swojego doświadczenia mogę zdecydowanie polecić Pomodoro. Stosuję tę technikę już kilka lat, nawet pisząc i redagując ten artykuł również z niej korzystałem. Najbardziej doceniam ją w momentach kiedy zadania są trudne, ponieważ zmusza mnie do rozbicia problemu na małe elementy z których finalnie uda się zakończyć całe zadanie. Jeszcze raz dziękuję za poświęcony czas i standardowo, jeśli uznasz, że ten materiał mógłby się komuś przydać, proszę o udostępnienie go przez któryś z przycisków poniżej. Dzięki!

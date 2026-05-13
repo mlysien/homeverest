@@ -10,7 +10,7 @@ description:
   Cześć! Nowy rok zaczynam wpisem trochę innym niż te z poprzedniego, pierwszy raz będzie to wpis poświęcony technologii frontendowej. Opowiem trochę o Angularze i o tym w jaki sposób działają komponenty. W projekcie jakim znajduję się obecnie wykorzystujemy Angulara, więc stał się on mi dość bliskim frameworkiem, dlatego zapraszam do zapoznania się z artykułem.
 ---
 
-![banner](/src/assets/blog/2023/angular-cykl-zycia-komponentu/angular-life-cycle.png)
+![banner](../../../assets/blog/2023/angular-cykl-zycia-komponentu/angular-life-cycle.png)
 
 
 Cześć! Nowy rok zaczynam wpisem trochę innym niż te z poprzedniego, pierwszy raz będzie to wpis poświęcony technologii frontendowej. Opowiem trochę o Angularze i o tym w jaki sposób działają komponenty. W projekcie jakim znajduję się obecnie wykorzystujemy Angulara, więc stał się on mi dość bliskim frameworkiem, dlatego zapraszam do zapoznania się z artykułem.
@@ -19,7 +19,7 @@ Cześć! Nowy rok zaczynam wpisem trochę innym niż te z poprzedniego, pierwszy
 
 W Angularze istnieje **aż 8 interfejsów** opisujących cykl życia komponentu. Każdy interfejs dostarcza metodę, która wywoływana jest w odpowiednim dla siebie momencie, np. przy tworzeniu komponentu, przy zmianie stanu lub w momencie gdy komponent jest niszczony. Co ciekawe tworząc nasze komponenty wcale nie musimy dbać o obsługę tych zdarzeń, choć domyślnie pewnie każdy korzysta z interfejsu `OnInit`. Wszystkie dostępne interfejsy przedstawiam poniżej wraz z krótkim opisem i co ważne w kolejności w jakiej się wywołują.
 
-![image](/src/assets/blog/2023/angular-cykl-zycia-komponentu/image-1.png)
+![image](../../../assets/blog/2023/angular-cykl-zycia-komponentu/image-1.png)
 
 **`OnChanges`** \- interfejs dostarcza metody `ngOnChanges`, która wywołuje się jako pierwsza jeszcze przed `ngOnInit`. Metoda wywołuje się tylko w przypadku jeśli komponent posiada na swoich wewnętrznych polach dekorator `@Input`, który wykorzystywany jest do komunikacji komponentu z podrzędnymi komponentami (dziećmi).
 
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit, OnChanges, DoCheck, AfterContentIni
 }
 ```
 
-![image](/src/assets/blog/2023/angular-cykl-zycia-komponentu/image.png)
+![image](../../../assets/blog/2023/angular-cykl-zycia-komponentu/image.png)
 
 Szczegółowe informacje o cyklu życia komponentu znajdziecie u źródła, czyli w oficjalnej dokumentacji Angulara, [tutaj link](https://angular.io/guide/lifecycle-hooks#responding-to-lifecycle-events).
 

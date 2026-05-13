@@ -10,11 +10,9 @@ description:
   Jeśli korzystacie z terminala w swojej codziennej pracy zdecydowanie polecam zainstalowanie Oh My Posh, dzięki temu korzystanie z niego zacznie być bardziej wygodne i przyjemne. Ja osobiście korzystałem z desktopowych aplikacji do Gita i przeniosłem się do terminala właśnie dzięki modułowi Oh My Posh.
 ---
 
-![banner](/src/assets/blog/2022/oh-my-posh/ChatGPT-Image-Apr-17-2025-03_58_49-PM.png)
+![banner](../../../assets/blog/2022/oh-my-posh/ChatGPT-Image-Apr-17-2025-03_58_49-PM.png)
 
 Cześć! W tym artykule pokaże wam w jaki sposób zacząć korzystać z graficznej nakładki na konsolę Power Shell, czyli modułu Oh My Posh. Jeśli korzystacie z terminala w swojej codziennej pracy zdecydowanie polecam zainstalowanie Oh My Posh, dzięki temu korzystanie z niego zacznie być bardziej wygodne i przyjemne. Ja osobiście korzystałem z desktopowych aplikacji do Gita i przeniosłem się do terminala właśnie dzięki modułowi Oh My Posh.
-
-
 
 W artykule znajdziecie informacje jak krok po kroku zainstalować moduł Oh My Posh w Windows Terminal a także polecę wam ciekawe dodatki, które usprawnią pracę z Gitem oraz zmienią kolory wyświetlą graficzne ikonki plików i katalogów w terminalu.
 
@@ -38,44 +36,44 @@ Oh My Posh do właściwego wyświetlania tekstu oraz ikon wymaga w systemie zain
 
 Zaczynamy od uruchomienia PowerShella - tutaj zależy od użytkownika czy będzie uruchamiał go w Windows Terminal czy też bezpośrednio. Poniżej będę pokazywał wszystkie kroki z wykorzystaniem Windows Terminal.
 
-![image](/src/assets/blog/2022/oh-my-posh/image-2-1024x602.png)
+![image](../../../assets/blog/2022/oh-my-posh/image-2-1024x602.png)
 
 Rozpoczynamy od ustawienia czcionki - jak wspominałem wcześniej ja korzystam z **JetBrainsMono Nerd Font**. W zależności od tego jaka czcionka została pobrana ze strony Nerd Fonts, należy ją znaleźć i wybrać w polu **_Font Face_** w oknie ustawień Windows Terminal. Czcionkę ustawiamy od razu ponieważ, w późniejszych krokach wyświetlane będą elementy, które bez odpowiednio ustawionej czcionki będą wyświetlać się jako "krzaczki".
 
 Możemy przystąpić do zainstalowania modułu Oh My Posh. W oknie PowerShella uruchamiamy poniższą komendę, a następnie zatwierdzamy instalację modułu.
 
-```
+```powershell
 Install-Module oh-my-posh -Scope CurrentUser
 ```
 
 Moduł Oh My Posh zainstalowany! Teraz utworzymy plik profilu PowerShella, w którym znajdować będą się komendy, które wykonywane będą przy każdym uruchomieniu powłoki PowerShell. Jeżeli plik profilu PowerShella nigdy nie był tworzony, to notatnik wyświetli komunikat, że takiego pliku nie ma i zapyta czy go utworzyć.
 
-```
+```powershell
 notepad $PROFILE
 ```
 
 W oknie notatnika wklejamy następujące dwie linijki:
 
-```
+```powershell
 Import-Module oh-my-posh
 Set-PoshPrompt -Theme paradox
 ```
 
 Pierwsza gwarantuje, że przy każdym uruchomieniu PowerShella moduł Oh My Posh będzie importowany, druga ustawia motyw konsoli. Listę motywów można zobaczyć na [oficjalnej stronie](https://ohmyposh.dev/docs/themes). Po zapisaniu komend w pliku profilu PowerShell należy przeładować profil. Możemy to zrobić standardowo poprzez ponowne uruchomienie Windows Terminala lub wpisując komendę:
 
-```
+```powershell
 . $PROFILE
 ```
 
 W tym momencie naszym oczom ukaże się świetnie wyglądająca konsola!
 
-![image](/src/assets/blog/2022/oh-my-posh/image-4-1024x566.png)
+![image](../../../assets/blog/2022/oh-my-posh/image-4-1024x566.png)
 
 W zasadzie to już wszystko. Warto wspomnieć tutaj, że motywy możemy dowolnie edytować i dostosowywać do swoich upodobań. Poniżej znajduje się opis w jaki sposób to zrobić. Należy zwrócić uwagę na to, że na powyższym screenie widać fajne tło - ono nie jest instalowane wraz z modułem Oh My Posh - ustawienie własnego obrazka w tle lub ogólnie ustawienia okna, można zmienić w ustawieniach Windows Terminala. Dlatego zachęcam do korzystania z tej aplikacji, ponieważ daje bardzo duże możliwości konfiguracji.
 
 Warto wspomnieć, że w tym momencie możesz wykonać następującą komendę:
 
-```
+```powershell
 Get-PoshThemes
 ```
 
@@ -85,7 +83,7 @@ Wyświetli ona wszystkie zainstalowane motywy wraz z własnymi, które znajdują
 
 W oknie PowerShella wpisujemy następującą komendę:
 
-```
+```powershell
 Export-PoshTheme -FilePath "~/.my-theme.omp.json" -Format json
 ```
 
@@ -99,13 +97,13 @@ C:\Users\mlysien\.oh-my-posh\themes
 
 Po wklejeniu pliku z nowym motywem do katalogu z motywami Oh My Posh należy w analogiczny sposób jak robiliśmy wcześniej zaimportować nasz nowy motyw przy starcie PowerShella, czyli otwieramy plik profilu:
 
-```
+```powershell
 notepad $PROFILE
 ```
 
 Następnie w ostatniej linijce aktualizujemy nazwę motywu wpisując nazwę pliku z naszym motywem, czyli jeśli zapisaliśmy nasz motyw jako **my-theme.omp.json**, to w plik powinien wyglądać w ten sposób:
 
-```
+```powershell
 Import-Module oh-my-posh
 Set-PoshPrompt -Theme my-theme
 ```
@@ -126,13 +124,13 @@ Moduł z zestawem ikonek, które wyświetlają się w terminalu. Moduł ten jest
 
 Instalacja modułu przebiega analogicznie do instalacji Oh My Posh i w sumie każdego modułu do PowerShella:
 
-```
+```powershell
 Install-Module -Name Terminal-Icons -Repository PSGallery
 ```
 
 Następnie, na samym końcu pliku profilu PowerShell dodajemy linijkę:
 
-```
+```powershell
 Import-Module -Name Terminal-Icons
 ```
 
@@ -142,18 +140,18 @@ Bardzo przydatny moduł dla wszystkich tych, którzy korzystają z gita. Integru
 
 Instalacja modułu, standardowo:
 
-```
+```powershell
 Install-Module -Name posh-git -Scope CurrentUser -Force
 ```
 
 I oczywiście na końcu pliku dodajemy linijkę, która gwarantuje, że moduł będzie importowany przy każdym uruchomieniu PowerShella:
 
-```
+```powershell
 Import-Module -Name posh-git
 ```
 
-![image](/src/assets/blog/2022/oh-my-posh/image.png)
+![image](../../../assets/blog/2022/oh-my-posh/image.png)
 
 ## Podsumowanie
 
-Konsola wcale nie musi być czarno-biała! Mam nadzieję, że ten artykuł również zmienił wasz sposób patrzenia na konsole. Moduł Oh My Posh spowodował, że korzystanie z konsoli w codziennej pracy stało się dla mnie przyjemnością. Mam nadzieję, że instrukcje, jakie przedstawiłem w tym artykule były jasne i że wszystko działa jak należy. Jeśli uważasz, że przekazana tutaj wiedza może być przydatna dla kogoś innego to śmiało się nią podziel, przy użyciu jednego z przycisków poniżej. Jeśli masz jakieś pytania odnośnie przedstawionego w tym artykule tematu to napisz do mnie wiadomość - możesz to zrobić przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Dzięki! Do następnego artykułu!
+Konsola wcale nie musi być czarno-biała! Mam nadzieję, że ten artykuł również zmienił wasz sposób patrzenia na konsole. Moduł Oh My Posh spowodował, że korzystanie z konsoli w codziennej pracy stało się dla mnie przyjemnością. Mam nadzieję, że instrukcje, jakie przedstawiłem w tym artykule były jasne i że wszystko działa jak należy. Jeśli uważasz, że przekazana tutaj wiedza może być przydatna dla kogoś innego to śmiało się nią podziel, przy użyciu jednego z przycisków poniżej. Dzięki! Do następnego artykułu!

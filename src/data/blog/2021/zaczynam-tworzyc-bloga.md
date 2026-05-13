@@ -22,7 +22,7 @@ Może to zabrzmi egoistycznie ale zakładam go dla siebie. Chciałbym, aby blog 
 
 Tak! Postawiłem na WordPress’a z jednej prostego powodu – mogę od razu zacząć. Szczerze mówiąc chciałem sobie zrobić apkę internetową, która byłaby właśnie taką stroną jak ta, którą widzisz. Miała być napisana w ASP.NET Core, na froncie miał być Angular. No i nawet zacząłem ją projektować. Miałem już prawie gotowy template. W wolnych chwilach zamiast scrollować instagrama, scrollowałem pinteresta w poszukiwaniu fajnych projektów dla bloga. Byłem bardzo zmotywowany i jak najszybciej chciałem zacząć klepać nowy projekt. No i tu się zatrzymałem z dalszym projektowaniem.  Zrozumiałem, że zanim ja skończę pisanie tej aplikacji, to prawdopodobnie nie będę miał już chęci, żeby zacząć na niej tworzyć nowe.
 
-![mem](/src/assets/blog/2021/zaczynam-tworzyc-bloga/php_meme-300x262.jpg)
+![mem](../../../assets/blog/2021/zaczynam-tworzyc-bloga/php_meme-300x262.jpg)
 
 WordPress daje mi szansę, żeby w przeciągu kilku godzin zacząć już pisać konkretne treści. Fajnie co nie? Kiedyś pisałem w PHP ale odkąd zacząłem zawodowo zajmować się .NET’em to jakoś nie po drodze mi do PHP. Tak czy inaczej WordPress to jest narzędzie i ja zacząłem tak na to patrzeć. Dodatkowo masa wtyczek i motywów sprawia, że naprawdę można się mocno wciągnąć w tworzenie nowej strony. Kolejnym plusem na konto WordPress’a jest to, że nie daje on taryfy ulgowej. To co napisałem na początku – masz od razu narzędzie i możesz już zacząć nim tworzyć treści. Nie ma wymówek, że tworzysz system do blogowania i jak skończysz to wtedy zaczniesz pisać artykuły. Możesz zacząć tu i teraz. Naprawdę rewelacyjna sprawa, nie spodziewałem się tego ale mega mi się podoba i gorąco polecam Ci WordPress’a.
 

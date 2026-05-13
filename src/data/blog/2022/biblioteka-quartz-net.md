@@ -14,7 +14,7 @@ description:
 
 Cześć! Dzisiejszy wpis będzie poświęcony bibliotece Quartz.NET, dzięki której w łatwy sposób można zarządzać wykonywaniem zadań w obrębie aplikacji. Biblioteka Quarts.NET to lekka i bardzo intuicyjna biblioteka oraz ma spore możliwości jeśli chodzi o planowanie zadań. Zaczynajmy!
 
-![banner](/src/assets/blog/2022/biblioteka-quartz-net/quartz-bg.png)
+![banner](../../../assets/blog/2022/biblioteka-quartz-net/quartz-bg.png)
 
 ## Biblioteka Quartz.NET - co to jest?
 
@@ -34,7 +34,7 @@ To co warto jeszcze dodać, to fakt, że biblioteka Quartz.NET potrafi zapamięt
 
 Na potrzeby tego wpisu utworzymy prostą aplikację, która cyklicznie będzie pobierać informacje o temperaturze z kilku źródeł i wyświetlać je w konsoli. Aby zacząć korzystać z biblioteki Quartz.NET najwygodniej zainstalować ją z paczki Nuget. Instalujemy najnowszą dostępną wersję biblioteki Quartz.NET.
 
-![screen](/src/assets/blog/2022/biblioteka-quartz-net/image.png)
+![screen](../../../assets/blog/2022/biblioteka-quartz-net/image.png)
 
 W tym momencie można przejść do implementacji kodu aplikacji. Tak jak wspominałem w tym przykładzie utworzę prostą aplikację konsolową, która wyświetlać będzie temperatury z różnych źródeł.
 
@@ -145,7 +145,7 @@ To tyle.
 
 Po uruchomieniu aplikacji w oknie konsoli będą się pojawiać informacje o temperaturach w odstępach czasowych zdefiniowanych przy pomocy Triggerów.
 
-![screen](/src/assets/blog/2022/biblioteka-quartz-net/image-1.png)
+![screen](../../../assets/blog/2022/biblioteka-quartz-net/image-1.png)
 
 ## Biblioteka Quartz.NET - podsumowanie
 

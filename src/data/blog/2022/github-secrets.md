@@ -10,7 +10,7 @@ description:
   Cześć! Po trochę dłuższej urlopowej przerwie serdecznie zapraszam do kolejnego wpisu na blogu. Dziś dość krótki ale za to ciekawy i praktyczny temat. Opiszę kolejną funkcjonalność pochodzącą z platformy GitHub, mianowicie **GitHub Secrets**. Zapraszam do czytania!
 ---
 
-![banner](/src/assets/blog/2022/github-secrets/github-secrets.png)
+![banner](../../../assets/blog/2022/github-secrets/github-secrets.png)
 
 Cześć! Po trochę dłuższej urlopowej przerwie serdecznie zapraszam do kolejnego wpisu na blogu. Dziś dość krótki ale za to ciekawy i praktyczny temat. Opiszę kolejną funkcjonalność pochodzącą z platformy GitHub, mianowicie **GitHub Secrets**. Zapraszam do czytania!
 
@@ -26,15 +26,15 @@ Po dawce wiedzy teoretycznej teraz czas na wykorzystanie jej w praktyce. Przedst
 
 Po zalogowaniu się do GitHuba wchodzimy w projekt, w którym chcemy wykorzystać sekrety. Następnie wchodzimy w jego ustawienia i w zakładce "_Secrets_" klikamy w pozycję "_Actions_". Poniżej screen z przykładowego projektu, w którym zdefiniowałem nowy sekret o nazwie "_FTP\_PASSWORD_".
 
-![image](/src/assets/blog/2022/github-secrets/image.png)
+![image](../../../assets/blog/2022/github-secrets/image.png)
 
 Jak widać nie ma opcji, aby podejrzeć sekret, możemy go ewentualnie zaktualizować lub usunąć. W celu dodania nowego sekretu należy kliknąć w przycisk "_New repository secret_", wtedy wyświetli nam się prosty formularz, w którym uzupełnimy zawartość sekretu:
 
-![image](/src/assets/blog/2022/github-secrets/image-1.png)
+![image](../../../assets/blog/2022/github-secrets/image-1.png)
 
 Skoro wiadomo gdzie można zobaczyć istniejące sekrety oraz jak je dodawać, przychodzi kolej na wykorzystanie ich w praktyce. Do tego celu posłużę się istniejącym plikiem workflow, który służy mi do kopiowania plików z nową wersją aplikacji na serwer FTP - jeśli czytałeś mój artykuł o [GitHub Actions](https://homeverest.pl/github-actions/) to pewnie kojarzysz o co tam chodziło dokładnie. Nie trzeba jednak przeczytać tego artykułu, żeby zrozumieć jak wykorzystać sekrety.
 
-![image](/src/assets/blog/2022/github-secrets/image-3.png)
+![image](../../../assets/blog/2022/github-secrets/image-3.png)
 
 Banalny przykład wykorzystania GitHub Secrets w workflow. Do parametrów jakie nasze workflow potrzebuje np. do zalogowania się na serwerze FTP, przekazujemy utworzone wcześniej sekrety. Najważniejsza jest konwencja w jakiej przekazujemy sekret. Musimy zawsze wpisywać je w podwójnych "wąsach" i używać do tego celu kontekstu "_secrets_", po kropce podajemy nazwę naszego sekretu.
 

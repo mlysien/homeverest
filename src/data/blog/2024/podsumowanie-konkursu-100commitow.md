@@ -10,7 +10,7 @@ description:
   Ponad 12k linii kodu. 403 commity. 15 gwiazdek. Tak właśnie powstawało narzędzie nad którym pracowałem - Integrify.
 ---
 
-![banner](/src/assets/blog/2024/podsumowanie-konkursu-100commitow/ChatGPT-Image-Apr-18-2025-03_07_05-PM-1.png)
+![banner](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/ChatGPT-Image-Apr-18-2025-03_07_05-PM-1.png)
 
 Nie sądziłem, że dotrwam do końca i będę miał przyjemność napisać coś o moim pojekcie konkursowym. Wow. Konkurs "100commitow" zakończony. 100 dni codziennego commitowania. Ponad 12k linii kodu. 403 commity. 15 gwiazdek. Tak właśnie powstawało narzędzie nad którym pracowałem - **[integrify](https://github.com/mlysien/integrify)**.
 
@@ -46,11 +46,11 @@ Powstała dokumentacja z wykorzystaniem narzędzia **starlight**, która jest ho
 
 Wykorzystałem ostatecznie architekturę heksagonalną. W pewnym momencie przy projektowaniu pluginów, sama mi się w pewnym sensie "objawiła", zauważyłem, że zaczynam potrzebować czegoś w rodzaju portów, a pluginy byłby ich adapterami. Stąd przesiadka z modularnego monolitu na heksagonala. Tak teraz prezentuje się architektura aplikacji:
 
-![architektura](/src/assets/blog/2024/podsumowanie-konkursu-100commitow/image-1.png)
+![architektura](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/image-1.png)
 
 Powstało również CLI, dzięki któremu można zarządzać procesami integracji w wybranych obszarach. Na koniec udało mi się wypuścić wersję demonstracyjną z wcześniej wspomnianymi dwoma wtyczkami. Poniżej nagranie z działania CLI:
 
-![demo](/src/assets/blog/2024/podsumowanie-konkursu-100commitow/integrify.demo_.gif)
+![demo](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/integrify.demo_.gif)
 
 ## Czego nie udało się skończyć?
 
@@ -78,4 +78,4 @@ Chciałbym kontynuować prace nad projektem. Oczywiście już nie w tak absorbuj
 
 Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Jeśli chciałbyś pomóc rozwijać narzędzie lub z niego skorzystać to wbijaj na [GitHuba projektu](https://github.com/mlysien/integrify). A jak chcesz do mnie napisać to możesz to zrobić przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Do następnego!
 
-![gif](/src/assets/blog/2024/podsumowanie-konkursu-100commitow/goodbye-homer.gif)
+![gif](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/goodbye-homer.gif)

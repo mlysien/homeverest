@@ -11,13 +11,15 @@ description:
   incididunt ut
 ---
 
+![banner](../../../assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/programowanie.png)
+
 Cześć! Zapraszam do zapoznania się z kolejnym artykułem, dziś na tapetę biorę temat nie techniczny, ale pozostający w tematyce programowania. Chciałbym przedstawić wam kilka miejsc w sieci, moim zdaniem wartych uwagi, gdzie w bardzo ciekawy i przy tym dający sporo satysfakcji sposób można poprzez rozwiązywanie zadań zwiększać swoje umiejętności lub też nabywać nowe poprzez naukę nowego języka programowania a także, co zdarza się coraz częściej - zdobyć nową pracę. Zrobiłem zestawienie kilku portali internetowych, na których możemy pracować nad swoimi umiejętnościami, ale przede wszystkim dobrze się bawić.
 
 ## Codingame
 
 **Link: [www.codingame.com](https://www.codingame.com/)**
 
-![Screen z portalu codingame.com](/src/assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-5.png)
+![Screen z portalu codingame.com](../../../assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-5.png)
 
 Codingame to bardzo interesujący i zdecydowanie nowatorski portal z zadaniami dla programistów. Portal ten to pewnego rodzaju gra, w której naszą największą bronią są nasze umiejętności programistyczne, a nasz bohater, czyli w zasadzie my sami musi sprostać kolejnym zadaniom, dzięki którym zyskuje coraz większy poziom doświadczenia i odblokowuje kolejne zadania.
 
@@ -29,7 +31,7 @@ Kapitalną robotę wykonują tutaj animacje, w których przedstawione jest zacho
 
 **Link: [www.spoj.com](https://www.spoj.com/)**
 
-![Screen z portalu spoj.com](/src/assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-4.png)
+![Screen z portalu spoj.com](../../../assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-4.png)
 
 SPOJ czyli Sphere online judge to portal z zadaniami programistycznymi, który wspiera ponda 45 języków programowania. SPOJ wyróżnia na pewno fakt, że nie dostarczamy tutaj gotowego wyniku w postaci liczby czy jakiegoś zestawu znaków, a dostarczamy rozwiązanie w postaci kod źródłowego.
 
@@ -41,7 +43,7 @@ Ciekawostka odnośnie SPOJa - istnieje polska wersja tego projektu pod adresem [
 
 **Link: [www.projecteuler.net](https://projecteuler.net/)**
 
-![Screen z portalu projecteuler.net](/src/assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-3.png)
+![Screen z portalu projecteuler.net](../../../assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image-3.png)
 
 Projekt ruszył ponad 20 lat temu! Dokładnie w październiku 2001 roku jako podsekcja platformy [mathschallenge.net](https://mathschallenge.net/). Dopiero 5 lat później został przeniesiony na własną domenę. Nazwa portalu pochodzi o znanego szwajcarskiego matematyka - Leonharda Eulera. Project Euler to kawał historii, jednak zadania ani trochę nie straciły na stopniu trudności. Budowa portalu przypomina strony internetowe rodem z lat 00', prosta budowa, bez zbędnych wodotrysków, to co najważniejsze, czyli treść zadania jest dobrze widoczna i to się liczy.
 
@@ -53,7 +55,7 @@ Rozwiązując zadania możemy zdobywać kolejne poziomy oraz otrzymywać nagrody
 
 Link: [adventofcode.com](https://adventofcode.com/)
 
-![Screen z portalu adventofcode.com](/src/assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image.png)
+![Screen z portalu adventofcode.com](../../../assets/blog/2023/challenge-accepted-czyli-programistyczne-wyzwania/image.png)
 
 
 Mój absolutny faworyt w tym zestawieniu. Zakładam, że każdy kojarzy z dzieciństwa kalendarze adwentowe z czekoladkami, które były ukryte w okienkach na każdy dzień adwentu - istnieje legenda o osobie która codziennie otwierała tylko jedną czekoladkę. Ja taką osobą na pewno nie byłem. Ale wspomnienia mam z tym dobre, jak w ogóle ze świętami Bożego Narodzenia. Strona adventofcode.com przychodzi z ciekawą alternatywą dla takiego czekoladkowego kalendarza. Od 1-go grudnia do 25go, codziennie "otwierane" jest nowe zadanie, czy jak nazywa je twórca "Puzzle", w którym musimy wykorzystać swoje umiejętności programistyczne aby pomóc czy to elfom, czy też innym istotom bez których święta się nie mogą odbyć. Kapitalna rozrywka utrzymana w duchu świąt, zadania są bardzo barwnie przedstawione, co jeszcze bardziej dodaje chęci aby je rozwiązać.

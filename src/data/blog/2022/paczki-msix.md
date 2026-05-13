@@ -15,7 +15,7 @@ Cześć! Dzisiejszy wpis będzie kolejnym z serii technicznych. Zacznę od takie
 
 ## Paczki MSIX - czym są?
 
-![Budowa paczki MSIX.](/src/assets/blog/2022/paczki-msix/msixpackage.png)
+![Budowa paczki MSIX.](../../../assets/blog/2022/paczki-msix/msixpackage.png)
 
 Źródło: [Microsoft](https://docs.microsoft.com/en-us/windows/msix/overview)
 
@@ -31,21 +31,21 @@ We wstępie zaznaczyłem, że korzystanie z paczek MSIX w projektach nie wymaga 
 
 Uruchamiamy Visual Studio i tworzymy nowy projekt wybierając typ aplikacji WPF:
 
-![](/src/assets/blog/2022/paczki-msix/image-3.png)
+![](../../../assets/blog/2022/paczki-msix/image-3.png)
 
 Dodajemy jakiś napis na ekranie głównym, to tylko prosta aplikacja, która ma na celu pokazanie działania paczek MSIX, więc nie musi mieć żadnych wodotrysków. Po uruchomieniu aplikacja powinna wyglądać w taki sposób:
 
-![](/src/assets/blog/2022/paczki-msix/image-2.png)
+![](../../../assets/blog/2022/paczki-msix/image-2.png)
 
 ### Dodanie projektu MSIX Packaging
 
 Do istniejącej solucji dodajemy nowy projekt, w wyszukiwarce szablonów projektów należy wpisać "windows application packaging":
 
-![](/src/assets/blog/2022/paczki-msix/image.png)
+![](../../../assets/blog/2022/paczki-msix/image.png)
 
 W tym momencie, zaczyna się już wstępna konfiguracja paczki instalacyjnej, należy wybrać wersję docelową i minimalną wersji systemu Windows jaka jest wspierana przez naszą aplikację:
 
-![](/src/assets/blog/2022/paczki-msix/image-4.png)
+![](../../../assets/blog/2022/paczki-msix/image-4.png)
 
 W momencie, kiedy tworzymy komercyjne aplikacje, najlepiej dowiedzieć się od klienta na jakiej wersji systemu Windows aplikacja ma działać. Jeśli my decydujemy o specyfikacji najlepiej wybrać najnowszą wersję systemu. W ramach przykładu wybieram najnowszą wersję systemu Windows.
 
@@ -53,83 +53,31 @@ Dobrze, powiedzmy, że aplikacja jest już na tyle dobrze zaprojektowana i dzia�
 
 1. **Edycja informacji o aplikacji**
 
-![](/src/assets/blog/2022/paczki-msix/image-6.png)
+![](../../../assets/blog/2022/paczki-msix/image-6.png)
 
 W tej zakładce mamy możliwość edycji informacji o naszej aplikacji, możemy tutaj zdefiniować jej nazwę wyświetlaną przez system operacyjny, jej opis, ustawienia regionalne, czy też orientacje w jakie będzie pracować aplikacja.
 
 2. **Edycja zasobów graficznych aplikacji**
 
-<figure>
-
-![Zakładka edycji zasobów graficznych aplikacji.](/src/assets/blog/2022/paczki-msix/image-7.png)
-
-<figcaption>
-
-Zakładka edycji zasobów graficznych aplikacji.
-
-</figcaption>
-
-</figure>
+![Zakładka edycji zasobów graficznych aplikacji.](../../../assets/blog/2022/paczki-msix/image-7.png)
 
 W tej zakładce możemy dodać zasoby graficzne dla naszej aplikacji. Warto tutaj zwrócić uwagę na fakt, że mamy bardzo duże możliwości jeśli chodzi o dostosowanie grafik, ponieważ jak widać z lewej strony zakładki, można ustalać wygląd dla poszczególnych wielkości kafelków, które pojawią się w menu Start po zainstalowaniu aplikacji. Możliwości mamy sporo, ale nie trzeba ręcznie tworzyć grafik pod każdy rozmiar kafelka, możemy wykonać to automatycznie na podstawie głównej ikony aplikacji. Należy wybrać źródło (pole **_Source_**) naszej ikonki a następnie nacisnąć przycisk _**Generate**_ - spowoduje to utworzenie grafik dla wszystkich rozmiarów kafelków - jeśli chcemy wygenerować automatycznie grafiki tylko dla konkretnych typów i rozmiarów kafelków należy wybrać je z pól **_Assets_** i **_Scales_**.
 
 3. **Edycja uprawnień aplikacji**
-
-<figure>
-
-![Zakładka edycji uprawnień aplikacji.](/src/assets/blog/2022/paczki-msix/image-8.png)
-
-<figcaption>
-
-Zakładka edycji uprawnień aplikacji.
-
-</figcaption>
-
-</figure>
+![Zakładka edycji uprawnień aplikacji.](../../../assets/blog/2022/paczki-msix/image-8.png)
 
 W tej zakładce mamy możliwość zaznaczenia funkcjonalności systemu Windows do jakich nasza aplikacja będzie potrzebować dostępu - coś jak aplikacje, które mamy na telefonie, które również podczas instalacji wyświetlają listę funkcji systemu z których będą korzystać podczas działania. Warto poświęcić chwilę na zastanowienie się z jakich zasobów będzie korzystać nasza aplikacja, zanim wypuści się oficjalnego instalatora. Może okazać się później, że przez ominięcie którejś funkcjonalności aplikacja nie działa we właściwy sposób.
 
 4. **Pakowanie aplikacji**
-
-<figure>
-
-![Zakładka edycji danych o paczce.](/src/assets/blog/2022/paczki-msix/image-9.png)
-
-<figcaption>
-
-Zakładka edycji danych o paczce.
-
-</figcaption>
-
-</figure>
+![Zakładka edycji danych o paczce.](../../../assets/blog/2022/paczki-msix/image-9.png)
 
 Ostatnią i najważniejszą zakładką jest zakładka z danymi o paczce. Podajemy w niej informacje na temat paczki jaka zostanie stworzona a następnie wysłana do klienta, czyli informacje o nazwie, o wersji paczki, a także o wydawcy. Na wydawcy chciałbym się teraz bardziej skupić, gdyż jest to kluczowa właściwość w tworzonej paczce. Nazwę wydawcy podajemy dowolną - zwykle będzie to nazwa firmy tworzącej oprogramowanie. Jednak aby oprogramowanie, które wyślemy do klienta w paczce było możliwe do zainstalowania, system Windows musi wiedzieć, że paczka pochodzi od zaufanego wydawcy. Do tego celu używa się certyfikatów, które można podpiąć do paczki - w tym celu należy nacisnąć przycisk _**Choose Certificate...**_, a następnie w okienku wybrać certyfikat.
 
-<figure>
-
-![](/src/assets/blog/2022/paczki-msix/image-10.png)
-
-<figcaption>
-
-Okno wyboru certyfikatu.
-
-</figcaption>
-
-</figure>
+![](../../../assets/blog/2022/paczki-msix/image-10.png)
 
 Oczywiście nie mając certyfikatu również jest możliwość spakowania naszej aplikacji. Wystarczy w oknie wyboru certyfikatu kliknąć przycisk **_Create..._**, a następnie podać wymagane dane. Należy pamiętać, że taki certyfikat jest tzw. certyfikatem z podpisem własnym, czyli użytkownik końcowy, chcąc zainstalować naszą aplikację najpierw będzie musiał zainstalować nasz certyfikat w swoim systemie.
 
-<figure>
-
-![](/src/assets/blog/2022/paczki-msix/image-11.png)
-
-<figcaption>
-
-Okno kreatora certyfikatu.
-
-</figcaption>
-
-</figure>
+![](../../../assets/blog/2022/paczki-msix/image-11.png)
 
 ## Paczki MSIX - jak publikować?
 
@@ -137,73 +85,23 @@ Mając uzupełnione wszystkie informacje o naszej paczce, możemy ją opublikowa
 
 Publikowanie aplikacji posiada swój własny kreator, aby go uruchomić należy kliknąć **PPM** na nazwie projektu z naszą paczką MSIX i wybrać opcję **_Publish_ >> _Create App Packages..._**
 
-<figure>
-
-![Pierwszy krok kreatora tworzącego paczki.](/src/assets/blog/2022/paczki-msix/image-12.png)
-
-<figcaption>
-
-Pierwszy krok kreatora tworzącego paczki.
-
-</figcaption>
-
-</figure>
+![Pierwszy krok kreatora tworzącego paczki.](../../../assets/blog/2022/paczki-msix/image-12.png)
 
 Tak jak wcześniej wspomniałem, publikacje aplikacji jaką tutaj przedstawiam - ale też sam stosuje w swoim projekcie - wykonuję przy użyciu tzw. _**Sideloadingu**_ \- czyli sam przechowuję paczki aplikacji na swoim serwerze, z którego potem również zaciągane są nowsze wersje. Ważną sprawą w tym kroku jest checkbox z aktualizacjami - jeśli chcemy, aby system operacyjny instalował nam aktualizacje aplikacji, należy mieć go zaznaczonego.
 
-<figure>
-
-![Drugi krok kreatora - podpisywanie paczki.](/src/assets/blog/2022/paczki-msix/image-13.png)
-
-<figcaption>
-
-Drugi krok kreatora - podpisywanie paczki.
-
-</figcaption>
-
-</figure>
+![Drugi krok kreatora - podpisywanie paczki.](../../../assets/blog/2022/paczki-msix/image-13.png)
 
 Na kolejnym kroku wyświetlają się informacje o aktualnie wybranym certyfikacie - to ten sam, który dodaliśmy/utworzyliśmy w momencie podawania informacji o podpisie paczki.
 
-<figure>
-
-![Trzeci krok kreatora - konfiguracja paczki.](/src/assets/blog/2022/paczki-msix/image-16.png)
-
-<figcaption>
-
-Trzeci krok kreatora - konfiguracja paczki.
-
-</figcaption>
-
-</figure>
+![Trzeci krok kreatora - konfiguracja paczki.](../../../assets/blog/2022/paczki-msix/image-16.png)
 
 W trzecim kroku kreatora ustalamy numer wersji, choć w domyśle zmienia się on automatycznie, każdorazowo po opublikowaniu paczki. Mamy również możliwość wybrania architektury procesora, który wspierany jest przez naszą aplikację. Warto na tym kroku wybrać konfigurację Release dla danej architektury procesora.
 
-<figure>
-
 ![Czwarty krok instalatora - określenie ścieżki do aktualizacji.](/src/assets/blog/2022/paczki-msix/image-18.png)
-
-<figcaption>
-
-Czwarty krok instalatora - określenie ścieżki do aktualizacji.
-
-</figcaption>
-
-</figure>
 
 Czwarty krok instalatora jest bardzo istotny - tutaj podajemy lokalizację paczki - zwykle jeśli chcemy zagwarantować ciągłą aktualizację naszej aplikacji należy podać ścieżkę do katalogu do którego dostęp będą mieli wszyscy klienci korzystający z aplikacji, czyli najwygodniej podać jakiś katalog FTP. Jeśli tworzymy aplikację wewnętrzną to możemy podać jakiś katalog na dysku sieciowym do którego dostęp mają inne stacje, na których zainstalowana jest nasza aplikacja. Dla przykładu podałem ścieżkę na moim lokalnym komputerze, po to aby w następnym podrozdziale przedstawić proces wydawania nowej wersji aplikacji.
 
-<figure>
-
-![](/src/assets/blog/2022/paczki-msix/image-19.png)
-
-<figcaption>
-
-Strona domowa aplikacji.
-
-</figcaption>
-
-</figure>
+![](../../../assets/blog/2022/paczki-msix/image-19.png)
 
 Po wygenerowaniu plików paczki i skopiowaniu ich do katalogu, gdzie powinien się znaleźć instalator, możemy otworzyć plik _index.html,_ ujrzymy wtedy stronę domową aplikacji. Można stąd w wygodny sposób ją zainstalować - strona jest zintegrowana z systemowym instalatorem, dlatego po kliknięciu na przycisk **_Get the app_,** otworzy się systemowy instalator, który zainstaluje naszą aplikację.
 
@@ -221,31 +119,11 @@ Po zakończeniu kreatora, należy skopiować pliki do docelowego katalogu. Na cz
 
 Po uruchomieniu aplikacji system sprawdzi czy jest nowa wersja, w naszym katalogu docelowym pojawiły się nowe pliki, dlatego po zamknięciu aplikacji, gdy się przyjrzymy, w menu start, na ikonce naszej aplikacji pojawi się pasek postępu aktualizowania.
 
-<figure>
-
-![System aktualizuje naszą aplikację.](/src/assets/blog/2022/paczki-msix/image-20.png)
-
-<figcaption>
-
-System aktualizuje naszą aplikację.
-
-</figcaption>
-
-</figure>
+![System aktualizuje naszą aplikację.](../../../assets/blog/2022/paczki-msix/image-20.png)
 
 Po uruchomieniu nasze zmiany, których dokonaliśmy w aplikacji będą widoczne.
 
-<figure>
-
-![](/src/assets/blog/2022/paczki-msix/image-21.png)
-
-<figcaption>
-
-Aplikacja po aktualizacji.
-
-</figcaption>
-
-</figure>
+![](../../../assets/blog/2022/paczki-msix/image-21.png)
 
 ## Paczki MSIX - podsumowanie
 
@@ -255,4 +133,4 @@ To co według mnie jest najważniejsze w używaniu paczek MSIX jest to, że są 
 
 Sam proces wydawania aktualizacji z wykorzystaniem paczek MSIX może być jeszcze bardziej zautomatyzowany, gdy dodamy do tego platformę GitHub i jej akcje, przez które możemy automatycznie po zrobieniu Pull Requesta skopiować paczki z aktualną wersją aplikacji do odpowiednich katalogów. Więcej na ten temat [pisałem w tym wpisie](https://homeverest.pl/github-actions/).
 
-Dziękuję za przeczytanie tego wpisu, jeśli masz jakieś pytania lub coś jest niejasne to napisz do mnie przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Będzie mi też bardzo miło, jeśli podzielisz się tą wiedzą ze swoimi znajomymi, może znasz jakichś, którzy narzekają, że sporą część pracy poświęcają na robienie aktualizacji aplikacji w Windows Forms czy WPF. Ten artykuł może się im przydać. Dzięki i do zobaczenia w kolejnym wpisie!
+Dziękuję za przeczytanie tego wpisu! Będzie mi też bardzo miło, jeśli podzielisz się tą wiedzą ze swoimi znajomymi, może znasz jakichś, którzy narzekają, że sporą część pracy poświęcają na robienie aktualizacji aplikacji w Windows Forms czy WPF. Ten artykuł może się im przydać. Dzięki i do zobaczenia w kolejnym wpisie!

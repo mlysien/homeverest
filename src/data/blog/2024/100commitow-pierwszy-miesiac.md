@@ -11,7 +11,7 @@ description:
   incididunt ut
 ---
 
-![banner](/src/assets/blog/2024/100commitow-pierwszy-miesiac/82454d8e-c7a1-4ff3-b2af-f73fda7ff37d.png)
+![banner](../../../assets/blog/2024/100commitow-pierwszy-miesiac/82454d8e-c7a1-4ff3-b2af-f73fda7ff37d.png)
 
 Zastanawiałem się mocno, czy aby na pewno to dobry pomysł, żeby publikować wpis na temat mojego udziału w konkursie 100commitow. Co jeśli za chwilę odpadnę? No cóż, najwyżej za miesiąc będę się tłumaczył dlaczego mi nie wyszło. Postanowiłem to zrobić więc oto mój projekt na 100comitow - [Integrify](https://github.com/mlysien/integrify).
 
@@ -44,7 +44,7 @@ Jeśli chodzi o elementy nice to have w Integrify to bardzo chciałbym - jeśli 
 
 Projekt realizuje wykorzystując podejście architektoniczne jakim jest **modularny monolit**, wydaje mi się sensowne zastosowanie takiej architektury, ponieważ mogę wtedy rozwijać każdy z modułów niezależnie od pozostałych. Jedyną możliwością komunikacji pomiędzy modułami będzie wbudowany w pamięci message broker. To podejście też daje duże możliwości na skalowanie aplikacji - a to jest bardzo ważne. Chcę zrobić infrastrukturę, która będzie jak najbardziej skalowalna. Raczej nie będzie to rozwiązanie typu plug&play. Pluginy zarówno do systemu e-commerce jak i ERP powinny zostać zaimplementowane według własnego uznania, z doświadczenia wiem, że takie systemy są mocno cusomizowane. Poniżej znajdziecie grafikę prezentującą schemat koncepcyjny projektu.
 
-![integrify - schemat działania](/src/assets/blog/2024/100commitow-pierwszy-miesiac/image-1-1024x590.png)
+![integrify - schemat działania](../../../assets/blog/2024/100commitow-pierwszy-miesiac/image-1-1024x590.png)
 
 Widać tutaj że aplikacja ma być podzielona na pojedyncze moduły, jednak wszystkie będą działać w ramach jednej aplikacji, czy bardziej mądrze: pojedynczego artefaktu wdrożeniowego. Chciałbym aby moduły, jeśli zajdzie taka potrzeba komunikowały się ze sobą tylko przy użyciu wewnętrznego message brokera. Sama budowa poszczególnych modułów może być dowolna dla każdego modułu, może on równie dobrze być rozwijany przez osobny zespół developerski. Widać tutaj coś co daje duże możliwości na przejście w przyszłości na mikro serwisy.
 
@@ -58,14 +58,14 @@ Bardzo ważny dla projektów open source jest również plik **readme** \- musi 
 
 Praca nad projektem już trochę weszła mi w codzienną rutynę, co prawda wspieram się aplikacją, która codziennie przypomina mi o commicie, jednak nie czuję abym się do tego zmuszał. Totalnie pobiłem swój rekord commitowania, mój diagram na profilu na GitHub nigdy nie był tak zielony:
 
-![](/src/assets/blog/2024/100commitow-pierwszy-miesiac/image-1.png)
+![](../../../assets/blog/2024/100commitow-pierwszy-miesiac/image-1.png)
 
 Cieszę się, bardzo również z trzech gwiazdek, które projekt otrzymał! Fajnie że inni uczestnicy również oglądają i doceniają konkurencyjne projekty. Cieszę się również z tego, że od dłuższego czasu chciałem mieć kompletny projekt na GitHubie, a teraz jest do tego świetna okazja.
 
 Kwiecień będzie miesiącem na tzw. programistyczne mięso - będę próbował zaimplementować wszystkie wymienione w założeniach moduły oraz dalej rozwijać plik readme. Święta Wielkanocne były wielkim wyzwaniem dla codziennego commitowania, dlatego też zredukowałem swoje postępy do "świątecznych porządków pliku readme":
 
-![](/src/assets/blog/2024/100commitow-pierwszy-miesiac/image-1024x176.png)
+![](../../../assets/blog/2024/100commitow-pierwszy-miesiac/image-1024x176.png)
 
-Zobaczymy czy za miesiąc będę miał o czym pisać. Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Możesz to zrobić przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Do zobaczenia za miesiąc!
+Zobaczymy czy za miesiąc będę miał o czym pisać. Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Do zobaczenia za miesiąc!
 
 [Tu jeszcze raz link do mojego repo.](https://github.com/mlysien/integrify)

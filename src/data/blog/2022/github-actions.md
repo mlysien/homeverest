@@ -11,7 +11,7 @@ description:
   incididunt ut
 ---
 
-![banner](/src/assets/blog/2022/github-actions/github_actions_bg.png)
+![banner](../../../assets/blog/2022/github-actions/github_actions_bg.png)
 
 Cześć! Witam w kolejnym artykule, dziś przedstawię zagadnienie związane z GitHub Actions. Na początek opiszę co to właściwie jest a potem jak korzystać z GitHub Actions. Jeśli jeszcze nie słyszeliście o jednej z ciekawszych funkcjonalności serwisu GitHub to serdecznie zapraszam do zapoznania się z artykułem.
 
@@ -81,19 +81,19 @@ Workflow uruchamiane jest w środowisku Ubuntu Linux w najnowszej wersji. Evente
 
 Zacznijmy od pobrania najnowszej wersji kodów źródłowych.
 
-![image](/src/assets/blog/2022/github-actions/image.png)
+![image](../../../assets/blog/2022/github-actions/image.png)
 
 Pojedynczy krok zadania rozpoczynamy od nazwy - jest ona przydatna w momencie kiedy uruchamiane jest workflow, wtedy możemy zobaczyć, która krok zadania jest aktualnie uruchamiany. Do nadania nazwy używamy parametru _name_. Parametr _uses_ określa akcję (aplikację) jaka ma się uruchomić w aktualnym kroku naszego zadania. W tym wypadku jest to _actions/checkout@v2_ \- domyślna aplikacja GitHub Actions, która pobiera nasz kod źródłowy do środowiska uruchomieniowego, aby kolejne akcje mogły na nim działać.
 
 Kolejnym i ostatnim krokiem jest synchronizacja plików z serwerem FTP. Nie będę podawał tutaj szczegółów implementacyjnych projektu, napiszę tylko tyle, że proces aktualizacji aplikacji robiony jest poprzez tworzenie paczek instalacyjnych i wrzucanie ich do odpowiedniego katalogu FTP, skąd aplikacja pobiera najnowszą wersję - gdy na serwerze znajdzie się nowsza wersja niż aplikacja ma u siebie, po jej ponownym uruchomieniu nastąpi aktualizacja.
 
-![image](/src/assets/blog/2022/github-actions/image-3.png)
+![image](../../../assets/blog/2022/github-actions/image-3.png)
 
 Ten krok posiada niemal identyczną strukturę jak pierwszy z pobieraniem najnowszej wersji kodu źródłowego. Używana jest tutaj specjalna akcja - [FTP Deploy](https://github.com/marketplace/actions/ftp-deploy), która przenosi pliki z katalogu wskazanego przez parametr _local-dir_ do katalogu na serwerze FTP o ścieżce _server-dir_. Pozostałe parametry to dane do nawiązania połączenia z serwerem FTP.
 
 Workflow uruchamia się automatycznie po wrzuceniu zmian do gałęzi _dev_. Rezultaty uruchomienia workflow można sprawdzić wchodzą w zakładkę _Actions_ w obrębie repozytorium na GitHub.
 
-![image](/src/assets/blog/2022/github-actions/image-1.png)
+![image](../../../assets/blog/2022/github-actions/image-1.png)
 
 ## GitHub actions - ile kosztuje?
 
