@@ -43,7 +43,7 @@ const isActive = (path: string) => {
     ]}
   >
     <a
-      href="/homeverest"
+      href="/"
       class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:my-auto sm:text-2xl sm:leading-none"
     >
       {SITE.title}
@@ -72,17 +72,17 @@ const isActive = (path: string) => {
         ]}
       >
         <li class="col-span-2">
-          <a href="/homeverest/posts" class:list={{ "active-nav": isActive("/posts") }}>
+          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
             Posts
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/homeverest/tags" class:list={{ "active-nav": isActive("/tags") }}>
+          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
             Tags
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/homeverest/about" class:list={{ "active-nav": isActive("/about") }}>
+          <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
             About
           </a>
         </li>
@@ -90,7 +90,7 @@ const isActive = (path: string) => {
           SITE.showArchives && (
             <li class="col-span-2">
               <LinkButton
-                href="/homeverest/archives"
+                href="/archives"
                 class:list={[
                   "focus-outline flex justify-center p-3 sm:p-1",
                   {
@@ -108,7 +108,7 @@ const isActive = (path: string) => {
         }
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
-            href="/homeverest/search"
+            href="/search"
             class:list={[
               "focus-outline flex p-3 sm:p-1",
               { "[&>svg]:stroke-accent": isActive("/search") },

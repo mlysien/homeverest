@@ -1,7 +1,7 @@
 export const SITE = {
-  website: "https://mlysien.github.io/homeverest", // replace this with your deployed domain
+  website: "https://homeverest.pl", // replace this with your deployed domain
   author: "Mateusz Łysień",
-  profile: "https://mlysien.github.io/homeverest/about",
+  profile: "https://homeverest.pl/about",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
   title: "homeverest",
   ogImage: "astropaper-og.jpg",
