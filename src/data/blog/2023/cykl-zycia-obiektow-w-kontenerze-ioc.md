@@ -11,7 +11,7 @@ description:
   incididunt ut
 ---
 
-![banner](../../../assets/blog/2023/angular-cykl-zycia-komponentu/angular-life-cycle.png)
+![banner](../../../assets/blog/2023/cykl-zycia-obiektow-w-kontenerze-ioc/ioc.png)
 
 Cześć! W tym artykule przedstawię zagadnienie związane z zarządzaniem cyklem życia obiektów w kontenerze IoC. Kontener IoC wykorzystywany jest to odwrócenia sterowania w aplikacji - zgodnie z paradygmatem Inverse of Control (stąd IoC), przez co możliwa jest zmiana kontrolowania tworzenia obiektów z ręcznego tworzenia instancji na wykorzystanie abstrakcji (poprzez interfejsy) i wstrzykiwanie tych abstrakcji do obiektów, które ich potrzebują. Kontener IoC umożliwia przechowywanie obiektów i zarządzanie ich cyklem życia poprzez tworzenie nowych instancji lub zwracaniu istniejących przez co zwalnia programistów z ręcznego ich tworzenia. W tym artykule przedstawię jakie są możliwe sposoby na zarządzanie obiektami. Zapraszam do lektury.
 
@@ -75,7 +75,7 @@ W celu zaprezentowania jak działa cykl życia Singleton wykorzystam prosty unit
 
 W teście symulujemy próbę utworzenia dwóch instancji `ISecretService`. Następnie wywołujemy metodę do generowania hasła na dwóch utworzonych obiektach i na koniec sprawdzamy, czy Singleton działa zgodnie ze swoimi założeniami - jedna instancja obiektu działająca podczas cyklu życia aplikacji zwraca dokładnie to samo dla każdego wywołania serwisu.
 
-![](../../../assets/blog/2023/angular-cykl-zycia-komponentu/image.png)
+![](../../../assets/blog/2023/cykl-zycia-obiektow-w-kontenerze-ioc/image.png)
 
 Gdy zdebugujemy test jednostkowy zobaczymy, że zarejestrowany serwis jako Singleton działa dokładnie tak jak powinien, mimo iż utworzyliśmy dwie instancje serwisu, to kontener IoC zwrócił do nich referencję do pojedynczej instancji, dlatego wywołując metodę do generowania hasła dla każdego obiektu osobno i tak otrzymujemy takie samo hasło a same instancje są takie same. Test przechodzi więc jedziemy dalej.
 
@@ -112,7 +112,7 @@ Z kolei rejestrują nasz serwis `ISecretService` jako Transient sprawiamy, że z
 
 W porównaniu do testu jednostkowego dla Singletona, zmienia się tutaj to, że rejestrujemy do kontenera IoC serwis `ISecureService` jako Transient. Pobieramy dwie instancje serwisu i zapisujemy je do dwóch obiektów i wywołujemy generowanie hasła. Cykl życia Transient sprawia, że kontener IoC zwraca za każdym razem nową instancję, dlatego też upewniamy się że dwa obiekty serwisu są różne i wygenerowane hasła również się od siebie różnią. Poniżej screen z debugu. Zielony test więc przechodzimy do Scoped.
 
-![](../../../assets/blog/2023/angular-cykl-zycia-komponentu/image-2.png)
+![](../../../assets/blog/2023/cykl-zycia-obiektow-w-kontenerze-ioc/image-2.png)
 
 ## Cykl życia obiektów - Scoped
 
@@ -174,7 +174,7 @@ To chyba najbardziej powszechnie stosowany cykl życia obiektów, szczególnie j
 
 Dużo się tutaj dzieje, ale sprawa tak naprawdę jest bardzo prosta. W powyższym teście są dwa scopy - czyli tak jakby dwa requesty HTTP. W ramach pojedynczego scope'a nasz serwis będzie zwracany jakby był Singletonem, stąd sprawdzenie czy rzeczywiście tak jest. Natomiast mimo iż nasz serwis wygeneruje te same hasła w obrębie jednego scope'a to w drugim wywołaniu (drugim scope'ie) hasła będą nadal takie same ale będą różne niż w tym pierwszym - czyli tak jak w cyklu życia Transient, dlatego dodałem tutaj jeszcze dwie zmienne, każda z nich będzie odbierać obiekt serwisu w osobnym scope'ie - no i jak się można przekonać faktycznie zmienne są różne od siebie, czyli zgodnie z tym jak działa tryb Transient.
 
-![](../../../assets/blog/2023/angular-cykl-zycia-komponentu/image-3.png)
+![](../../../assets/blog/2023/cykl-zycia-obiektow-w-kontenerze-ioc/image-3.png)
 
 ## Podsumowanie
 
