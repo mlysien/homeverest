@@ -5,7 +5,7 @@ title: "O mnie"
 
 Nazywam się Mateusz Łysień i od kilku lat zawodowo zajmuję się programowaniem. W przeszłości studiowałem na Politechnice Śląskiej w Gliwicach, gdzie w 2016 zdobyłem tytuł inżyniera, a w 2018 magistra. W przyszłości chciałbym pracować w ESA i rozwiązywać zagadki jakie skrywa przed nami kosmos. Natomiast teraz swoje umiejętności wykorzystuje w codziennej pracy jako programista.
 
-![profilePicture](/src/assets/about/mlysien.jpg)
+![profilePicture](../../src/assets/about/mlysien.jpg)
 
 W 2018 roku wpadłem na pewien pomysł, żeby założyć swoją stronę internetową, która miała być wizytówką dla mojej działalności gospodarczej (oczywiście jednoosobowej). Potem wymyśliłem sobie, że to będzie blog. I tak właśnie powstała moja strona – homeverest, na której z większą lub mniejszą częstotliwością staram się publikować treści głównie związane z programowaniem.
 

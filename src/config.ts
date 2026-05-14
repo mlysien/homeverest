@@ -2,12 +2,12 @@ export const SITE = {
   website: "https://homeverest.pl", // replace this with your deployed domain
   author: "Mateusz Łysień",
   profile: "https://homeverest.pl/about",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
+  desc: "Notes on software, architecture, and building things thoughtfully.",
   title: "homeverest",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
+  postPerIndex: 3,
+  postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: false,
   showBackButton: true, // show back button in post detail
