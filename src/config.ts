@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://homeverest.pl", // replace this with your deployed domain
   author: "Mateusz Łysień",
   profile: "https://homeverest.pl/about",
-  desc: "Notes on software, architecture, and building things thoughtfully.",
+  desc: "Notes on software, architecture, and building things.",
   title: "homeverest",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
