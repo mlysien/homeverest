@@ -64,6 +64,8 @@ Maintained and extended an Android mobile application — building new forms, ha
  
 `C#` `Xamarin` `WCF` `TFS` `Android Studio`
 
+---
+
 ### Education
  
 - **2012 – 2016** — B.Eng., Silesian University of Technology, Gliwice
@@ -94,6 +96,7 @@ Host of the internal Beumer Group Poland **BGP Insights** podcast covering engin
 - [Episode 3 — BGP Insights](https://www.youtube.com/watch?v=bs9tKNP_PLQ)
 - [Episode 2 — BGP Insights](https://www.youtube.com/watch?v=0f8qhMQiowQ)
 - [Episode 1 — BGP Insights](https://www.youtube.com/watch?v=865bnirxGVs)
+
 ---
 
 
