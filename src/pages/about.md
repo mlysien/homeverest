@@ -37,17 +37,32 @@ That last shift taught me something I now believe firmly: a programming language
 
 ### Experience
  
-**Software System Engineer** · Feb 2022 – Present  
-Joined an international project developing pouch sorter technology. Switched to Kotlin — and actually enjoyed it. The move proved that a programming language is just a tool; what matters is how you think about problems.
  
-**Full-Stack .NET Developer** · May 2020 – Jan 2022  
-Internal software development and maintenance using ASP.NET Core, Entity Framework Core, ASP.NET MVC, JavaScript, and MS SQL. Working in Scrum with Azure DevOps, Jenkins, and Jira.
+**Software System Engineer** · [Beumer Group](https://www.beumergroup.com/) · Feb 2022 – Present  
+Developing a product application for a Pouch Sorter system as part of an international team, with day-to-day communication in English. Work spans the full stack: building and maintaining the backend API that feeds data to the frontend, and developing Angular UI components tailored to client UX requirements.
  
-**.NET Developer** · Mar 2017 – May 2020  
-Integrations with ERP systems (Subiekt, Comarch Optima, Comarch XL, Enova 365). Desktop application development using .NET, WinForms, WPF, MVVM Light, REST API, and MS SQL. Applied design patterns and Scrum methodology.
+`.NET`, `C#`, `Kotlin` `Spring Framework` `JUnit` `Angular` `PostgreSQL` `SQL` `Git` `GitLab CI/CD` `Jira` `Scrum`
  
-**Mobile Developer** · Jul 2015 – Jan 2017  
-Mobile application development on the Xamarin platform, primarily Android — building and maintaining apps using .NET, WCF, and Android Studio.
+---
+ 
+**Fullstack Software Developer** · [Onex Group](https://onex.group/) · May 2020 – Feb 2022  
+Maintained and extended an internal web application used to manage Microsoft licence assignment processes for clients. Contributed across the stack — backend services in ASP.NET Core and frontend work in JavaScript, HTML, and CSS.
+ 
+`C#` `ASP.NET Core` `Entity Framework Core` `JavaScript` `SQL` `Git` `Azure DevOps` `Jenkins` `Jira` `Scrum`
+ 
+---
+ 
+**Software Developer** · [merce.com](https://merce.com) Hybrid e-Commerce Platform · Mar 2017 – May 2020  
+Maintained and developed a desktop integration application syncing data between ERP systems and a dedicated e-commerce platform. Integration areas included inventory, products, price lists, orders, and customers. Communicated with the e-commerce platform via REST API and WSDL, using vendor-specific libraries for Subiekt, Comarch Optima/XL, and Enova365.
+ 
+`C#` `WinForms` `WPF` `MVVM Light` `REST API` `WSDL` `SQL` `Git` `Scrum`
+ 
+---
+ 
+**Mobile Developer** · AIUT · Jul 2015 – Jan 2017
+Maintained and extended an Android mobile application — building new forms, handling Bluetooth communication with embedded devices, and developing and maintaining the web services used by the app.
+ 
+`C#` `Xamarin` `WCF` `TFS` `Android Studio`
 
 ### Education
  
@@ -55,6 +70,32 @@ Mobile application development on the Xamarin platform, primarily Android — bu
 - **2016 – 2018** — M.Eng., Silesian University of Technology, Gliwice
 
 ---
+
+ 
+## Featured
+ 
+### Press
+
+Articles and interviews I've done for various media outlets, covering topics from software development to intralogistics.
+ 
+**[Jak wygląda praca Software System Engineera w intralogistyce?](https://justjoin.it/blog/praca-software-system-engineera-intralogistyka)** · Just Join IT · April 2024  
+
+**[Zdarzenia i delegaty w języku C#](https://blog.i-systems.pl/zdarzenia-delegaty-jezyku-c/?fbclid=IwAR3xcCc0fXIdH0O_saTLaSSc3f5IePgm8JTfgn2t8KrN9TB4qLOedP6MNno)** · i-systems blog · December 2017
+
+**[Wzorzec projektowy Adapter](https://blog.i-systems.pl/wzorzec-projektowy-adapter/?fbclid=IwAR2BDoIgUYL9HMLTdx3J3p7gPUKQMv-K9Ip4U_uS_VQkyn-6CPqv9l5zxLM)** · i-systems blog · June 2017
+ 
+### Podcast
+  
+Host of the internal Beumer Group Poland **BGP Insights** podcast covering engineering, technology, and life inside an international intralogistics company.
+ 
+- [Episode 6 — BGP Insights](https://www.youtube.com/watch?v=_vgua0788vE)
+- [Episode 5 — BGP Insights](https://www.youtube.com/watch?v=Fbej2cn9Wng)
+- [Episode 4 — BGP Insights](https://www.youtube.com/watch?v=YjnYh1PjMIM)
+- [Episode 3 — BGP Insights](https://www.youtube.com/watch?v=bs9tKNP_PLQ)
+- [Episode 2 — BGP Insights](https://www.youtube.com/watch?v=0f8qhMQiowQ)
+- [Episode 1 — BGP Insights](https://www.youtube.com/watch?v=865bnirxGVs)
+---
+
 
 ## About this blog
 
