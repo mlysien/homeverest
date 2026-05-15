@@ -37,29 +37,28 @@ That last shift taught me something I now believe firmly: a programming language
 
 ### Experience
  
- 
-**Software System Engineer** · [Beumer Group](https://www.beumergroup.com/) · Feb 2022 – Present  
+**Software System Engineer** @ [Beumer Group](https://www.beumergroup.com/) · Feb 2022 – Present  
 Developing a product application for a Pouch Sorter system as part of an international team, with day-to-day communication in English. Work spans the full stack: building and maintaining the backend API that feeds data to the frontend, and developing Angular UI components tailored to client UX requirements.
  
-`.NET`, `C#`, `Kotlin` `Spring Framework` `JUnit` `Angular` `PostgreSQL` `SQL` `Git` `GitLab CI/CD` `Jira` `Scrum`
+`.NET` `C#` `Kotlin` `Spring Framework` `JUnit` `Angular` `PostgreSQL` `SQL` `Git` `GitLab CI/CD` `Jira` `Scrum`
  
 ---
  
-**Fullstack Software Developer** · [Onex Group](https://onex.group/) · May 2020 – Feb 2022  
+**Fullstack Software Developer** @ [Onex Group](https://onex.group/) · May 2020 – Feb 2022  
 Maintained and extended an internal web application used to manage Microsoft licence assignment processes for clients. Contributed across the stack — backend services in ASP.NET Core and frontend work in JavaScript, HTML, and CSS.
  
 `C#` `ASP.NET Core` `Entity Framework Core` `JavaScript` `SQL` `Git` `Azure DevOps` `Jenkins` `Jira` `Scrum`
  
 ---
  
-**Software Developer** · [merce.com](https://merce.com) Hybrid e-Commerce Platform · Mar 2017 – May 2020  
+**Software Developer** @ [merce.com](https://merce.com) Hybrid e-Commerce Platform · Mar 2017 – May 2020  
 Maintained and developed a desktop integration application syncing data between ERP systems and a dedicated e-commerce platform. Integration areas included inventory, products, price lists, orders, and customers. Communicated with the e-commerce platform via REST API and WSDL, using vendor-specific libraries for Subiekt, Comarch Optima/XL, and Enova365.
  
 `C#` `WinForms` `WPF` `MVVM Light` `REST API` `WSDL` `SQL` `Git` `Scrum`
  
 ---
  
-**Mobile Developer** · AIUT · Jul 2015 – Jan 2017
+**Mobile Developer** @ [AIUT](https://aiut.com/) · Jul 2015 – Jan 2017
 Maintained and extended an Android mobile application — building new forms, handling Bluetooth communication with embedded devices, and developing and maintaining the web services used by the app.
  
 `C#` `Xamarin` `WCF` `TFS` `Android Studio`
@@ -79,12 +78,12 @@ Maintained and extended an Android mobile application — building new forms, ha
 ### Press
 
 Articles and interviews I've done for various media outlets, covering topics from software development to intralogistics.
- 
-**[Jak wygląda praca Software System Engineera w intralogistyce?](https://justjoin.it/blog/praca-software-system-engineera-intralogistyka)** · Just Join IT · April 2024  
 
-**[Zdarzenia i delegaty w języku C#](https://blog.i-systems.pl/zdarzenia-delegaty-jezyku-c/?fbclid=IwAR3xcCc0fXIdH0O_saTLaSSc3f5IePgm8JTfgn2t8KrN9TB4qLOedP6MNno)** · i-systems blog · December 2017
+* Just Join IT · April 2024 - featured interview covering my career path, the reality of working in intralogistics software, and what it's like to switch stacks and join an international team at Beumer Group. **[Jak wygląda praca Software System Engineera w intralogistyce?](https://justjoin.it/blog/praca-software-system-engineera-intralogistyka)** 
 
-**[Wzorzec projektowy Adapter](https://blog.i-systems.pl/wzorzec-projektowy-adapter/?fbclid=IwAR2BDoIgUYL9HMLTdx3J3p7gPUKQMv-K9Ip4U_uS_VQkyn-6CPqv9l5zxLM)** · i-systems blog · June 2017
+* i-systems blog · December 2017 - a technical deep-dive into events and delegates in C# — how they work under the hood, when to use them, and practical examples from real application development. **[Zdarzenia i delegaty w języku C#](https://blog.i-systems.pl/zdarzenia-delegaty-jezyku-c/?fbclid=IwAR3xcCc0fXIdH0O_saTLaSSc3f5IePgm8JTfgn2t8KrN9TB4qLOedP6MNno)** 
+
+* i-systems blog · June 2017 - an introduction to the Adapter design pattern in C# — explaining the concept, structure, and when it makes sense to reach for it in everyday software design. **[Wzorzec projektowy Adapter](https://blog.i-systems.pl/wzorzec-projektowy-adapter/?fbclid=IwAR2BDoIgUYL9HMLTdx3J3p7gPUKQMv-K9Ip4U_uS_VQkyn-6CPqv9l5zxLM)**
  
 ### Podcast
   
