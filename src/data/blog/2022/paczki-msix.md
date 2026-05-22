@@ -6,9 +6,7 @@ slug: paczki-msix
 featured: false
 draft: false
 tags: [tools]
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut
+description: MSIX to format pakowania aplikacji desktopowych dla Windows, który przejmuje całą odpowiedzialność za instalację i aktualizacje. Pokazuję jak dodać go do istniejącej aplikacji WPF bez przebudowywania solucji.
 ---
 
 Cześć! Dzisiejszy wpis będzie kolejnym z serii technicznych. Zacznę od takiej tezy, że w świecie IT istnieje mnóstwo firm, które dalej utrzymują aplikacje napisane jeszcze z użyciem Windows Forms czy WPF. Kiedyś sam pracowałem w takim projekcie i pamiętam, że wydawanie nowej wersji bywało dość karkołomne i bardzo czasochłonne. Obecnie utrzymuję [jedną aplikację WPF](https://homeverest.pl/realizacje/pokoj-wspomnien/), w której zastosowałem pakowanie aplikacji z użyciem MSIX i efekty są bardzo zadowalające. Aplikacja jest zainstalowana na kilkunastu stanowiskach i ręczna aktualizacja byłaby ogromnie trudna. Dlatego w tym wpisie zaprezentuję rozwiązanie dostarczone przez firmę Microsoft do pakowania aplikacji desktopowych w celu ich łatwiejszej instalacji oraz późniejszych aktualizacji, czyli paczki MSIX. Co jest warte szczególnej uwagi to fakt, że nie trzeba przebudowywać aktualnie istniejącej aplikacji, wystarczy dodać nowy projekt do solucji i sprawy związane z procesem publikacji mamy w zasadzie załatwione.

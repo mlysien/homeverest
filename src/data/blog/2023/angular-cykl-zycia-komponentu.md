@@ -6,8 +6,7 @@ slug: angular-cykl-zycia-komponentu
 featured: false
 draft: false
 tags: [angular]
-description:
-  Cześć! Nowy rok zaczynam wpisem trochę innym niż te z poprzedniego, pierwszy raz będzie to wpis poświęcony technologii frontendowej. Opowiem trochę o Angularze i o tym w jaki sposób działają komponenty. W projekcie jakim znajduję się obecnie wykorzystujemy Angulara, więc stał się on mi dość bliskim frameworkiem, dlatego zapraszam do zapoznania się z artykułem.
+description: Angular ma 8 interfejsów opisujących cykl życia komponentu. Omawiam każdy z nich po kolei – od ngOnChanges po ngOnDestroy – i pokazuję kiedy warto z nich korzystać.
 ---
 
 ![banner](../../../assets/blog/2023/angular-cykl-zycia-komponentu/angular-life-cycle.png)

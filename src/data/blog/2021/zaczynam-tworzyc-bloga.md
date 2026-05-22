@@ -5,10 +5,7 @@ pubDatetime: 2021-05-05
 slug: zaczynam-tworzyc-bloga
 featured: false
 draft: false
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel
-  fringilla est
+description: Pierwszy wpis na blogu – dlaczego w ogóle go zakładam, czemu wybrałem WordPressa zamiast pisać własną aplikację i jakie mam plany na najbliższy rok.
 ---
 
 ![banner](../../../assets/blog/2021/zaczynam-tworzyc-bloga/ChatGPT-Image-Apr-17-2025-03_10_11-PM.png)

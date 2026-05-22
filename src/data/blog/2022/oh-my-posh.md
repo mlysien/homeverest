@@ -6,8 +6,7 @@ slug: pozbadz-sie-nudy-w-konsoli-z-oh-my-posh
 featured: false
 draft: false
 tags: [terminal]
-description:
-  Jeśli korzystacie z terminala w swojej codziennej pracy zdecydowanie polecam zainstalowanie Oh My Posh, dzięki temu korzystanie z niego zacznie być bardziej wygodne i przyjemne. Ja osobiście korzystałem z desktopowych aplikacji do Gita i przeniosłem się do terminala właśnie dzięki modułowi Oh My Posh.
+description: Krok po kroku pokazuję jak zainstalować Oh My Posh w PowerShellu i Windows Terminal, ustawić własny motyw i dorzucić przydatne moduły do pracy z Gitem i ikonami plików.
 ---
 
 ![banner](../../../assets/blog/2022/oh-my-posh/ChatGPT-Image-Apr-17-2025-03_58_49-PM.png)

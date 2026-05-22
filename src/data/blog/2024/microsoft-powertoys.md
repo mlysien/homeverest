@@ -6,9 +6,7 @@ slug: microsoft-powertoys
 featured: false
 draft: false
 tags: [tools]
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut
+description: Microsoft PowerToys to zestaw narzędzi od Microsoftu, które realnie przyspieszają pracę na Windowsie. Opisuję moje TOP5 – Peek, Always on Top, Color Picker, FancyZones i PowerToys Run.
 ---
 
 ![banner](../../../assets/blog/2024/microsoft-powertoys/powertoys-bg.png)

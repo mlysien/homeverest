@@ -6,8 +6,7 @@ slug: angular-strategia-onpush
 featured: false
 draft: false
 tags: [angular]
-description:
-  Dziś chciałbym opisać mechanizm wykrywania zmian w komponentach Angularowych. Strategia OnPush umożliwia nam w łatwy sposób zoptymalizowanie pod kątem wydajnościowym naszej aplikacji. Co to jest i jak zastosować? Oraz na co uważać, w tym artykule postaram się odpowiedzieć na te pytania.
+description: OnPush to strategia wykrywania zmian w Angularze, która może znacznie przyspieszyć aplikację. Tłumaczę jak działa, jak ją włączyć i na jaką pułapkę trzeba uważać przy wywołaniach asynchronicznych.
 ---
 
 ![banner](../../../assets/blog/2023/angular-strategia-onpush/onpus_strategy.png)

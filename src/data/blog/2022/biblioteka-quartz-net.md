@@ -6,9 +6,7 @@ slug: biblioteka-quartz
 featured: false
 draft: false
 tags: [quartz.net, c#, library]
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut
+description: Quartz.NET to biblioteka do planowania zadań w .NET, która robi dużo więcej niż zwykłe timery. Pokazuję jak działa i jak zacząć z niej korzystać na prostym przykładzie.
 ---
 
 

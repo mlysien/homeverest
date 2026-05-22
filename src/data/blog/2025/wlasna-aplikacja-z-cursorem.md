@@ -6,8 +6,7 @@ slug: wlasna-aplikacja-z-cursorem
 featured: false
 draft: false
 tags: [ai, cursorai, vibecoding]
-description:
-    Tematy związane ze sztuczną inteligencją są teraz tak popularne jak Adam Małysz w sezonie 2000/2001 po zwycięstwie w Turnieju Czterech Skoczni oraz Pucharze Świata - cały świat o tym mówi.
+description: Sprawdziłem Cursora w praktyce budując własny Pomodoro Timer od zera przy użyciu Tauri. Piszę jak wygląda praca z AI jako partnerem przy kodowaniu, co go zaskakuje i gdzie ma wpadki.
 ---
 
 ![banner](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/42c0a51e-2252-4a00-b114-0d8a712fb46c.png)

@@ -6,9 +6,7 @@ slug: 100commitow-pierwszy-miesiac
 featured: false
 draft: false
 tags: [100commitow]
-description:
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut
+description: Biorę udział w konkursie 100commitow i buduję Integrify – narzędzie do synchronizacji danych między sklepem e-commerce a systemem ERP. Opisuję założenia projektu i podsumowuję pierwszy miesiąc.
 ---
 
 ![banner](../../../assets/blog/2024/100commitow-pierwszy-miesiac/82454d8e-c7a1-4ff3-b2af-f73fda7ff37d.png)

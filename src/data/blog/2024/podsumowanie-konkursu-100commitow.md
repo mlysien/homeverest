@@ -6,8 +6,7 @@ slug: podsumowanie-konkursku-100commitow
 featured: false
 draft: false
 tags: [100commitow]
-description:
-  Ponad 12k linii kodu. 403 commity. 15 gwiazdek. Tak właśnie powstawało narzędzie nad którym pracowałem - Integrify.
+description: 100 dni codziennego commitowania, 403 commity i 12k linii kodu – tak powstawał Integrify. Opisuję co udało się dowieźć, co odpadło i czego nauczyłem się przez ten czas.
 ---
 
 ![banner](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/ChatGPT-Image-Apr-18-2025-03_07_05-PM-1.png)
