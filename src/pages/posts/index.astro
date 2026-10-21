@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import PostsByYear from "@/components/PostsByYear.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import { SITE } from "@/config";
+
+const posts = getSortedPosts(await getCollection("blog"));
+---
+
+<Layout title={`All writing | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle="All writing"
+    pageDesc={`Every post I've published, newest first. ${posts.length} so far.`}
+  >
+    <div class="flex flex-col gap-10 pt-4">
+      <PostsByYear posts={posts} />
+    </div>
+  </Main>
+  <Footer />
+</Layout>

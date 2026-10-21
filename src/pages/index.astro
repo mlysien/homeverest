@@ -6,29 +6,16 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getPath } from "@/utils/getPath";
-import {
-  formatDate,
-  formatShortDate,
-  getBanner,
-  getReadTime,
-  getYear,
-} from "@/utils/posts";
+import { formatDate, getBanner, getReadTime } from "@/utils/posts";
 import { slugifyStr } from "@/utils/slugify";
 
 const posts = getSortedPosts(await getCollection("blog"));
 const [latest] = posts;
 const latestBanner = getBanner(latest);
 const latestPath = getPath(latest.id, latest.filePath);
-// The latest post is featured in the hero, so the carousel starts from the next one
-const recentPosts = posts.slice(1, 7);
-
-const years: { year: string; posts: typeof posts }[] = [];
-for (const post of posts) {
-  const year = getYear(post);
-  let group = years.find(g => g.year === year);
-  if (!group) years.push((group = { year, posts: [] }));
-  group.posts.push(post);
-}
+// The latest post is featured in the hero, so the carousel starts from the next one.
+// Its last slot is a "Show all" card linking to the full list.
+const recentPosts = posts.slice(1, 6);
 ---
 
 <Layout>
@@ -85,7 +72,7 @@ for (const post of posts) {
             Read post →
           </a>
           <a
-            href="#all-posts"
+            href="/posts/"
             class="rounded-[10px] border border-border-strong px-5 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
           >
             All writing
@@ -169,13 +156,26 @@ for (const post of posts) {
             );
           })
         }
+        <li class="w-[min(300px,76vw)] flex-none snap-start">
+          <a
+            href="/posts/"
+            class="group flex h-full min-h-[300px] flex-col items-center justify-center gap-4 card border-dashed border-border-strong p-6 text-center text-foreground hover:border-solid hover:border-accent"
+          >
+            <span
+              class="flex size-14 items-center justify-center rounded-full border border-border-strong bg-surface-sunken text-xl text-subtle transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-background"
+              >→</span
+            >
+            <span class="font-serif text-[22px] font-medium">Show all</span>
+            <span class="text-[13px] text-muted">{posts.length} posts</span>
+          </a>
+        </li>
       </ul>
       <div class="flex justify-center gap-1.5">
         {
-          recentPosts.map((_, i) => (
+          [...recentPosts, null].map((post, i) => (
             <button
               data-carousel-dot={i}
-              aria-label={`Go to post ${i + 1}`}
+              aria-label={post ? `Go to post ${i + 1}` : "Go to all posts"}
               class:list={[
                 "size-1.5 rounded-full p-0 transition-colors",
                 i === 0 ? "bg-accent" : "bg-dot",
@@ -184,34 +184,6 @@ for (const post of posts) {
           ))
         }
       </div>
-    </section>
-
-    <section id="all-posts" class="flex flex-col gap-10">
-      <h2 class="m-0 font-serif text-[26px] font-medium">All writing</h2>
-      {
-        years.map(({ year, posts }) => (
-          <div class="grid grid-cols-[minmax(0,72px)_minmax(0,1fr)] gap-6">
-            <span class="pt-1 font-mono text-[13px] text-muted">{year}</span>
-            <ul class="flex flex-col gap-[18px]">
-              {posts.map(post => (
-                <li>
-                  <a
-                    href={getPath(post.id, post.filePath)}
-                    class="flex items-baseline justify-between gap-5 text-foreground transition-colors hover:text-accent-soft"
-                  >
-                    <span class="font-serif text-lg leading-[1.4]">
-                      {post.data.title}
-                    </span>
-                    <span class="flex-none text-[13px] text-muted">
-                      {formatShortDate(post)}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
     </section>
 
     <section class="flex flex-col gap-2.5 card p-7">
