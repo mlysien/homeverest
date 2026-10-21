@@ -3,10 +3,12 @@ import type { ImageMetadata } from "astro";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import "dayjs/locale/pl";
 import { SITE } from "@/config";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
+dayjs.locale("pl");
 
 type Post = CollectionEntry<"blog">;
 
@@ -42,10 +44,23 @@ function postDate(post: Post) {
   return dayjs(post.data.pubDatetime).tz(post.data.timezone || SITE.timezone);
 }
 
-/** "Oct 08, 2026" */
-export const formatDate = (post: Post) => postDate(post).format("MMM DD, YYYY");
+/** "8 paź 2026" */
+export const formatDate = (post: Post) => postDate(post).format("D MMM YYYY");
 
-/** "Oct 08" */
-export const formatShortDate = (post: Post) => postDate(post).format("MMM DD");
+/** "8 paź" */
+export const formatShortDate = (post: Post) => postDate(post).format("D MMM");
+
+/** "1 wpis", "3 wpisy", "15 wpisów" */
+export function pluralizePosts(n: number) {
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  const word =
+    n === 1
+      ? "wpis"
+      : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)
+        ? "wpisy"
+        : "wpisów";
+  return `${n} ${word}`;
+}
 
 export const getYear = (post: Post) => postDate(post).format("YYYY");

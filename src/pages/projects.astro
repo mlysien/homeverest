@@ -7,11 +7,11 @@ import { PROJECTS } from "@/content-data/projects";
 import { SITE } from "@/config";
 ---
 
-<Layout title={`Projects | ${SITE.title}`}>
+<Layout title={`Projekty | ${SITE.title}`}>
   <Header />
   <Main
-    pageTitle="Projects"
-    pageDesc="Small tools I built to solve my own problems, most of them open source."
+    pageTitle="Projekty"
+    pageDesc="Małe narzędzia, które zbudowałem, żeby rozwiązać własne problemy. Większość z nich jest open source."
   >
     <ul class="flex flex-col gap-3">
       {
@@ -29,7 +29,7 @@ import { SITE } from "@/config";
                   <span
                     class:list={[
                       "size-1.5 rounded-full",
-                      p.status === "Active" ? "bg-signal" : "bg-[#4B5160]",
+                      p.status === "Aktywny" ? "bg-signal" : "bg-[#4B5160]",
                     ]}
                   />
                   {p.status} · {p.stack}

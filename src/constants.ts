@@ -15,19 +15,19 @@ export const SOCIALS: Social[] = [
   {
     name: "GitHub",
     href: "https://github.com/mlysien",
-    linkTitle: `My profile on GitHub`,
+    linkTitle: `Mój profil na GitHubie`,
     icon: IconGitHub,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/mlysien/",
-    linkTitle: `My profile on LinkedIn`,
+    linkTitle: `Mój profil na LinkedInie`,
     icon: IconLinkedin,
   },
   {
-    name: "Mail",
+    name: "E-mail",
     href: "mailto:mateusz.lysien@homeverest.pl",
-    linkTitle: `Send an email to me`,
+    linkTitle: `Napisz do mnie`,
     icon: IconMail,
   },
 ] as const;
@@ -36,13 +36,13 @@ export const SHARE_LINKS: Social[] = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/sharing/share-offsite/?url=",
-    linkTitle: `Share this post on LinkedIn`,
+    linkTitle: `Udostępnij wpis na LinkedInie`,
     icon: IconLinkedin,
   },
   {
     name: "X",
     href: "https://x.com/intent/post?url=",
-    linkTitle: `Share this post on X`,
+    linkTitle: `Udostępnij wpis na X`,
     icon: IconBrandX,
   }
 ] as const;

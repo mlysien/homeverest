@@ -6,7 +6,12 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getPath } from "@/utils/getPath";
-import { formatDate, getBanner, getReadTime } from "@/utils/posts";
+import {
+  formatDate,
+  getBanner,
+  getReadTime,
+  pluralizePosts,
+} from "@/utils/posts";
 import { slugifyStr } from "@/utils/slugify";
 
 const posts = getSortedPosts(await getCollection("blog"));
@@ -33,7 +38,7 @@ const recentPosts = posts.slice(1, 6);
         <span
           class="font-mono text-[11px] tracking-[0.16em] text-muted uppercase"
         >
-          Latest post
+          Najnowszy wpis
           {
             latest.data.tags[0] && (
               <>
@@ -59,7 +64,7 @@ const recentPosts = posts.slice(1, 6);
           <time datetime={latest.data.pubDatetime.toISOString()}>
             {formatDate(latest)}
           </time>
-          · {getReadTime(latest)} read
+          · {getReadTime(latest)} czytania
         </span>
         <p class="m-0 font-serif text-lg leading-[1.7] text-pretty text-subtle">
           {latest.data.description}
@@ -69,13 +74,7 @@ const recentPosts = posts.slice(1, 6);
             href={latestPath}
             class="rounded-[10px] bg-accent px-5 py-3 text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
           >
-            Read post →
-          </a>
-          <a
-            href="/posts/"
-            class="rounded-[10px] border border-border-strong px-5 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
-          >
-            All writing
+            Czytaj wpis →
           </a>
         </div>
       </div>
@@ -103,21 +102,38 @@ const recentPosts = posts.slice(1, 6);
     </section>
 
     <section id="recent-posts" class="flex flex-col gap-6" data-carousel>
-      <div class="flex items-baseline justify-between gap-4">
-        <h2 class="m-0 font-serif text-[26px] font-medium">Recent writing</h2>
+      <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <h2 class="m-0 font-serif text-[26px] font-medium">Ostatnie wpisy</h2>
         <div class="flex gap-1.5">
           <button
             data-carousel-prev
-            aria-label="Previous"
+            aria-label="Poprzednie"
             class="size-11 rounded-full border border-[#262A33] bg-surface text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
             >←</button
           >
           <button
             data-carousel-next
-            aria-label="Next"
+            aria-label="Następne"
             class="size-11 rounded-full border border-[#262A33] bg-surface text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
             >→</button
           >
+          <a
+            href="/posts/"
+            aria-label="Wszystkie wpisy"
+            title="Wszystkie wpisy"
+            class="ms-3 flex size-11 items-center justify-center rounded-full border border-[#262A33] bg-surface text-subtle transition-colors hover:border-accent hover:text-foreground"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 16 16"
+              class="size-4 fill-current"
+            >
+              <rect x="1" y="1" width="6" height="6" rx="1.5"></rect>
+              <rect x="9" y="1" width="6" height="6" rx="1.5"></rect>
+              <rect x="1" y="9" width="6" height="6" rx="1.5"></rect>
+              <rect x="9" y="9" width="6" height="6" rx="1.5"></rect>
+            </svg>
+          </a>
         </div>
       </div>
       <ul
@@ -165,8 +181,12 @@ const recentPosts = posts.slice(1, 6);
               class="flex size-14 items-center justify-center rounded-full border border-border-strong bg-surface-sunken text-xl text-subtle transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-background"
               >→</span
             >
-            <span class="font-serif text-[22px] font-medium">Show all</span>
-            <span class="text-[13px] text-muted">{posts.length} posts</span>
+            <span class="font-serif text-[22px] font-medium"
+              >Pokaż wszystkie</span
+            >
+            <span class="text-[13px] text-muted"
+              >{pluralizePosts(posts.length)}</span
+            >
           </a>
         </li>
       </ul>
@@ -175,7 +195,11 @@ const recentPosts = posts.slice(1, 6);
           [...recentPosts, null].map((post, i) => (
             <button
               data-carousel-dot={i}
-              aria-label={post ? `Go to post ${i + 1}` : "Go to all posts"}
+              aria-label={
+                post
+                  ? `Przejdź do wpisu ${i + 1}`
+                  : "Przejdź do wszystkich wpisów"
+              }
               class:list={[
                 "size-1.5 rounded-full p-0 transition-colors",
                 i === 0 ? "bg-accent" : "bg-dot",
@@ -187,23 +211,23 @@ const recentPosts = posts.slice(1, 6);
     </section>
 
     <section class="flex flex-col gap-2.5 card p-7">
-      <h2 class="m-0 font-serif text-xl font-medium">Follow along</h2>
+      <h2 class="m-0 font-serif text-xl font-medium">Bądź na bieżąco</h2>
       <p class="m-0 text-[15px] leading-[1.6] text-soft">
-        New posts land in the RSS feed as soon as they're published. Plug it
-        into your reader of choice.
+        Nowe wpisy trafiają do kanału RSS zaraz po publikacji. Dodaj go do
+        swojego ulubionego czytnika.
       </p>
       <div class="flex flex-wrap gap-2 pt-2">
         <a
           href="/rss.xml"
           class="rounded-[10px] bg-accent px-5 py-3 text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
         >
-          Subscribe via RSS
+          Subskrybuj przez RSS
         </a>
         <a
           href="/tags"
           class="rounded-[10px] border border-border-strong px-5 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
         >
-          Browse by tag
+          Przeglądaj tagi
         </a>
       </div>
     </section>

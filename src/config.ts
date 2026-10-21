@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://homeverest.pl", // replace this with your deployed domain
   author: "Mateusz Łysień",
   profile: "https://homeverest.pl/about",
-  desc: "Notes on software, architecture, and building things.",
+  desc: "Notatki o oprogramowaniu, architekturze i budowaniu rzeczy.",
   title: "homeverest",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: false,
@@ -13,7 +13,7 @@ export const SITE = {
   showBackButton: true, // show back button in post detail
   editPost: {
     enabled: false,
-    text: "Edit page",
+    text: "Edytuj stronę",
     url: "https://github.com/mlysien/homeverest/edit/main/",
   },
   dynamicOgImage: true,

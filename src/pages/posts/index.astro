@@ -6,16 +6,17 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import PostsByYear from "@/components/PostsByYear.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
+import { pluralizePosts } from "@/utils/posts";
 import { SITE } from "@/config";
 
 const posts = getSortedPosts(await getCollection("blog"));
 ---
 
-<Layout title={`All writing | ${SITE.title}`}>
+<Layout title={`Wszystkie wpisy | ${SITE.title}`}>
   <Header />
   <Main
-    pageTitle="All writing"
-    pageDesc={`Every post I've published, newest first. ${posts.length} so far.`}
+    pageTitle="Wszystkie wpisy"
+    pageDesc={`Wszystko, co opublikowałem, od najnowszych. Do tej pory: ${pluralizePosts(posts.length)}.`}
   >
     <div class="flex flex-col gap-10 pt-4">
       <PostsByYear posts={posts} />

@@ -12,11 +12,11 @@ const RESUME = "/mlysien.cv.pl.pdf";
 
 const EXPERIENCE = [
   {
-    period: "2022 — now",
+    period: "2022 — obecnie",
     role: "Software System Engineer",
     company: "Beumer Group",
     href: "https://www.beumergroup.com/",
-    desc: "Product application for a Pouch Sorter system, in an international team. Backend API plus Angular UI components.",
+    desc: "Aplikacja produktowa dla systemu Pouch Sorter, tworzona w międzynarodowym zespole. Backendowe API oraz komponenty UI w Angularze.",
     stack: ".NET · Kotlin · Spring · Angular · PostgreSQL",
   },
   {
@@ -24,7 +24,7 @@ const EXPERIENCE = [
     role: "Fullstack Software Developer",
     company: "Onex Group",
     href: "https://onex.group/",
-    desc: "Internal web application for managing Microsoft licence assignment for clients.",
+    desc: "Wewnętrzna aplikacja webowa do zarządzania przydziałem licencji Microsoft dla klientów.",
     stack: "C# · ASP.NET Core · EF Core · JavaScript",
   },
   {
@@ -32,7 +32,7 @@ const EXPERIENCE = [
     role: "Software Developer",
     company: "merce.com",
     href: "https://merce.com",
-    desc: "Desktop integration app syncing ERP systems with a hybrid e-commerce platform.",
+    desc: "Desktopowa aplikacja integracyjna synchronizująca systemy ERP z hybrydową platformą e-commerce.",
     stack: "C# · WinForms · WPF · REST · WSDL",
   },
   {
@@ -40,7 +40,7 @@ const EXPERIENCE = [
     role: "Mobile Developer",
     company: "AIUT",
     href: "https://aiut.com/",
-    desc: "Android app with Bluetooth communication to embedded devices, plus its web services.",
+    desc: "Aplikacja na Androida komunikująca się przez Bluetooth z urządzeniami wbudowanymi, wraz z usługami webowymi.",
     stack: "C# · Xamarin · WCF",
   },
 ];
@@ -48,18 +48,18 @@ const EXPERIENCE = [
 const EDUCATION = [
   {
     period: "2016 — 2018",
-    title: "M.Eng.",
-    school: "Silesian University of Technology, Gliwice",
+    title: "Magister inżynier",
+    school: "Politechnika Śląska, Gliwice",
   },
   {
     period: "2012 — 2016",
-    title: "B.Eng.",
-    school: "Silesian University of Technology, Gliwice",
+    title: "Inżynier",
+    school: "Politechnika Śląska, Gliwice",
   },
 ];
 ---
 
-<Layout title={`About | ${SITE.title}`}>
+<Layout title={`O mnie | ${SITE.title}`}>
   <Header />
   <main id="main-content" class="flex flex-col gap-8 pt-12 pb-24">
     <Image
@@ -71,25 +71,26 @@ const EDUCATION = [
       loading="eager"
     />
 
-    <PageTitle>About</PageTitle>
+    <PageTitle>O mnie</PageTitle>
 
     <div
       class="flex flex-col gap-5 font-serif text-[19px] leading-[1.75] text-prose [&_p]:m-0 [&_p]:text-pretty"
     >
       <p>
-        I'm Mateusz Łysień, a software developer with roots in .NET, an eye on
-        space, and a habit of building things just to see if I can.
+        Jestem Mateusz Łysień, programista z korzeniami w .NET, wzrokiem
+        zwróconym ku kosmosowi i nawykiem budowania rzeczy tylko po to, żeby
+        sprawdzić, czy dam radę.
       </p>
       <p>
-        My path went from WinForms and WPF, through ASP.NET Core and Angular, to
-        Kotlin on an international intralogistics project. It taught me that a
-        programming language is just a tool. What matters is how you think about
-        problems.
+        Moja droga prowadziła od WinForms i WPF, przez ASP.NET Core i Angulara,
+        aż po Kotlina w międzynarodowym projekcie z branży intralogistyki.
+        Nauczyła mnie, że język programowania to tylko narzędzie. Liczy się to,
+        jak myślisz o problemach.
       </p>
       <p>
-        Long term, I'd love to work at ESA and use software to help unravel what
-        the universe is hiding from us, so I'm learning Python and diving into
-        AI/ML.
+        W dłuższej perspektywie chciałbym pracować w ESA i wykorzystywać
+        oprogramowanie, by pomóc odkrywać to, co skrywa przed nami wszechświat,
+        dlatego uczę się Pythona i zgłębiam AI/ML.
       </p>
     </div>
 
@@ -99,7 +100,7 @@ const EDUCATION = [
         target="_blank"
         class="flex items-center justify-center rounded-[10px] bg-accent px-3 py-3 text-center text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
       >
-        Download CV<span class="max-sm:hidden">&nbsp;(PDF)</span>
+        Pobierz CV<span class="max-sm:hidden">&nbsp;(PDF)</span>
       </a>
       {
         SOCIALS.map(social => (
@@ -118,7 +119,7 @@ const EDUCATION = [
     </div>
 
     <section class="flex flex-col gap-2 pt-8">
-      <h2 class="m-0 font-serif text-[26px] font-medium">Experience</h2>
+      <h2 class="m-0 font-serif text-[26px] font-medium">Doświadczenie</h2>
       <ol class="flex flex-col">
         {
           EXPERIENCE.map(job => (
@@ -151,7 +152,7 @@ const EDUCATION = [
     </section>
 
     <section class="flex flex-col gap-2 pt-4">
-      <h2 class="m-0 font-serif text-[26px] font-medium">Education</h2>
+      <h2 class="m-0 font-serif text-[26px] font-medium">Wykształcenie</h2>
       <ol class="flex flex-col">
         {
           EDUCATION.map(edu => (

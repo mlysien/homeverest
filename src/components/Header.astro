@@ -4,11 +4,11 @@ import { SITE } from "@/config";
 const { pathname } = Astro.url;
 
 const NAV = [
-  { href: "/", label: "Writing", match: ["/", "/posts", "/tags", "/search"] },
-  { href: "/projects", label: "Projects", match: ["/projects"] },
+  { href: "/", label: "Wpisy", match: ["/", "/posts", "/tags", "/search"] },
+  { href: "/projects", label: "Projekty", match: ["/projects"] },
   { href: "/media", label: "Media", match: ["/media"] },
-  { href: "/photography", label: "Photography", match: ["/photography"] },
-  { href: "/about", label: "About", match: ["/about"] },
+  { href: "/photography", label: "Fotografia", match: ["/photography"] },
+  { href: "/about", label: "O mnie", match: ["/about"] },
 ];
 
 const isActive = (match: string[]) =>
@@ -22,7 +22,7 @@ const isActive = (match: string[]) =>
   href="#main-content"
   class="absolute start-16 -top-full z-50 rounded-md bg-surface px-3 py-2 text-accent-soft transition-all focus:top-4"
 >
-  Skip to content
+  Przejdź do treści
 </a>
 
 <header class="flex flex-wrap items-center justify-between gap-5 py-8">
@@ -37,7 +37,7 @@ const isActive = (match: string[]) =>
     ></span>
     <span class="relative">{SITE.title}</span>
   </a>
-  <nav aria-label="Main">
+  <nav aria-label="Główna nawigacja">
     <ul class="flex flex-wrap items-center gap-x-[22px] gap-y-2">
       {
         NAV.map(({ href, label, match }) => (

@@ -13,9 +13,9 @@ const posts = await getCollection("blog");
 let tags = getUniqueTags(posts);
 ---
 
-<Layout title={`Tags | ${SITE.title}`}>
+<Layout title={`Tagi | ${SITE.title}`}>
   <Header />
-  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+  <Main pageTitle="Tagi" pageDesc="Wszystkie tagi użyte we wpisach.">
     <ul class="flex flex-wrap gap-2.5">
       {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} />)}
     </ul>

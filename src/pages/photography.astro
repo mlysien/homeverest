@@ -20,15 +20,15 @@ const photos = await Promise.all(
 );
 ---
 
-<Layout title={`Photography | ${SITE.title}`}>
+<Layout title={`Fotografia | ${SITE.title}`}>
   <Header />
   <Main
-    pageTitle="Photography"
-    pageDesc="Outside of code, I enjoy capturing the world through my lens. Here are some moments I’m particularly fond of."
+    pageTitle="Fotografia"
+    pageDesc="Poza kodem lubię uchwycić świat przez obiektyw. Oto kilka chwil, które szczególnie lubię."
   >
     {
       photos.length === 0 && (
-        <p class="m-0 text-[15px] text-muted">No photos yet.</p>
+        <p class="m-0 text-[15px] text-muted">Nie ma jeszcze zdjęć.</p>
       )
     }
     <div class="columns-[2_260px] gap-3">
@@ -41,7 +41,7 @@ const photos = await Promise.all(
               data-original={photo.original}
               data-caption={photo.caption}
               data-year={photo.year}
-              aria-label={`Open ${photo.caption}`}
+              aria-label={`Otwórz ${photo.caption}`}
               class="block cursor-zoom-in rounded-xl p-0"
             >
               <Image
@@ -65,7 +65,7 @@ const photos = await Promise.all(
 
   <dialog
     id="photo-viewer"
-    aria-label="Photo viewer"
+    aria-label="Przeglądarka zdjęć"
     class="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-foreground backdrop:bg-[#0b0c10]/95 backdrop:backdrop-blur-sm"
   >
     <div class="flex h-full flex-col">
@@ -79,11 +79,11 @@ const photos = await Promise.all(
             rel="noopener"
             class="rounded-full border border-border-strong px-3.5 py-1.5 text-subtle transition-colors hover:border-accent hover:text-foreground"
           >
-            Original ↗
+            Oryginał ↗
           </a>
           <button
             data-viewer-close
-            aria-label="Close"
+            aria-label="Zamknij"
             class="size-9 rounded-full border border-border-strong text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
             >✕</button
           >
@@ -101,13 +101,13 @@ const photos = await Promise.all(
         />
         <button
           data-viewer-prev
-          aria-label="Previous photo"
+          aria-label="Poprzednie zdjęcie"
           class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
           >←</button
         >
         <button
           data-viewer-next
-          aria-label="Next photo"
+          aria-label="Następne zdjęcie"
           class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
           >→</button
         >

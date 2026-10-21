@@ -7,9 +7,9 @@ import { MEDIA } from "@/content-data/media";
 import { SITE } from "@/config";
 
 const TABS = [
-  ["all", "All"],
-  ["article", "Articles"],
-  ["podcast", "Podcasts"],
+  ["all", "Wszystkie"],
+  ["article", "Artykuły"],
+  ["podcast", "Podcasty"],
 ] as const;
 ---
 
@@ -17,9 +17,9 @@ const TABS = [
   <Header />
   <Main
     pageTitle="Media"
-    pageDesc="Articles I've written for other publications and the podcast I host."
+    pageDesc="Artykuły, które napisałem dla innych serwisów, i podcast, który prowadzę."
   >
-    <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter">
+    <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filtr">
       {
         TABS.map(([id, label], i) => (
           <button
@@ -66,7 +66,7 @@ const TABS = [
                       m.type === "podcast" ? "text-signal" : "text-accent-soft"
                     }
                   >
-                    {m.type === "podcast" ? "Podcast" : "Article"}
+                    {m.type === "podcast" ? "Podcast" : "Artykuł"}
                   </span>
                   · {m.outlet}
                   {m.date && <>· {m.date}</>}
