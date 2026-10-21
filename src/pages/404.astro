@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import PageTitle from "@/components/PageTitle.astro";
 import { SITE } from "@/config";
 ---
 
@@ -14,7 +15,7 @@ import { SITE } from "@/config";
     <span class="font-mono text-[13px] tracking-[0.16em] text-muted uppercase"
       >404</span
     >
-    <h1 class="page-title">Page not found</h1>
+    <PageTitle>Page not found</PageTitle>
     <p class="page-lead">That page doesn't exist, or it moved.</p>
     <a href="/" class="mt-2 link">← Back to all writing</a>
   </main>
