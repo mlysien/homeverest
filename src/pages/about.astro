@@ -1,0 +1,172 @@
+---
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import portrait from "@/assets/about/mlysien.jpg";
+import { SOCIALS } from "@/constants";
+import { SITE } from "@/config";
+
+const RESUME = "/mlysien.cv.pl.pdf";
+
+const EXPERIENCE = [
+  {
+    period: "2022 — now",
+    role: "Software System Engineer",
+    company: "Beumer Group",
+    href: "https://www.beumergroup.com/",
+    desc: "Product application for a Pouch Sorter system, in an international team. Backend API plus Angular UI components.",
+    stack: ".NET · Kotlin · Spring · Angular · PostgreSQL",
+  },
+  {
+    period: "2020 — 2022",
+    role: "Fullstack Software Developer",
+    company: "Onex Group",
+    href: "https://onex.group/",
+    desc: "Internal web application for managing Microsoft licence assignment for clients.",
+    stack: "C# · ASP.NET Core · EF Core · JavaScript",
+  },
+  {
+    period: "2017 — 2020",
+    role: "Software Developer",
+    company: "merce.com",
+    href: "https://merce.com",
+    desc: "Desktop integration app syncing ERP systems with a hybrid e-commerce platform.",
+    stack: "C# · WinForms · WPF · REST · WSDL",
+  },
+  {
+    period: "2015 — 2017",
+    role: "Mobile Developer",
+    company: "AIUT",
+    href: "https://aiut.com/",
+    desc: "Android app with Bluetooth communication to embedded devices, plus its web services.",
+    stack: "C# · Xamarin · WCF",
+  },
+];
+
+const EDUCATION = [
+  {
+    period: "2016 — 2018",
+    title: "M.Eng.",
+    school: "Silesian University of Technology, Gliwice",
+  },
+  {
+    period: "2012 — 2016",
+    title: "B.Eng.",
+    school: "Silesian University of Technology, Gliwice",
+  },
+];
+---
+
+<Layout title={`About | ${SITE.title}`}>
+  <Header />
+  <main id="main-content" class="flex flex-col gap-8 pt-12 pb-24">
+    <Image
+      src={portrait}
+      alt="Mateusz Łysień"
+      widths={[640, 1000, 1400]}
+      sizes="(max-width: 1000px) 100vw, 904px"
+      class="aspect-video w-full rounded-2xl bg-surface object-cover object-[center_30%] grayscale-photo"
+      loading="eager"
+    />
+
+    <h1 class="page-title">About</h1>
+
+    <div
+      class="flex flex-col gap-5 font-serif text-[19px] leading-[1.75] text-prose [&_p]:m-0 [&_p]:text-pretty"
+    >
+      <p>
+        I'm Mateusz Łysień, a software developer with roots in .NET, an eye on
+        space, and a habit of building things just to see if I can.
+      </p>
+      <p>
+        My path went from WinForms and WPF, through ASP.NET Core and Angular, to
+        Kotlin on an international intralogistics project. It taught me that a
+        programming language is just a tool. What matters is how you think about
+        problems.
+      </p>
+      <p>
+        Long term, I'd love to work at ESA and use software to help unravel what
+        the universe is hiding from us, so I'm learning Python and diving into
+        AI/ML.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <a
+        href={RESUME}
+        target="_blank"
+        class="flex items-center justify-center rounded-[10px] bg-accent px-3 py-3 text-center text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
+      >
+        Download CV<span class="max-sm:hidden">&nbsp;(PDF)</span>
+      </a>
+      {
+        SOCIALS.map(social => (
+          <a
+            href={social.href}
+            target={social.href.startsWith("http") ? "_blank" : undefined}
+            rel="noopener noreferrer"
+            title={social.linkTitle}
+            class="flex items-center justify-center gap-2 rounded-[10px] border border-border-strong px-4 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
+          >
+            <social.icon class="size-[18px] fill-transparent stroke-current stroke-2 text-subtle" />
+            {social.name}
+          </a>
+        ))
+      }
+    </div>
+
+    <section class="flex flex-col gap-2 pt-8">
+      <h2 class="m-0 font-serif text-[26px] font-medium">Experience</h2>
+      <ol class="flex flex-col">
+        {
+          EXPERIENCE.map(job => (
+            <li class="grid grid-cols-[minmax(0,120px)_minmax(0,1fr)] gap-5 border-t border-border py-5 max-sm:grid-cols-1 max-sm:gap-1.5">
+              <span class="pt-[3px] font-mono text-[13px] text-muted">
+                {job.period}
+              </span>
+              <div class="flex flex-col gap-1.5">
+                <span class="font-serif text-[19px]">
+                  {job.role}
+                  <span class="text-muted"> @ </span>
+                  <a
+                    href={job.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link"
+                  >
+                    {job.company}
+                  </a>
+                </span>
+                <p class="m-0 text-[15px] leading-[1.6] text-soft">
+                  {job.desc}
+                </p>
+                <span class="text-[13px] text-muted">{job.stack}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <section class="flex flex-col gap-2 pt-4">
+      <h2 class="m-0 font-serif text-[26px] font-medium">Education</h2>
+      <ol class="flex flex-col">
+        {
+          EDUCATION.map(edu => (
+            <li class="grid grid-cols-[minmax(0,120px)_minmax(0,1fr)] gap-5 border-t border-border py-5 max-sm:grid-cols-1 max-sm:gap-1.5">
+              <span class="pt-[3px] font-mono text-[13px] text-muted">
+                {edu.period}
+              </span>
+              <div class="flex flex-col gap-1">
+                <span class="font-serif text-[19px]">{edu.title}</span>
+                <span class="text-sm text-muted">{edu.school}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </main>
+  <Footer />
+</Layout>

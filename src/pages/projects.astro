@@ -1,0 +1,46 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { PROJECTS } from "@/content-data/projects";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle="Projects"
+    pageDesc="Small tools I built to solve my own problems, most of them open source."
+  >
+    <ul class="flex flex-col gap-3">
+      {
+        PROJECTS.map(p => (
+          <li>
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col gap-2 card px-6 py-[22px] text-foreground hover:border-border-hover"
+            >
+              <div class="flex flex-wrap items-baseline justify-between gap-4">
+                <span class="font-serif text-xl font-semibold">{p.name}</span>
+                <span class="flex items-center gap-2 text-[13px] text-muted">
+                  <span
+                    class:list={[
+                      "size-1.5 rounded-full",
+                      p.status === "Active" ? "bg-signal" : "bg-[#4B5160]",
+                    ]}
+                  />
+                  {p.status} · {p.stack}
+                </span>
+              </div>
+              <p class="m-0 text-[15px] leading-[1.6] text-soft">{p.desc}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

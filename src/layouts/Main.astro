@@ -1,5 +1,4 @@
 ---
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import { SITE } from "@/config";
 
 type StringTitle = { pageTitle: string };
@@ -12,21 +11,26 @@ const { props } = Astro;
 const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
 ---
 
-<Breadcrumb />
-<main data-backUrl={backUrl} id="main-content" class="app-layout pb-4">
-  {
-    "titleTransition" in props ? (
-      <h1 class="text-2xl font-semibold sm:text-3xl">
-        {props.pageTitle[0]}
-        <span transition:name={props.titleTransition}>
-          {props.pageTitle[1]}
-        </span>
-      </h1>
-    ) : (
-      <h1 class="text-2xl font-semibold sm:text-3xl">{props.pageTitle}</h1>
-    )
-  }
-  <p class="mt-2 mb-6 italic">{props.pageDesc}</p>
+<main
+  data-backUrl={backUrl}
+  id="main-content"
+  class="flex flex-col gap-8 pt-12 pb-24"
+>
+  <div class="flex flex-col gap-3.5">
+    {
+      "titleTransition" in props ? (
+        <h1 class="page-title">
+          {props.pageTitle[0]}
+          <span transition:name={props.titleTransition}>
+            {props.pageTitle[1]}
+          </span>
+        </h1>
+      ) : (
+        <h1 class="page-title">{props.pageTitle}</h1>
+      )
+    }
+    {props.pageDesc && <p class="page-lead">{props.pageDesc}</p>}
+  </div>
   <slot />
 </main>
 

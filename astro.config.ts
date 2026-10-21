@@ -9,21 +9,26 @@ import {
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
+import { remarkStripBanner } from "./src/utils/remarkStripBanner";
 import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  base: '/',
-  output: 'static',
-  outDir: 'dist',
+  base: "/",
+  output: "static",
+  outDir: "dist",
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
     }),
   ],
   markdown: {
-    remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
+    remarkPlugins: [
+      remarkStripBanner,
+      remarkToc,
+      [remarkCollapse, { test: "Table of contents" }],
+    ],
     shikiConfig: {
       // For more themes, visit https://shiki.style/themes
       themes: { light: "min-light", dark: "night-owl" },
@@ -64,12 +69,30 @@ export default defineConfig({
     preserveScriptOrder: true,
     fonts: [
       {
-        name: "Google Sans Code",
-        cssVariable: "--font-google-sans-code",
+        name: "Literata",
+        cssVariable: "--font-literata",
+        provider: fontProviders.google(),
+        fallbacks: ["Georgia", "serif"],
+        weights: [400, 500, 600],
+        styles: ["normal", "italic"],
+        subsets: ["latin", "latin-ext"],
+      },
+      {
+        name: "Geist",
+        cssVariable: "--font-geist",
+        provider: fontProviders.google(),
+        fallbacks: ["system-ui", "sans-serif"],
+        weights: [400, 500, 600],
+        styles: ["normal"],
+        subsets: ["latin", "latin-ext"],
+      },
+      {
+        name: "JetBrains Mono",
+        cssVariable: "--font-jetbrains-mono",
         provider: fontProviders.google(),
         fallbacks: ["monospace"],
-        weights: [300, 400, 500, 600, 700],
-        styles: ["normal", "italic"],
+        weights: [400],
+        styles: ["normal"],
         subsets: ["latin", "latin-ext"],
       },
     ],

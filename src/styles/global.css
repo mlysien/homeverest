@@ -1,49 +1,81 @@
 @import "tailwindcss";
 @import "./typography.css";
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-:root,
-html[data-theme="light"] {
-  --background: #ECE4D8;
-  --foreground: #2E2A27;
-  --accent: #5E6785;
-  --muted: #8B8680;
-  --border: #D8D0C4;
-}
-
-html[data-theme="dark"] {
-  --background: #1F1D1A;
-  --foreground: #F3EEE6;
-  --accent: #8893B5;
-  --muted: #A19A90;
-  --border: #3B3732;
+:root {
+  --background: #111318;
+  --column: rgba(21, 23, 29, 0.72);
+  --surface: #1a1d24;
+  --surface-sunken: #15171d;
+  --foreground: #ecedf0;
+  --prose: #c9cdd5;
+  --subtle: #b9bec8;
+  --soft: #9aa1ae;
+  --muted: #7c8392;
+  --faint: #6b7280;
+  --border: #22262e;
+  --border-strong: #2a2e37;
+  --border-hover: #3a3f4b;
+  --dot: #2f3440;
+  --accent: #818cf8;
+  --accent-soft: #a5b4fc;
+  --accent-strong: #c7d2fe;
+  --signal: #06b6d4;
+  --gutter: clamp(20px, 5vw, 48px);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --font-app: var(--font-google-sans-code);
+  --font-app: var(--font-geist);
+  --font-serif: var(--font-literata);
+  --font-mono: var(--font-jetbrains-mono);
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-sunken: var(--surface-sunken);
   --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
+  --color-prose: var(--prose);
+  --color-subtle: var(--subtle);
+  --color-soft: var(--soft);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-border-hover: var(--border-hover);
+  --color-dot: var(--dot);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong);
+  --color-signal: var(--signal);
 }
 
 @layer base {
   * {
     @apply border-border outline-accent/75;
     scrollbar-width: auto;
-    scrollbar-color: var(--color-muted) transparent;
+    scrollbar-color: var(--color-dot) transparent;
   }
   html {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
+    @apply min-h-svh bg-background font-app text-foreground antialiased;
+    background-color: var(--background);
+  }
+  /* Hand-drawn dev doodles, tiled on an oversized layer rotated behind the page */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560'%3E%3Cg fill='none' stroke='%231C1F26' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg transform='translate(70 70) scale(0.9091) translate(-46 -54)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M34 44 l-10 10 l10 10 M58 44 l10 10 l-10 10 M50 40 l-8 28'/%3E%3C/g%3E%3Cg transform='translate(210 70) scale(0.8696) translate(-245 -47)'%3E%3Crect vector-effect='non-scaling-stroke' x='222' y='30' width='46' height='34' rx='5'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M222 40 h46 M230 50 l5 4 l-5 4 M240 58 h10'/%3E%3C/g%3E%3Cg transform='translate(350 70) scale(1.0811) translate(-272 -144)'%3E%3Cellipse vector-effect='non-scaling-stroke' cx='272' cy='132' rx='16' ry='6'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M256 132 v24 q16 10 32 0 v-24 M256 144 q16 10 32 0'/%3E%3C/g%3E%3Cg transform='translate(490 70) scale(0.8333) translate(-54 -150)'%3E%3Ccircle vector-effect='non-scaling-stroke' cx='40' cy='130' r='4'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='40' cy='170' r='4'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='68' cy='146' r='4'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M40 134 v32 M43 133 q22 2 22 10'/%3E%3C/g%3E%3Cg transform='translate(140 210) scale(0.6897) translate(-143 -209)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M120 226 h40 q12 0 12 -11 q0 -11 -12 -11 q-2 -12 -16 -12 q-12 0 -16 9 q-14 -1 -14 12 q0 13 6 13 z'/%3E%3C/g%3E%3Cg transform='translate(280 210) scale(1.0) translate(-143 -46)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M150 26 q-8 0 -8 8 v6 q0 6 -6 6 q6 0 6 6 v6 q0 8 8 8'/%3E%3C/g%3E%3Cg transform='translate(420 210) scale(0.7407) translate(-145 -123.5)'%3E%3Crect vector-effect='non-scaling-stroke' x='118' y='108' width='54' height='38' rx='6'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='145' cy='127' r='11'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='145' cy='127' r='5'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M130 108 l4 -7 h14 l4 7'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='162' cy='116' r='1.5'/%3E%3C/g%3E%3Cg transform='translate(560 210) scale(0.8333) translate(-505 -150)'%3E%3Crect vector-effect='non-scaling-stroke' x='487' y='132' width='36' height='36' rx='4'/%3E%3Crect vector-effect='non-scaling-stroke' x='497' y='142' width='16' height='16' rx='2'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M495 132 v-6 M495 168 v6 M487 140 h-6 M523 140 h6 M505 132 v-6 M505 168 v6 M487 150 h-6 M523 150 h6 M515 132 v-6 M515 168 v6 M487 160 h-6 M523 160 h6'/%3E%3C/g%3E%3Cg transform='translate(0 210) scale(0.8333) translate(-505 -150)'%3E%3Crect vector-effect='non-scaling-stroke' x='487' y='132' width='36' height='36' rx='4'/%3E%3Crect vector-effect='non-scaling-stroke' x='497' y='142' width='16' height='16' rx='2'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M495 132 v-6 M495 168 v6 M487 140 h-6 M523 140 h6 M505 132 v-6 M505 168 v6 M487 150 h-6 M523 150 h6 M515 132 v-6 M515 168 v6 M487 160 h-6 M523 160 h6'/%3E%3C/g%3E%3Cg transform='translate(70 350) scale(1.1111) translate(-230 -230)'%3E%3Ccircle vector-effect='non-scaling-stroke' cx='230' cy='230' r='18'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M230 212 l10 15 M248 230 l-17 2 M239 246 l-9 -15 M212 230 l17 -2 M221 214 l9 15 M244 240 l-7 -11 M216 220 l7 11'/%3E%3C/g%3E%3Cg transform='translate(210 350) scale(1.6667) translate(-350 -140)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M350 128 q1.8 10.2 12 12 q-10.2 1.8 -12 12 q-1.8 -10.2 -12 -12 q10.2 -1.8 12 -12 z'/%3E%3C/g%3E%3Cg transform='translate(350 350) scale(0.625) translate(-52 -259)'%3E%3Crect vector-effect='non-scaling-stroke' x='20' y='244' width='64' height='30' rx='3'/%3E%3Cpath vector-effect='non-scaling-stroke' d='M40 244 v30 M64 244 v30 M24 248 h4 M32 248 h4 M48 248 h4 M56 248 h4 M70 248 h4 M24 270 h4 M32 270 h4 M48 270 h4 M56 270 h4 M70 270 h4'/%3E%3C/g%3E%3Cg transform='translate(490 350) scale(0.8333) translate(-203 -116)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M196 100 h14 M196 124 h14 M200 132 v8 h6 v-8'/%3E%3Crect vector-effect='non-scaling-stroke' x='196' y='92' width='14' height='40' rx='3'/%3E%3C/g%3E%3Cg transform='translate(140 490) scale(0.6349) translate(-168 -360)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M140 346 L168 338 M140 346 L168 360 M140 346 L168 382 M140 374 L168 338 M140 374 L168 360 M140 374 L168 382 M168 338 L196 350 M168 338 L196 370 M168 360 L196 350 M168 360 L196 370 M168 382 L196 350 M168 382 L196 370'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='140' cy='346' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='140' cy='374' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='168' cy='338' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='168' cy='360' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='168' cy='382' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='196' cy='350' r='3.5' fill='%23111318'/%3E%3Ccircle vector-effect='non-scaling-stroke' cx='196' cy='370' r='3.5' fill='%23111318'/%3E%3C/g%3E%3Cg transform='translate(280 490) scale(1.0) translate(-301 -288)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M286 268 h10 v10 M286 308 h10 v-10 M316 268 h-6 M316 308 h-6'/%3E%3C/g%3E%3Cg transform='translate(420 490) scale(1.25) translate(-150 -300)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M140 292 h-6 v16 h6 M160 292 h6 v16 h-6'/%3E%3C/g%3E%3Cg transform='translate(560 490) scale(1.6667) translate(-350 -140)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M350 128 q1.8 10.2 12 12 q-10.2 1.8 -12 12 q-1.8 -10.2 -12 -12 q10.2 -1.8 12 -12 z'/%3E%3C/g%3E%3Cg transform='translate(0 490) scale(1.6667) translate(-350 -140)'%3E%3Cpath vector-effect='non-scaling-stroke' d='M350 128 q1.8 10.2 12 12 q-10.2 1.8 -12 12 q-1.8 -10.2 -12 -12 q10.2 -1.8 12 -12 z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    transform: rotate(-12deg);
+  }
+  ::selection {
+    background: rgb(129 140 248 / 0.35);
   }
   a,
   button {
-    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+    @apply outline-offset-2 outline-accent focus-visible:outline-2;
   }
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -51,20 +83,57 @@ html[data-theme="dark"] {
   }
 }
 
+/* Centered reading column that sits on top of the doodle pattern */
+@utility app-shell {
+  @apply mx-auto flex min-h-svh w-full max-w-[1000px] flex-col border-x border-white/6 backdrop-blur-[6px];
+  padding-inline: var(--gutter);
+  background: var(--column);
+}
+
 @utility max-w-app {
-  @apply max-w-3xl;
+  @apply max-w-none;
 }
 
 @utility app-layout {
-  @apply mx-auto w-full max-w-app px-4;
+  @apply w-full;
+}
+
+/* Pull an element out to the column edges */
+@utility bleed {
+  margin-inline: calc(-1 * var(--gutter));
+}
+
+@utility link {
+  @apply text-accent-soft underline decoration-accent/40 underline-offset-3 hover:text-accent-strong hover:decoration-accent;
+}
+
+@utility card {
+  @apply rounded-2xl border border-border bg-surface transition-colors;
+}
+
+@utility grayscale-photo {
+  filter: grayscale(0.85) contrast(0.95);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility page-title {
+  @apply m-0 font-serif text-[40px] leading-tight font-medium;
+}
+
+@utility page-lead {
+  @apply m-0 font-serif text-lg leading-[1.7] text-subtle;
 }
 
 .active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+  @apply border-accent text-foreground;
 }
 
-/* Source: https://piccalil.li/blog/a-more-modern-css-reset/ */
-/* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 1rem;
 }

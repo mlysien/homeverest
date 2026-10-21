@@ -1,0 +1,105 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { MEDIA } from "@/content-data/media";
+import { SITE } from "@/config";
+
+const TABS = [
+  ["all", "All"],
+  ["article", "Articles"],
+  ["podcast", "Podcasts"],
+] as const;
+---
+
+<Layout title={`Media | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle="Media"
+    pageDesc="Articles I've written for other publications and the podcast I host."
+  >
+    <div class="flex flex-wrap gap-1.5" role="group" aria-label="Filter">
+      {
+        TABS.map(([id, label], i) => (
+          <button
+            data-media-tab={id}
+            aria-pressed={i === 0 ? "true" : "false"}
+            class="rounded-full border border-border-strong px-3.5 py-2 text-[13px] text-soft transition-colors hover:border-accent aria-pressed:border-accent aria-pressed:bg-accent/12 aria-pressed:text-foreground"
+          >
+            {label}
+          </button>
+        ))
+      }
+    </div>
+    <ul class="flex flex-col gap-3">
+      {
+        MEDIA.map(m => (
+          <li data-media-type={m.type}>
+            <a
+              href={m.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="grid grid-cols-[72px_minmax(0,1fr)] items-center gap-[18px] card rounded-[14px] p-3.5 hover:border-border-hover"
+            >
+              <div class="relative flex size-[72px] items-center justify-center overflow-hidden rounded-[10px] bg-[#232630]">
+                {m.youtube ? (
+                  <>
+                    <img
+                      src={`https://img.youtube.com/vi/${m.youtube}/mqdefault.jpg`}
+                      alt=""
+                      loading="lazy"
+                      class="absolute inset-0 size-full object-cover grayscale-photo"
+                    />
+                    <span class="relative flex size-[30px] items-center justify-center rounded-full bg-background/80 ps-0.5 text-[11px] text-foreground">
+                      ▶
+                    </span>
+                  </>
+                ) : (
+                  <span class="font-serif text-2xl text-muted">Aa</span>
+                )}
+              </div>
+              <div class="flex min-w-0 flex-col gap-[5px]">
+                <span class="flex flex-wrap items-center gap-x-2 text-xs text-muted">
+                  <span
+                    class={
+                      m.type === "podcast" ? "text-signal" : "text-accent-soft"
+                    }
+                  >
+                    {m.type === "podcast" ? "Podcast" : "Article"}
+                  </span>
+                  · {m.outlet}
+                  {m.date && <>· {m.date}</>}
+                </span>
+                <span class="font-serif text-lg leading-[1.35] text-pretty text-foreground">
+                  {m.title}
+                </span>
+                <span class="text-[13px] text-muted">{m.meta} ↗</span>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </Main>
+  <Footer />
+</Layout>
+
+<script>
+  function initMediaTabs() {
+    const tabs =
+      document.querySelectorAll<HTMLButtonElement>("[data-media-tab]");
+    const items = document.querySelectorAll<HTMLElement>("[data-media-type]");
+    tabs.forEach(tab =>
+      tab.addEventListener("click", () => {
+        const id = tab.dataset.mediaTab;
+        tabs.forEach(t => t.setAttribute("aria-pressed", String(t === tab)));
+        items.forEach(item => {
+          item.hidden = id !== "all" && item.dataset.mediaType !== id;
+        });
+      })
+    );
+  }
+
+  document.addEventListener("astro:page-load", initMediaTabs);
+</script>

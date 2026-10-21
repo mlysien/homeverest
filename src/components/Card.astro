@@ -2,32 +2,32 @@
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@/utils/slugify";
 import { getPath } from "@/utils/getPath";
-import Datetime from "./Datetime.astro";
+import { formatDate, getReadTime } from "@/utils/posts";
 
 type Props = {
   variant?: "h2" | "h3";
 } & CollectionEntry<"blog">;
 
-const { variant: Heading = "h2", id, data, filePath } = Astro.props;
+const { variant: Heading = "h2", ...post } = Astro.props;
 
-const { title, description, ...props } = data;
+const { id, data, filePath } = post;
+const { title, description } = data;
 ---
 
-<li class="my-6">
+<li>
   <a
     href={getPath(id, filePath)}
-    class:list={[
-      "inline-block text-lg font-medium text-accent",
-      "decoration-dashed underline-offset-4 hover:underline",
-      "focus-visible:no-underline focus-visible:underline-offset-0",
-    ]}
+    class="flex flex-col gap-2 card p-[22px_24px] text-foreground hover:border-border-hover"
   >
+    <span class="text-[13px] text-muted">
+      {formatDate(post)} · {getReadTime(post)}
+    </span>
     <Heading
+      class="m-0 font-serif text-xl leading-snug font-medium"
       style={{ viewTransitionName: slugifyStr(title.replaceAll(".", "-")) }}
     >
       {title}
     </Heading>
+    <p class="m-0 text-[15px] leading-[1.6] text-soft">{description}</p>
   </a>
-  <Datetime {...props} />
-  <p>{description}</p>
 </li>

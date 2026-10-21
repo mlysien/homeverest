@@ -1,89 +1,295 @@
 ---
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
+import { getPath } from "@/utils/getPath";
+import {
+  formatDate,
+  formatShortDate,
+  getBanner,
+  getReadTime,
+  getYear,
+} from "@/utils/posts";
+import { slugifyStr } from "@/utils/slugify";
 
-const posts = await getCollection("blog");
+const posts = getSortedPosts(await getCollection("blog"));
+const [latest] = posts;
+const latestBanner = getBanner(latest);
+const latestPath = getPath(latest.id, latest.filePath);
+// The latest post is featured in the hero, so the carousel starts from the next one
+const recentPosts = posts.slice(1, 7);
 
-const sortedPosts = getSortedPosts(posts);
-const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const years: { year: string; posts: typeof posts }[] = [];
+for (const post of posts) {
+  const year = getYear(post);
+  let group = years.find(g => g.year === year);
+  if (!group) years.push((group = { year, posts: [] }));
+  group.posts.push(post);
+}
 ---
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index" class="app-layout">
-    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <p class="mt-4 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
-        Notes on software, architecture, and building things.
-      </p>
-      <p class="mt-4 max-w-2xl text-muted">
-        I'm Mateusz, a software engineer writing about .NET, AI tools, side
-        projects, clean architecture, and the engineering decisions behind them.
-      </p>
+  <main
+    id="main-content"
+    data-layout="index"
+    class="flex flex-col gap-[88px] pt-12 pb-24"
+  >
+    <section
+      id="hero"
+      class="grid items-center gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] md:gap-12"
+    >
+      <div class="flex flex-col gap-5">
+        <span
+          class="font-mono text-[11px] tracking-[0.16em] text-muted uppercase"
+        >
+          Latest post
+          {
+            latest.data.tags[0] && (
+              <>
+                ·{" "}
+                <a
+                  href={`/tags/${slugifyStr(latest.data.tags[0])}/`}
+                  class="text-accent-soft hover:text-accent-strong"
+                >
+                  {latest.data.tags[0]}
+                </a>
+              </>
+            )
+          }
+        </span>
+        <h1
+          class="m-0 font-serif text-[clamp(30px,4.4vw,44px)] leading-[1.15] font-medium tracking-[-0.015em] text-balance"
+        >
+          <a href={latestPath} class="text-foreground hover:text-accent-soft">
+            {latest.data.title}
+          </a>
+        </h1>
+        <span class="text-sm text-muted">
+          <time datetime={latest.data.pubDatetime.toISOString()}>
+            {formatDate(latest)}
+          </time>
+          · {getReadTime(latest)} read
+        </span>
+        <p class="m-0 font-serif text-lg leading-[1.7] text-pretty text-subtle">
+          {latest.data.description}
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <a
+            href={latestPath}
+            class="rounded-[10px] bg-accent px-5 py-3 text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
+          >
+            Read post →
+          </a>
+          <a
+            href="#all-posts"
+            class="rounded-[10px] border border-border-strong px-5 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
+          >
+            All writing
+          </a>
+        </div>
+      </div>
+      <a
+        href={latestPath}
+        aria-hidden="true"
+        tabindex="-1"
+        class="group block overflow-hidden rounded-2xl border border-border bg-surface max-md:order-first"
+      >
+        {
+          latestBanner ? (
+            <Image
+              src={latestBanner}
+              alt=""
+              widths={[600, 900, 1200]}
+              sizes="(max-width: 768px) 100vw, 480px"
+              class="aspect-[3/2] w-full object-cover grayscale-photo transition-[filter,scale] duration-500 group-hover:scale-[1.02] group-hover:filter-none"
+              loading="eager"
+            />
+          ) : (
+            <div class="aspect-[3/2] w-full" />
+          )
+        }
+      </a>
+    </section>
+
+    <section id="recent-posts" class="flex flex-col gap-6" data-carousel>
+      <div class="flex items-baseline justify-between gap-4">
+        <h2 class="m-0 font-serif text-[26px] font-medium">Recent writing</h2>
+        <div class="flex gap-1.5">
+          <button
+            data-carousel-prev
+            aria-label="Previous"
+            class="size-11 rounded-full border border-[#262A33] bg-surface text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
+            >←</button
+          >
+          <button
+            data-carousel-next
+            aria-label="Next"
+            class="size-11 rounded-full border border-[#262A33] bg-surface text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
+            >→</button
+          >
+        </div>
+      </div>
+      <ul
+        data-carousel-track
+        class="bleed no-scrollbar flex snap-x snap-mandatory scroll-px-(--gutter) gap-4 overflow-x-auto px-(--gutter)"
+      >
+        {
+          recentPosts.map(post => {
+            const banner = getBanner(post);
+            return (
+              <li class="w-[min(300px,76vw)] flex-none snap-start">
+                <a
+                  href={getPath(post.id, post.filePath)}
+                  class="group flex h-full flex-col overflow-hidden card text-foreground hover:border-border-hover"
+                >
+                  {banner ? (
+                    <Image
+                      src={banner}
+                      alt=""
+                      width={600}
+                      class="aspect-[3/2] w-full bg-[#1E2129] object-cover grayscale-photo transition-[filter] duration-500 group-hover:filter-none group-focus-visible:filter-none"
+                    />
+                  ) : (
+                    <div class="aspect-[3/2] w-full bg-[#1E2129]" />
+                  )}
+                  <div class="flex flex-col gap-2.5 px-5 pt-[18px] pb-[22px]">
+                    <span class="text-[13px] text-muted">
+                      {formatDate(post)} · {getReadTime(post)}
+                    </span>
+                    <h3 class="m-0 font-serif text-[19px] leading-[1.35] font-medium text-pretty">
+                      {post.data.title}
+                    </h3>
+                  </div>
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <div class="flex justify-center gap-1.5">
+        {
+          recentPosts.map((_, i) => (
+            <button
+              data-carousel-dot={i}
+              aria-label={`Go to post ${i + 1}`}
+              class:list={[
+                "size-1.5 rounded-full p-0 transition-colors",
+                i === 0 ? "bg-accent" : "bg-dot",
+              ]}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <section id="all-posts" class="flex flex-col gap-10">
+      <h2 class="m-0 font-serif text-[26px] font-medium">All writing</h2>
       {
-        // only display if at least one social link is enabled
-        SOCIALS.length > 0 && (
-          <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <Socials />
+        years.map(({ year, posts }) => (
+          <div class="grid grid-cols-[minmax(0,72px)_minmax(0,1fr)] gap-6">
+            <span class="pt-1 font-mono text-[13px] text-muted">{year}</span>
+            <ul class="flex flex-col gap-[18px]">
+              {posts.map(post => (
+                <li>
+                  <a
+                    href={getPath(post.id, post.filePath)}
+                    class="flex items-baseline justify-between gap-5 text-foreground transition-colors hover:text-accent-soft"
+                  >
+                    <span class="font-serif text-lg leading-[1.4]">
+                      {post.data.title}
+                    </span>
+                    <span class="flex-none text-[13px] text-muted">
+                      {formatShortDate(post)}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        )
+        ))
       }
     </section>
 
-    {
-      featuredPosts.length > 0 && (
-        <section
-          id="featured"
-          class:list={[
-            "pt-12 pb-6",
-            { "border-b border-border": recentPosts.length > 0 },
-          ]}
+    <section class="flex flex-col gap-2.5 card p-7">
+      <h2 class="m-0 font-serif text-xl font-medium">Follow along</h2>
+      <p class="m-0 text-[15px] leading-[1.6] text-soft">
+        New posts land in the RSS feed as soon as they're published. Plug it
+        into your reader of choice.
+      </p>
+      <div class="flex flex-wrap gap-2 pt-2">
+        <a
+          href="/rss.xml"
+          class="rounded-[10px] bg-accent px-5 py-3 text-[15px] font-medium text-background transition-colors hover:bg-accent-soft"
         >
-          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
-          <ul>
-            {featuredPosts.map(data => (
-              <Card variant="h3" {...data} />
-            ))}
-          </ul>
-        </section>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="my-8 text-center">
-      <LinkButton href="/posts">
-        All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+          Subscribe via RSS
+        </a>
+        <a
+          href="/tags"
+          class="rounded-[10px] border border-border-strong px-5 py-3 text-[15px] text-foreground transition-colors hover:border-accent"
+        >
+          Browse by tag
+        </a>
+      </div>
+    </section>
   </main>
   <Footer />
 </Layout>
 
 <script>
+  function initCarousel() {
+    const root = document.querySelector<HTMLElement>("[data-carousel]");
+    const track = root?.querySelector<HTMLElement>("[data-carousel-track]");
+    if (!root || !track) return;
+
+    const dots = Array.from(
+      root.querySelectorAll<HTMLButtonElement>("[data-carousel-dot]")
+    );
+    const last = dots.length - 1;
+    let active = 0;
+
+    const step = () => {
+      const card = track.querySelector("li");
+      return card ? card.offsetWidth + 16 : 316;
+    };
+
+    const goTo = (i: number) =>
+      track.scrollTo({ left: i * step(), behavior: "smooth" });
+
+    const setActive = (i: number) => {
+      if (i === active) return;
+      dots[active]?.classList.replace("bg-accent", "bg-dot");
+      dots[i]?.classList.replace("bg-dot", "bg-accent");
+      active = i;
+    };
+
+    track.addEventListener(
+      "scroll",
+      () => {
+        const max = track.scrollWidth - track.clientWidth;
+        setActive(
+          track.scrollLeft >= max - 4
+            ? last
+            : Math.round(track.scrollLeft / step())
+        );
+      },
+      { passive: true }
+    );
+
+    root
+      .querySelector("[data-carousel-prev]")
+      ?.addEventListener("click", () => goTo(Math.max(0, active - 1)));
+    root
+      .querySelector("[data-carousel-next]")
+      ?.addEventListener("click", () => goTo(Math.min(last, active + 1)));
+    dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+  }
+
   document.addEventListener("astro:page-load", () => {
+    initCarousel();
     const indexLayout = (document.querySelector("#main-content") as HTMLElement)
       ?.dataset?.layout;
     if (indexLayout) {

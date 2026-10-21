@@ -1,0 +1,204 @@
+---
+import { Image, getImage } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import Main from "@/layouts/Main.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { PHOTOS } from "@/content-data/photos";
+import { SITE } from "@/config";
+
+// Large, web-friendly version for the viewer; the untouched file is linked as "Original"
+const photos = await Promise.all(
+  PHOTOS.map(async photo => {
+    const large = await getImage({
+      src: photo.src,
+      width: Math.min(2560, photo.src.width),
+      format: "webp",
+    });
+    return { ...photo, large: large.src, original: photo.src.src };
+  })
+);
+---
+
+<Layout title={`Photography | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle="Photography"
+    pageDesc="Outside of code, I enjoy capturing the world through my lens. Here are some moments I’m particularly fond of."
+  >
+    {
+      photos.length === 0 && (
+        <p class="m-0 text-[15px] text-muted">No photos yet.</p>
+      )
+    }
+    <div class="columns-[2_260px] gap-3">
+      {
+        photos.map((photo, i) => (
+          <figure class="m-0 mb-3 flex break-inside-avoid flex-col gap-2">
+            <button
+              data-photo={i}
+              data-large={photo.large}
+              data-original={photo.original}
+              data-caption={photo.caption}
+              data-year={photo.year}
+              aria-label={`Open ${photo.caption}`}
+              class="block cursor-zoom-in rounded-xl p-0"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.caption}
+                widths={[452, 904]}
+                sizes="(max-width: 600px) 100vw, 452px"
+                class="w-full rounded-xl bg-surface grayscale-photo transition-[filter] duration-400 hover:filter-none"
+              />
+            </button>
+            <figcaption class="flex justify-between gap-3 pb-1.5 text-[13px] text-muted">
+              <span>{photo.caption}</span>
+              <span>{photo.year}</span>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </Main>
+  <Footer />
+
+  <dialog
+    id="photo-viewer"
+    aria-label="Photo viewer"
+    class="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-foreground backdrop:bg-[#0b0c10]/95 backdrop:backdrop-blur-sm"
+  >
+    <div class="flex h-full flex-col">
+      <div class="flex items-center justify-between gap-4 px-4 py-3 text-[13px] text-muted sm:px-6">
+        <span data-viewer-counter></span>
+        <div class="flex items-center gap-2">
+          <a
+            data-viewer-original
+            href="#"
+            target="_blank"
+            rel="noopener"
+            class="rounded-full border border-border-strong px-3.5 py-1.5 text-subtle transition-colors hover:border-accent hover:text-foreground"
+          >
+            Original ↗
+          </a>
+          <button
+            data-viewer-close
+            aria-label="Close"
+            class="size-9 rounded-full border border-border-strong text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
+            >✕</button
+          >
+        </div>
+      </div>
+
+      <div
+        data-viewer-stage
+        class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20"
+      >
+        <img
+          data-viewer-img
+          alt=""
+          class="max-h-full max-w-full rounded-lg object-contain shadow-2xl transition-opacity duration-200"
+        />
+        <button
+          data-viewer-prev
+          aria-label="Previous photo"
+          class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
+          >←</button
+        >
+        <button
+          data-viewer-next
+          aria-label="Next photo"
+          class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
+          >→</button
+        >
+      </div>
+
+      <div class="flex justify-between gap-4 px-4 py-4 text-sm sm:px-6">
+        <span data-viewer-caption class="text-foreground"></span>
+        <span data-viewer-year class="text-muted"></span>
+      </div>
+    </div>
+  </dialog>
+</Layout>
+
+<script>
+  function initPhotoViewer() {
+    const dialog = document.querySelector<HTMLDialogElement>("#photo-viewer");
+    const thumbs = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-photo]")
+    );
+    if (!dialog || thumbs.length === 0) return;
+
+    const $ = <T extends Element>(sel: string) => dialog.querySelector<T>(sel)!;
+    const img = $<HTMLImageElement>("[data-viewer-img]");
+    const original = $<HTMLAnchorElement>("[data-viewer-original]");
+    const counter = $<HTMLElement>("[data-viewer-counter]");
+    const caption = $<HTMLElement>("[data-viewer-caption]");
+    const year = $<HTMLElement>("[data-viewer-year]");
+    const stage = $<HTMLElement>("[data-viewer-stage]");
+    let current = 0;
+
+    const preload = (i: number) => {
+      const t = thumbs[(i + thumbs.length) % thumbs.length];
+      new Image().src = t.dataset.large!;
+    };
+
+    const show = (i: number) => {
+      current = (i + thumbs.length) % thumbs.length;
+      const t = thumbs[current];
+      img.style.opacity = "0";
+      img.onload = () => (img.style.opacity = "1");
+      img.src = t.dataset.large!;
+      img.alt = t.dataset.caption!;
+      original.href = t.dataset.original!;
+      caption.textContent = t.dataset.caption!;
+      year.textContent = t.dataset.year!;
+      counter.textContent = `${current + 1} / ${thumbs.length}`;
+      preload(current + 1);
+      preload(current - 1);
+    };
+
+    thumbs.forEach((thumb, i) =>
+      thumb.addEventListener("click", () => {
+        show(i);
+        dialog.showModal();
+        document.documentElement.style.overflow = "hidden";
+      })
+    );
+
+    dialog.addEventListener("close", () => {
+      document.documentElement.style.overflow = "";
+      thumbs[current]?.focus();
+    });
+
+    $("[data-viewer-close]").addEventListener("click", () => dialog.close());
+    $("[data-viewer-prev]").addEventListener("click", () => show(current - 1));
+    $("[data-viewer-next]").addEventListener("click", () => show(current + 1));
+
+    // Click on the empty area around the photo closes the viewer
+    stage.addEventListener("click", e => {
+      if (e.target === stage) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft") show(current - 1);
+      if (e.key === "ArrowRight") show(current + 1);
+    });
+
+    // Swipe left/right on touch screens
+    let touchX: number | null = null;
+    stage.addEventListener(
+      "touchstart",
+      e => (touchX = e.touches[0].clientX),
+      { passive: true }
+    );
+    stage.addEventListener("touchend", e => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+  }
+
+  document.addEventListener("astro:page-load", initPhotoViewer);
+</script>

@@ -53,6 +53,7 @@ const structuredData = {
   dir={SITE.dir}
   lang=`${SITE.lang ?? "en"}`
   class={`${scrollSmooth && "scroll-smooth"}`}
+  data-theme="dark"
 >
   <head>
     <meta charset="UTF-8" />
@@ -63,9 +64,14 @@ const structuredData = {
 
     <!-- Load Font -->
     <Font
-      cssVariable="--font-google-sans-code"
+      cssVariable="--font-literata"
+      preload={[{ subset: "latin", weight: 500, style: "normal" }]}
+    />
+    <Font
+      cssVariable="--font-geist"
       preload={[{ subset: "latin", weight: 400, style: "normal" }]}
     />
+    <Font cssVariable="--font-jetbrains-mono" />
 
     <!-- General Meta Tags -->
     <title>{title}</title>
@@ -122,10 +128,13 @@ const structuredData = {
     />
 
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ddee546674dc4abebc047a4191a2ec22"}'></script>
+    <script
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "ddee546674dc4abebc047a4191a2ec22"}'></script>
     <!-- End Cloudflare Web Analytics -->
 
-    <meta name="theme-color" content="" />
+    <meta name="theme-color" content="#111318" />
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
@@ -140,41 +149,10 @@ const structuredData = {
     }
 
     <ClientRouter />
-
-    <!-- Minimal inline script to prevent FOUC - sets theme immediately -->
-    <script is:inline>
-      (function () {
-        const initialColorScheme = ""; // "light" | "dark"
-        const currentTheme = localStorage.getItem("theme");
-
-        function getPreferTheme() {
-          if (currentTheme) return currentTheme;
-          if (initialColorScheme) return initialColorScheme;
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-        }
-
-        const themeValue = getPreferTheme();
-
-        // Set theme immediately to prevent flash
-        document.firstElementChild?.setAttribute("data-theme", themeValue);
-
-        // Export minimal API for external script
-        window.theme = {
-          themeValue: themeValue,
-          getTheme: () => window.theme.themeValue,
-          setTheme: val => {
-            window.theme.themeValue = val;
-          },
-        };
-      })();
-    </script>
   </head>
   <body>
-    <slot />
-
-    <!-- Load full theme logic -->
-    <script src="../scripts/theme.ts"></script>
+    <div class="app-shell">
+      <slot />
+    </div>
   </body>
 </html>

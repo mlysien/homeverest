@@ -5,7 +5,7 @@ export const SITE = {
   desc: "Notes on software, architecture, and building things.",
   title: "homeverest",
   ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
+  lightAndDarkMode: false,
   postPerIndex: 3,
   postPerPage: 5,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
