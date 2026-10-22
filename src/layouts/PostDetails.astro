@@ -86,57 +86,74 @@ const nextPost =
 
 <Layout {...layoutProps}>
   <Header />
-  <main id="main-content" class="pt-8 pb-24" data-pagefind-body>
-    <BackButton />
-    <div class="flex flex-col gap-10 pt-10 pb-14">
-      <div class="flex max-w-app flex-col gap-[18px]">
-        <span
-          class="font-mono text-[11px] tracking-[0.16em] text-muted uppercase"
-          data-pagefind-ignore
-        >
-          {tags[0]}
-        </span>
+  <main id="main-content" class="pt-12 pb-24" data-pagefind-body>
+    <header
+      class:list={[
+        "grid items-center gap-8 pb-12",
+        { "md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-10": banner },
+      ]}
+    >
+      <div class="flex max-w-app flex-col gap-6">
         <h1
           transition:name={slugifyStr(title.replaceAll(".", "-"))}
-          class="m-0 font-serif text-[clamp(30px,4.6vw,42px)] leading-[1.18] font-medium tracking-[-0.015em] text-balance"
+          class="m-0 font-serif text-[clamp(32px,4.4vw,44px)] leading-[1.12] font-medium tracking-[-0.02em] text-balance"
         >
           {title}
         </h1>
-        <div class="flex items-center gap-3 pt-1" data-pagefind-ignore>
-          <Image
-            src={avatar}
-            alt=""
-            width={72}
-            height={72}
-            class="size-9 rounded-full bg-surface object-cover grayscale"
-          />
-          <div class="flex flex-col gap-0.5">
-            <span class="text-sm">{author}</span>
-            <span class="text-[13px] text-muted">
+        <div class="flex items-center gap-3.5" data-pagefind-ignore>
+          <a
+            href="/about"
+            class="group shrink-0 rounded-full"
+            tabindex="-1"
+            aria-hidden="true"
+          >
+            <Image
+              src={avatar}
+              alt=""
+              width={96}
+              height={96}
+              class="size-12 rounded-full bg-surface object-cover ring-2 ring-border-strong grayscale transition group-hover:ring-accent group-hover:grayscale-0"
+            />
+          </a>
+          <div class="flex flex-col gap-1">
+            <a
+              href="/about"
+              class="w-fit text-base font-medium text-foreground transition-colors hover:text-accent-soft"
+            >
+              {author}
+            </a>
+            <span class="flex flex-wrap items-center gap-x-2 text-sm text-soft">
               <time datetime={pubDatetime.toISOString()}>
                 {formatDate(post)}
               </time>
-              · {getReadTime(post)}
+              <span aria-hidden="true" class="text-faint">·</span>
+              <span>{getReadTime(post)} czytania</span>
             </span>
           </div>
-          <EditPost {hideEditPost} {post} class="ms-auto text-sm text-muted" />
         </div>
+        <ul class="flex flex-wrap gap-2" data-pagefind-ignore>
+          {
+            tags.map(tag => (
+              <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
+            ))
+          }
+        </ul>
       </div>
       {
         banner && (
-          <figure class="m-0 bleed" data-zoomable>
+          <figure class="m-0" data-zoomable>
             <Image
               src={banner}
               alt=""
               widths={[640, 1000, 1400]}
-              sizes="(max-width: 1000px) 100vw, 1000px"
-              class="aspect-video w-full bg-surface object-cover"
+              sizes="(max-width: 768px) 100vw, 430px"
+              class="h-auto w-full rounded-2xl border border-border bg-surface"
               loading="eager"
             />
           </figure>
         )
       }
-    </div>
+    </header>
 
     <article id="article" class="app-prose max-w-app" data-zoomable>
       <Content />
@@ -146,10 +163,10 @@ const nextPost =
       class="mt-16 flex max-w-app flex-col gap-6 border-t border-border pt-10"
       data-pagefind-ignore
     >
-      <ul class="flex flex-wrap gap-2">
-        {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
-      </ul>
-      <ShareLinks />
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <ShareLinks />
+        <EditPost {hideEditPost} {post} class="text-sm text-muted" />
+      </div>
     </div>
 
     <BackToTopButton />
@@ -186,6 +203,10 @@ const nextPost =
           </a>
         )
       }
+    </div>
+
+    <div class="mt-10 flex justify-center" data-pagefind-ignore>
+      <BackButton />
     </div>
   </main>
   <Footer />
