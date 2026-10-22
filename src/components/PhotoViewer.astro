@@ -1,0 +1,212 @@
+---
+/*
+ * Fullscreen image viewer. Opens from:
+ * - buttons with `data-photo` (photography grid), carrying data-large,
+ *   data-original, data-caption and data-year
+ * - any <img> inside an element marked `data-zoomable` (blog posts)
+ */
+---
+
+<dialog
+  id="photo-viewer"
+  aria-label="Przeglądarka zdjęć"
+  data-pagefind-ignore
+  class="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-foreground backdrop:bg-[#0b0c10]/95 backdrop:backdrop-blur-sm"
+>
+  <div class="flex h-full flex-col">
+    <div
+      class="flex items-center justify-between gap-4 px-4 py-3 text-[13px] text-muted sm:px-6"
+    >
+      <span data-viewer-counter></span>
+      <div class="flex items-center gap-2">
+        <a
+          data-viewer-original
+          href="#"
+          target="_blank"
+          rel="noopener"
+          class="rounded-full border border-border-strong px-3.5 py-1.5 text-subtle transition-colors hover:border-accent hover:text-foreground"
+        >
+          Oryginał ↗
+        </a>
+        <button
+          data-viewer-close
+          aria-label="Zamknij"
+          class="size-9 rounded-full border border-border-strong text-base text-subtle transition-colors hover:border-accent hover:text-foreground"
+          >✕</button
+        >
+      </div>
+    </div>
+
+    <div
+      data-viewer-stage
+      class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20"
+    >
+      <img
+        data-viewer-img
+        alt=""
+        class="max-h-full max-w-full rounded-lg object-contain shadow-2xl transition-opacity duration-200"
+      />
+      <button
+        data-viewer-prev
+        aria-label="Poprzednie zdjęcie"
+        class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
+        >←</button
+      >
+      <button
+        data-viewer-next
+        aria-label="Następne zdjęcie"
+        class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
+        >→</button
+      >
+    </div>
+
+    <div class="flex min-h-13 justify-between gap-4 px-4 py-4 text-sm sm:px-6">
+      <span data-viewer-caption class="text-foreground"></span>
+      <span data-viewer-year class="text-muted"></span>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  type Item = {
+    trigger: HTMLElement;
+    large: string;
+    original?: string;
+    caption?: string;
+    year?: string;
+  };
+
+  // Markdown images often keep the editor's placeholder alt text
+  const GENERIC_ALT = /^(image|img|banner|screenshot|obraz|zdjęcie)?(-\d+)?$/i;
+
+  function collectItems(): Item[] {
+    const photos = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-photo]")
+    ).map(trigger => ({
+      trigger,
+      large: trigger.dataset.large!,
+      original: trigger.dataset.original,
+      caption: trigger.dataset.caption,
+      year: trigger.dataset.year,
+    }));
+
+    const postImages = Array.from(
+      document.querySelectorAll<HTMLImageElement>("[data-zoomable] img")
+    )
+      // Images that already link somewhere keep their link
+      .filter(img => !img.closest("a"))
+      .map(img => {
+        const alt = img.alt.trim();
+        const caption = GENERIC_ALT.test(alt) ? undefined : alt;
+        img.tabIndex = 0;
+        img.setAttribute("role", "button");
+        img.setAttribute(
+          "aria-label",
+          caption ? `Powiększ: ${caption}` : "Powiększ obraz"
+        );
+        img.classList.add("cursor-zoom-in");
+        return { trigger: img, large: img.src, caption };
+      });
+
+    return [...photos, ...postImages];
+  }
+
+  function initPhotoViewer() {
+    const dialog = document.querySelector<HTMLDialogElement>("#photo-viewer");
+    if (!dialog) return;
+    const items = collectItems();
+    if (items.length === 0) return;
+
+    const $ = <T extends Element>(sel: string) => dialog.querySelector<T>(sel)!;
+    const img = $<HTMLImageElement>("[data-viewer-img]");
+    const original = $<HTMLAnchorElement>("[data-viewer-original]");
+    const counter = $<HTMLElement>("[data-viewer-counter]");
+    const caption = $<HTMLElement>("[data-viewer-caption]");
+    const year = $<HTMLElement>("[data-viewer-year]");
+    const stage = $<HTMLElement>("[data-viewer-stage]");
+    const prev = $<HTMLButtonElement>("[data-viewer-prev]");
+    const next = $<HTMLButtonElement>("[data-viewer-next]");
+    const single = items.length === 1;
+    let current = 0;
+
+    // Navigation makes no sense with a single image
+    prev.classList.toggle("sm:block", !single);
+    next.classList.toggle("sm:block", !single);
+    counter.hidden = single;
+
+    const preload = (i: number) => {
+      new Image().src = items[(i + items.length) % items.length].large;
+    };
+
+    const show = (i: number) => {
+      current = (i + items.length) % items.length;
+      const item = items[current];
+      img.style.opacity = "0";
+      img.onload = () => (img.style.opacity = "1");
+      img.src = item.large;
+      img.alt = item.caption ?? "";
+      original.hidden = !item.original;
+      original.href = item.original ?? "#";
+      caption.textContent = item.caption ?? "";
+      year.textContent = item.year ?? "";
+      counter.textContent = `${current + 1} / ${items.length}`;
+      if (!single) {
+        preload(current + 1);
+        preload(current - 1);
+      }
+    };
+
+    const open = (i: number) => {
+      show(i);
+      dialog.showModal();
+      document.documentElement.style.overflow = "hidden";
+    };
+
+    items.forEach(({ trigger }, i) => {
+      trigger.addEventListener("click", () => open(i));
+      // Post images are not native buttons, so handle the keyboard ourselves
+      if (trigger instanceof HTMLImageElement) {
+        trigger.addEventListener("keydown", e => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            open(i);
+          }
+        });
+      }
+    });
+
+    dialog.addEventListener("close", () => {
+      document.documentElement.style.overflow = "";
+      items[current]?.trigger.focus();
+    });
+
+    $("[data-viewer-close]").addEventListener("click", () => dialog.close());
+    prev.addEventListener("click", () => show(current - 1));
+    next.addEventListener("click", () => show(current + 1));
+
+    // Click on the empty area around the photo closes the viewer
+    stage.addEventListener("click", e => {
+      if (e.target === stage) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", e => {
+      if (single) return;
+      if (e.key === "ArrowLeft") show(current - 1);
+      if (e.key === "ArrowRight") show(current + 1);
+    });
+
+    // Swipe left/right on touch screens
+    let touchX: number | null = null;
+    stage.addEventListener("touchstart", e => (touchX = e.touches[0].clientX), {
+      passive: true,
+    });
+    stage.addEventListener("touchend", e => {
+      if (touchX === null || single) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+  }
+
+  document.addEventListener("astro:page-load", initPhotoViewer);
+</script>

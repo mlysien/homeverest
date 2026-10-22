@@ -15,11 +15,11 @@ export const PROJECTS: Project[] = [
     href: "https://github.com/mlysien/homeverest",
   },
   {
-    name: "Pomodoro",
-    desc: "Desktopowy timer Pomodoro zbudowany od zera z Cursorem jako partnerem do programowania w parach.",
+    name: "Journal",
+    desc: "Desktopowy dziennik w Markdownie, działający lokalnie: codzienna notatka z listą zadań, które same przechodzą na kolejny dzień, oraz notatki z podglądem na żywo.",
     status: "Aktywny",
-    stack: "Tauri · Rust · TypeScript",
-    href: "https://github.com/mlysien/Pomodoro",
+    stack: "Electron · React · TypeScript",
+    href: "https://github.com/mlysien/journal",
   },
   {
     name: "Integrify",

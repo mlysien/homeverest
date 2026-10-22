@@ -1,5 +1,7 @@
 ---
 import { SITE } from "@/config";
+import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
+import IconX from "@/assets/icons/IconX.svg";
 
 const { pathname } = Astro.url;
 
@@ -37,8 +39,25 @@ const isActive = (match: string[]) =>
     ></span>
     <span class="relative">{SITE.title}</span>
   </a>
-  <nav aria-label="Główna nawigacja">
-    <ul class="flex flex-wrap items-center gap-x-[22px] gap-y-2">
+  <button
+    id="menu-btn"
+    type="button"
+    aria-label="Otwórz menu"
+    aria-expanded="false"
+    aria-controls="main-nav"
+    class="-me-2 p-2 text-muted transition-colors hover:text-foreground md:hidden"
+  >
+    <IconMenuDeep id="menu-icon" class="size-6" />
+    <IconX id="close-icon" class="hidden size-6" />
+  </button>
+  <nav
+    id="main-nav"
+    aria-label="Główna nawigacja"
+    class="hidden w-full md:block md:w-auto"
+  >
+    <ul
+      class="flex flex-col gap-1 border-t border-border pt-3 md:flex-row md:flex-wrap md:items-center md:gap-x-[22px] md:gap-y-2 md:border-0 md:pt-0"
+    >
       {
         NAV.map(({ href, label, match }) => (
           <li>
@@ -46,7 +65,7 @@ const isActive = (match: string[]) =>
               href={href}
               aria-current={isActive(match) ? "page" : undefined}
               class:list={[
-                "block border-b border-transparent py-1 text-sm text-muted transition-colors hover:text-foreground",
+                "block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm",
                 { "active-nav": isActive(match) },
               ]}
             >
@@ -58,3 +77,23 @@ const isActive = (match: string[]) =>
     </ul>
   </nav>
 </header>
+
+<script>
+  function initMenu() {
+    const btn = document.querySelector("#menu-btn");
+    const nav = document.querySelector("#main-nav");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+    if (!btn || !nav || !menuIcon || !closeIcon) return;
+
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("hidden") === false;
+      btn.setAttribute("aria-expanded", String(open));
+      btn.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
+      menuIcon.classList.toggle("hidden", open);
+      closeIcon.classList.toggle("hidden", !open);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initMenu);
+</script>

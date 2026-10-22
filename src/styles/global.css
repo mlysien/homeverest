@@ -85,9 +85,16 @@
 
 /* Centered reading column that sits on top of the doodle pattern */
 @utility app-shell {
-  @apply mx-auto flex min-h-svh w-full max-w-[1000px] flex-col border-x border-white/6 backdrop-blur-[6px];
+  @apply relative isolate mx-auto flex min-h-svh w-full max-w-[1000px] flex-col border-x border-white/6;
   padding-inline: var(--gutter);
-  background: var(--column);
+
+  /* Blur lives on a pseudo-element: backdrop-filter on the shell itself
+     would become the containing block for position:fixed descendants */
+  &::before {
+    @apply absolute inset-0 -z-10 backdrop-blur-[6px];
+    content: "";
+    background: var(--column);
+  }
 }
 
 @utility max-w-app {

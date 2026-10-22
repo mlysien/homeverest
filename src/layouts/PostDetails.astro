@@ -9,6 +9,7 @@ import EditPost from "@/components/EditPost.astro";
 import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
+import PhotoViewer from "@/components/PhotoViewer.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import { formatDate, getBanner, getReadTime } from "@/utils/posts";
@@ -123,7 +124,7 @@ const nextPost =
       </div>
       {
         banner && (
-          <figure class="m-0 bleed">
+          <figure class="m-0 bleed" data-zoomable>
             <Image
               src={banner}
               alt=""
@@ -137,7 +138,7 @@ const nextPost =
       }
     </div>
 
-    <article id="article" class="app-prose max-w-app">
+    <article id="article" class="app-prose max-w-app" data-zoomable>
       <Content />
     </article>
 
@@ -152,6 +153,7 @@ const nextPost =
     </div>
 
     <BackToTopButton />
+    <PhotoViewer />
 
     <!-- Previous/Next Post Buttons -->
     <div

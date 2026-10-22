@@ -1,22 +1,8 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { execSync } from "node:child_process";
 import { SITE } from "@/config";
 
 const currentYear = new Date().getFullYear();
-
-const git = (cmd: string) => execSync(`git ${cmd}`).toString().trim();
-
-// Short hash of the commit the site was built from
-let commit: string | undefined;
-// Only link to GitHub once the commit has been pushed, otherwise it 404s
-let pushed = false;
-try {
-  commit = git("rev-parse --short HEAD");
-  pushed = git("branch -r --contains HEAD") !== "";
-} catch {
-  // No git available: hide the version or leave it unlinked
-}
 
 type Props = {
   noMarginTop?: boolean;
@@ -34,25 +20,5 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   {...attrs}
 >
   <span>© {currentYear} {SITE.author}</span>
-  <div class="flex items-center gap-4">
-    {
-      commit &&
-        (pushed ? (
-          <a
-            href={`https://github.com/mlysien/homeverest/commit/${commit}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Wersja strony (commit)"
-            class="font-mono transition-colors hover:text-foreground"
-          >
-            v{commit}
-          </a>
-        ) : (
-          <span class="font-mono" title="Wersja strony (commit)">
-            v{commit}
-          </span>
-        ))
-    }
-    <a href="/rss.xml" class="link">RSS</a>
-  </div>
+  <a href="/rss.xml" class="link">RSS</a>
 </footer>
