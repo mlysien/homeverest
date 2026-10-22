@@ -57,23 +57,26 @@ const photos = await Promise.all(
   })
 );
 
-// Oldest first (file name breaks ties), so numbering follows when photos were taken
+// Oldest first (file name breaks ties)
 photos.sort(
   (a, b) => a.date.getTime() - b.date.getTime() || a.name.localeCompare(b.name)
 );
 
-// Captions like PHOTO2026001: year + running number within that year
-const perYear = new Map<string, number>();
-const numbered: Photo[] = photos.map(({ src, year, date }) => {
-  const n = (perYear.get(year) ?? 0) + 1;
-  perYear.set(year, n);
+// Captions like "Październik 2025": when the photo was taken
+const MONTH_YEAR = new Intl.DateTimeFormat("pl", {
+  month: "long",
+  year: "numeric",
+});
+
+const captioned: Photo[] = photos.map(({ src, year, date }) => {
+  const label = MONTH_YEAR.format(date);
   return {
     src,
     year,
     date,
-    caption: `PHOTO${year}${String(n).padStart(3, "0")}`,
+    caption: label.charAt(0).toUpperCase() + label.slice(1),
   };
 });
 
 /** Newest first */
-export const PHOTOS: Photo[] = numbered.reverse();
+export const PHOTOS: Photo[] = captioned.reverse();

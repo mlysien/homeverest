@@ -41,21 +41,19 @@ const photos = await Promise.all(
               data-large={photo.large}
               data-original={photo.original}
               data-caption={photo.caption}
-              data-year={photo.year}
-              aria-label={`Otwórz ${photo.caption}`}
+              aria-label={`Otwórz zdjęcie: ${photo.caption}`}
               class="block cursor-zoom-in rounded-xl p-0"
             >
               <Image
                 src={photo.src}
-                alt={photo.caption}
+                alt={`Zdjęcie: ${photo.caption}`}
                 widths={[452, 904]}
                 sizes="(max-width: 1000px) 50vw, 452px"
                 class="w-full rounded-xl bg-surface grayscale-photo transition-[filter] duration-400 hover:filter-none"
               />
             </button>
-            <figcaption class="flex justify-between gap-2 pb-1.5 text-xs text-muted sm:gap-3 sm:text-[13px]">
-              <span>{photo.caption}</span>
-              <span>{photo.year}</span>
+            <figcaption class="pb-1.5 text-xs text-muted sm:text-[13px]">
+              {photo.caption}
             </figcaption>
           </figure>
         ))

@@ -9,6 +9,29 @@ export type MediaItem = {
   youtube?: string;
 };
 
+/** Short Polish month names, as used in `date` ("kwi 2024") */
+const MONTHS = [
+  "sty",
+  "lut",
+  "mar",
+  "kwi",
+  "maj",
+  "cze",
+  "lip",
+  "sie",
+  "wrz",
+  "paź",
+  "lis",
+  "gru",
+];
+
+/** "kwi 2024" -> 202403, comparable; undated items sort last */
+function sortKey({ date }: MediaItem) {
+  const [month, year] = date?.split(" ") ?? [];
+  const m = MONTHS.indexOf(month);
+  return m === -1 ? -1 : Number(year) * 100 + m;
+}
+
 const BGP_EPISODES = [
   "865bnirxGVs",
   "0f8qhMQiowQ",
@@ -18,7 +41,7 @@ const BGP_EPISODES = [
   "_vgua0788vE",
 ];
 
-export const MEDIA: MediaItem[] = [
+const ITEMS: MediaItem[] = [
   {
     type: "article",
     title: "Jak wygląda praca Software System Engineera w intralogistyce?",
@@ -27,14 +50,16 @@ export const MEDIA: MediaItem[] = [
     meta: "Wywiad",
     href: "https://justjoin.it/blog/praca-software-system-engineera-intralogistyka",
   },
+  // One episode a month, starting January 2025
   ...BGP_EPISODES.map((youtube, i) => ({
     type: "podcast" as const,
     title: `BGP Insights — Odcinek ${i + 1}`,
     outlet: "Beumer Group Poland",
+    date: `${MONTHS[i]} 2025`,
     meta: "Prowadzący",
     href: `https://www.youtube.com/watch?v=${youtube}`,
     youtube,
-  })).reverse(),
+  })),
   {
     type: "article",
     title: "Zdarzenia i delegaty w języku C#",
@@ -52,3 +77,6 @@ export const MEDIA: MediaItem[] = [
     href: "https://blog.i-systems.pl/wzorzec-projektowy-adapter/",
   },
 ];
+
+/** Newest first */
+export const MEDIA = ITEMS.toSorted((a, b) => sortKey(b) - sortKey(a));

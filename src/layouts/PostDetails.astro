@@ -87,70 +87,104 @@ const nextPost =
 <Layout {...layoutProps}>
   <Header />
   <main id="main-content" class="pt-12 pb-24" data-pagefind-body>
-    <header
-      class:list={[
-        "grid items-center gap-8 pb-12",
-        { "md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-10": banner },
-      ]}
-    >
-      <div class="flex max-w-app flex-col gap-6">
+    <header class="flex flex-col gap-8 pb-12">
+      <div class="flex flex-col gap-5">
         <h1
           transition:name={slugifyStr(title.replaceAll(".", "-"))}
-          class="m-0 font-serif text-[clamp(32px,4.4vw,44px)] leading-[1.12] font-medium tracking-[-0.02em] text-balance"
+          class="m-0 font-serif text-[clamp(40px,5vw,48px)] leading-[1.12] font-medium tracking-[-0.02em] text-pretty"
         >
-          {title}
+          {
+            /* Keep one-letter words (z, w, i…) with the next word, per Polish typography */
+          }
+          {title.replace(/(^|\s)([aiouwzAIOUWZ]) /g, "$1$2\u00A0")}
         </h1>
-        <div class="flex items-center gap-3.5" data-pagefind-ignore>
-          <a
-            href="/about"
-            class="group shrink-0 rounded-full"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <Image
-              src={avatar}
-              alt=""
-              width={96}
-              height={96}
-              class="size-12 rounded-full bg-surface object-cover ring-2 ring-border-strong grayscale transition group-hover:ring-accent group-hover:grayscale-0"
-            />
-          </a>
-          <div class="flex flex-col gap-1">
+        <!-- Meta: author | date | reading time | tags, each with a small label -->
+        <dl
+          class="m-0 flex flex-wrap items-center gap-x-5 gap-y-4 text-[15px] text-soft sm:gap-x-6"
+          data-pagefind-ignore
+        >
+          <div class="flex basis-full items-center gap-3 sm:basis-auto">
             <a
               href="/about"
-              class="w-fit text-base font-medium text-foreground transition-colors hover:text-accent-soft"
+              class="group shrink-0 rounded-full"
+              tabindex="-1"
+              aria-hidden="true"
             >
-              {author}
+              <Image
+                src={avatar}
+                alt=""
+                width={96}
+                height={96}
+                class="size-10 rounded-full bg-surface object-cover ring-2 ring-border-strong grayscale transition group-hover:ring-accent group-hover:grayscale-0"
+              />
             </a>
-            <span class="flex flex-wrap items-center gap-x-2 text-sm text-soft">
-              <time datetime={pubDatetime.toISOString()}>
-                {formatDate(post)}
-              </time>
-              <span aria-hidden="true" class="text-faint">·</span>
-              <span>{getReadTime(post)} czytania</span>
-            </span>
+            <div class="flex flex-col gap-1">
+              <dt class="meta-label">Autor</dt>
+              <dd class="m-0">
+                <a
+                  href="/about"
+                  class="font-medium text-foreground transition-colors hover:text-accent-soft"
+                >
+                  {author}
+                </a>
+              </dd>
+            </div>
           </div>
-        </div>
-        <ul class="flex flex-wrap gap-2" data-pagefind-ignore>
-          {
-            tags.map(tag => (
-              <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
-            ))
-          }
-        </ul>
+          <span class="hidden h-10 w-px bg-white/15 sm:block" aria-hidden="true"
+          ></span>
+          <div class="flex flex-col gap-1">
+            <dt class="meta-label">Opublikowano</dt>
+            <dd class="m-0">
+              <time datetime={pubDatetime.toISOString()}
+                >{formatDate(post)}</time
+              >
+            </dd>
+          </div>
+          <span class="h-10 w-px bg-white/15" aria-hidden="true"></span>
+          <div class="flex flex-col gap-1">
+            <dt class="meta-label">Czas czytania</dt>
+            <dd class="m-0">{getReadTime(post)}</dd>
+          </div>
+          <span class="hidden h-10 w-px bg-white/15 lg:block" aria-hidden="true"
+          ></span>
+          <div class="flex basis-full flex-col gap-1.5 lg:basis-auto">
+            <dt class="meta-label">Tagi</dt>
+            <dd class="m-0">
+              <ul class="flex flex-wrap gap-1.5">
+                {
+                  tags.map(tag => (
+                    <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
+                  ))
+                }
+              </ul>
+            </dd>
+          </div>
+        </dl>
       </div>
+
       {
         banner && (
-          <figure class="m-0" data-zoomable>
+          <div class="relative isolate">
+            {/* Ambient glow: a blurred copy of the banner, shaped like it */}
             <Image
               src={banner}
               alt=""
-              widths={[640, 1000, 1400]}
-              sizes="(max-width: 768px) 100vw, 430px"
-              class="h-auto w-full rounded-2xl border border-border bg-surface"
+              width={160}
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-0 -z-10 size-full rounded-2xl object-cover opacity-70 blur-[48px] saturate-150"
               loading="eager"
             />
-          </figure>
+            <figure class="m-0" data-zoomable>
+              <Image
+                src={banner}
+                alt=""
+                widths={[640, 1000, 1400, 1800]}
+                sizes="(max-width: 1000px) 100vw, 904px"
+                class="h-auto w-full rounded-2xl border border-white/10 bg-surface"
+                loading="eager"
+              />
+            </figure>
+          </div>
         )
       }
     </header>

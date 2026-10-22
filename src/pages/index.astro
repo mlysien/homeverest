@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import { getPath } from "@/utils/getPath";
 import {
@@ -64,7 +65,7 @@ const recentPosts = posts.slice(1, 6);
           <time datetime={latest.data.pubDatetime.toISOString()}>
             {formatDate(latest)}
           </time>
-          · {getReadTime(latest)} czytania
+          · {getReadTime(latest)}
         </span>
         <p class="m-0 font-serif text-lg leading-[1.7] text-pretty text-subtle">
           {latest.data.description}
@@ -91,7 +92,7 @@ const recentPosts = posts.slice(1, 6);
               alt=""
               widths={[600, 900, 1200]}
               sizes="(max-width: 768px) 100vw, 480px"
-              class="aspect-[3/2] w-full object-cover grayscale-photo transition-[filter,scale] duration-500 group-hover:scale-[1.02] group-hover:filter-none"
+              class="aspect-[3/2] w-full object-cover transition-[scale] duration-500 group-hover:scale-[1.02]"
               loading="eager"
             />
           ) : (
@@ -138,41 +139,20 @@ const recentPosts = posts.slice(1, 6);
       </div>
       <ul
         data-carousel-track
-        class="bleed no-scrollbar flex snap-x snap-mandatory scroll-px-(--gutter) gap-4 overflow-x-auto px-(--gutter)"
+        class="bleed no-scrollbar flex snap-x snap-mandatory scroll-px-(--gutter) gap-4 overflow-x-auto px-(--gutter) lg:[mask-image:linear-gradient(to_right,transparent,black_var(--gutter),black_calc(100%-var(--gutter)),transparent)]"
       >
         {
-          recentPosts.map(post => {
-            const banner = getBanner(post);
-            return (
-              <li class="w-[min(300px,76vw)] flex-none snap-start">
-                <a
-                  href={getPath(post.id, post.filePath)}
-                  class="group flex h-full flex-col overflow-hidden card text-foreground hover:border-border-hover"
-                >
-                  {banner ? (
-                    <Image
-                      src={banner}
-                      alt=""
-                      width={600}
-                      class="aspect-[3/2] w-full bg-[#1E2129] object-cover grayscale-photo transition-[filter] duration-500 group-hover:filter-none group-focus-visible:filter-none"
-                    />
-                  ) : (
-                    <div class="aspect-[3/2] w-full bg-[#1E2129]" />
-                  )}
-                  <div class="flex flex-col gap-2.5 px-5 pt-[18px] pb-[22px]">
-                    <span class="text-[13px] text-muted">
-                      {formatDate(post)} · {getReadTime(post)}
-                    </span>
-                    <h3 class="m-0 font-serif text-[19px] leading-[1.35] font-medium text-pretty">
-                      {post.data.title}
-                    </h3>
-                  </div>
-                </a>
-              </li>
-            );
-          })
+          recentPosts.map(post => (
+            <Card
+              {...post}
+              variant="h3"
+              class="w-[min(300px,76vw)] flex-none snap-start lg:w-[calc((100%-2rem)/3)]"
+            />
+          ))
         }
-        <li class="w-[min(300px,76vw)] flex-none snap-start">
+        <li
+          class="w-[min(300px,76vw)] flex-none snap-start lg:w-[calc((100%-2rem)/3)]"
+        >
           <a
             href="/posts/"
             class="group flex h-full min-h-[300px] flex-col items-center justify-center gap-4 card border-dashed border-border-strong p-6 text-center text-foreground hover:border-solid hover:border-accent"

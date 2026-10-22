@@ -59,6 +59,8 @@
   body {
     @apply min-h-svh bg-background font-app text-foreground antialiased;
     background-color: var(--background);
+    /* Full-bleed decorations (post glow) must not cause horizontal scroll */
+    overflow-x: clip;
   }
   /* Hand-drawn dev doodles, tiled on an oversized layer rotated behind the page */
   body::before {
@@ -137,6 +139,9 @@
   @apply m-0 font-serif text-lg leading-[1.7] text-subtle;
 }
 
+@utility meta-label {
+  @apply font-mono text-[11px] tracking-[0.14em] text-muted uppercase;
+}
 .active-nav {
   @apply border-accent text-foreground;
 }

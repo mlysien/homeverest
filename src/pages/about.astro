@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import PageTitle from "@/components/PageTitle.astro";
-import portrait from "@/assets/about/mlysien.jpg";
+import portrait from "@/assets/about/avatar.jpeg";
 import { SOCIALS } from "@/constants";
 import { SITE } from "@/config";
 
@@ -62,32 +62,47 @@ const EDUCATION = [
 <Layout title={`O mnie | ${SITE.title}`}>
   <Header />
   <main id="main-content" class="flex flex-col gap-8 pt-12 pb-24">
-    <Image
-      src={portrait}
-      alt="Mateusz Łysień"
-      widths={[640, 1000, 1400]}
-      sizes="(max-width: 1000px) 100vw, 904px"
-      class="aspect-video w-full rounded-2xl bg-surface object-cover object-[center_30%] grayscale-photo"
-      loading="eager"
-    />
-
-    <PageTitle>O mnie</PageTitle>
-
-    <div
-      class="flex flex-col gap-5 font-serif text-[19px] leading-[1.75] text-prose [&_p]:m-0 [&_p]:text-pretty"
+    <!-- Profile header: title on top like every other page; lead and bio beside the portrait, same height -->
+    <header
+      class="grid sm:grid-cols-[minmax(0,1fr)_220px] sm:gap-x-10 md:grid-cols-[minmax(0,1fr)_300px]"
     >
-      <p>
-        Jestem Mateusz Łysień, programista z korzeniami w .NET, wzrokiem
-        zwróconym ku kosmosowi i nawykiem budowania rzeczy tylko po to, żeby
-        sprawdzić, czy dam radę.
+      <div class="sm:col-span-2">
+        <PageTitle>O mnie</PageTitle>
+      </div>
+      <p class="page-lead mt-3.5">
+        {EXPERIENCE[0].role} w {EXPERIENCE[0].company}.
       </p>
-      <p>
-        Moja droga prowadziła od WinForms i WPF, przez ASP.NET Core i Angulara,
-        aż po Kotlina w międzynarodowym projekcie z branży intralogistyki.
-        Nauczyła mnie, że język programowania to tylko narzędzie. Liczy się to,
-        jak myślisz o problemach.
-      </p>
-    </div>
+      {
+        /* Out of flow on desktop, so the text alone sets the row height and the photo fills it */
+      }
+      <div
+        class="relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl bg-surface sm:col-start-2 sm:row-span-2 sm:row-start-2 sm:mt-3.5 sm:aspect-auto"
+      >
+        <Image
+          src={portrait}
+          alt="Mateusz Łysień"
+          widths={[440, 660, 880]}
+          sizes="(max-width: 640px) 100vw, 300px"
+          class="absolute inset-0 !h-full w-full"
+          loading="eager"
+        />
+      </div>
+      <div
+        class="mt-8 flex flex-col gap-5 font-serif text-[19px] leading-[1.75] text-prose [&_p]:m-0 [&_p]:text-pretty"
+      >
+        <p>
+          Jestem Mateusz Łysień, programista z korzeniami w .NET, wzrokiem
+          zwróconym ku kosmosowi i nawykiem budowania rzeczy tylko po to, żeby
+          sprawdzić, czy dam radę.
+        </p>
+        <p>
+          Moja droga prowadziła od WinForms i WPF, przez ASP.NET Core i
+          Angulara, aż po Kotlina w międzynarodowym projekcie z branży
+          intralogistyki. Nauczyła mnie, że język programowania to tylko
+          narzędzie. Liczy się to, jak myślisz o problemach.
+        </p>
+      </div>
+    </header>
 
     <div class="grid grid-cols-2 gap-2 sm:grid-cols-4">
       <a
