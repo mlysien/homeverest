@@ -15,6 +15,8 @@ type Props = {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  /** Fade the column only behind the navbar and footer on mobile */
+  shortFade?: boolean;
 };
 
 const {
@@ -27,6 +29,7 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  shortFade = false,
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
@@ -186,7 +189,7 @@ const structuredData = {
     <ClientRouter />
   </head>
   <body>
-    <div class="app-shell">
+    <div class="app-shell" data-short-fade={shortFade || undefined}>
       <slot />
     </div>
   </body>

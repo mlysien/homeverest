@@ -67,6 +67,7 @@ const layoutProps = {
   canonicalURL,
   ogImage,
   scrollSmooth: true,
+  shortFade: true,
 };
 
 /* ========== Prev/Next Posts ========== */
@@ -89,6 +90,13 @@ const nextPost =
   <main id="main-content" class="pt-12 pb-24" data-pagefind-body>
     <header class="flex flex-col gap-8 pb-12">
       <div class="flex flex-col gap-5">
+        <ul class="flex flex-wrap gap-1.5" aria-label="Tagi">
+          {
+            tags.map(tag => (
+              <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
+            ))
+          }
+        </ul>
         <h1
           transition:name={slugifyStr(title.replaceAll(".", "-"))}
           class="m-0 font-serif text-[clamp(40px,5vw,48px)] leading-[1.12] font-medium tracking-[-0.02em] text-pretty"
@@ -98,12 +106,13 @@ const nextPost =
           }
           {title.replace(/(^|\s)([aiouwzAIOUWZ]) /g, "$1$2\u00A0")}
         </h1>
-        <!-- Meta: author | date | reading time | tags, each with a small label -->
+        <!-- Meta: author | date | reading time, each with a small label.
+             Mobile: author on its own row, date | reading time below -->
         <dl
-          class="m-0 flex flex-wrap items-center gap-x-5 gap-y-4 text-[15px] text-soft sm:gap-x-6"
+          class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-4 text-[15px] text-soft sm:flex sm:flex-wrap sm:items-center sm:gap-x-6"
           data-pagefind-ignore
         >
-          <div class="flex basis-full items-center gap-3 sm:basis-auto">
+          <div class="col-span-2 flex items-center gap-3">
             <a
               href="/about"
               class="group shrink-0 rounded-full"
@@ -140,24 +149,13 @@ const nextPost =
               >
             </dd>
           </div>
-          <span class="h-10 w-px bg-hairline" aria-hidden="true"></span>
-          <div class="flex flex-col gap-1">
+          <span class="hidden h-10 w-px bg-hairline sm:block" aria-hidden="true"
+          ></span>
+          <div
+            class="flex flex-col gap-1 border-l border-hairline pl-5 sm:border-0 sm:pl-0"
+          >
             <dt class="meta-label">Czas czytania</dt>
             <dd class="m-0">{getReadTime(post)}</dd>
-          </div>
-          <span class="hidden h-10 w-px bg-hairline lg:block" aria-hidden="true"
-          ></span>
-          <div class="flex basis-full flex-col gap-1.5 lg:basis-auto">
-            <dt class="meta-label">Tagi</dt>
-            <dd class="m-0">
-              <ul class="flex flex-wrap gap-1.5">
-                {
-                  tags.map(tag => (
-                    <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
-                  ))
-                }
-              </ul>
-            </dd>
           </div>
         </dl>
       </div>

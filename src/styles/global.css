@@ -141,6 +141,25 @@
     content: "";
     background: var(--column);
   }
+
+  /* When the column fills the screen (mobile), the doodles can't show at the
+     sides, so fade the column out towards the top and bottom instead.
+     Posts use a short fade (navbar and footer only) so the text stays solid */
+  @media (width < 1000px) {
+    --fade: 320px;
+    &[data-short-fade] {
+      --fade: 110px;
+    }
+    &::before {
+      mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black var(--fade),
+        black calc(100% - var(--fade)),
+        transparent
+      );
+    }
+  }
 }
 
 @utility max-w-app {
