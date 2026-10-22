@@ -119,7 +119,7 @@
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   .astro-code {
-    @apply flex rounded-xl border border-border bg-surface! px-[22px] py-5 font-mono leading-[1.7] text-(--shiki-dark) [&_span]:text-(--shiki-dark);
+    @apply flex rounded-xl border border-border bg-surface! px-[22px] py-5 font-mono leading-[1.7] text-(--shiki-dark) light:text-(--shiki-light) [&_span]:text-(--shiki-dark) light:[&_span]:text-(--shiki-light);
   }
 
   /* Styles for Shiki transformers */

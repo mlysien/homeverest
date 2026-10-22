@@ -2,6 +2,8 @@
 import { SITE } from "@/config";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import IconX from "@/assets/icons/IconX.svg";
+import IconMoon from "@/assets/icons/IconMoon.svg";
+import IconSunHigh from "@/assets/icons/IconSunHigh.svg";
 
 const { pathname } = Astro.url;
 
@@ -30,7 +32,7 @@ const isActive = (match: string[]) =>
 <header class="flex flex-wrap items-center justify-between gap-5 py-8">
   <a
     href="/"
-    class="group relative inline-block pb-1 text-2xl leading-none font-semibold tracking-[-0.02em] text-foreground [text-shadow:0_1px_3px_rgb(0_0_0/0.75)]"
+    class="group relative inline-block pb-1 text-2xl leading-none font-semibold tracking-[-0.02em] text-foreground [text-shadow:var(--logo-shadow)]"
   >
     <!-- Bold underline bar with rounded ends, like the buttons -->
     <span
@@ -39,6 +41,16 @@ const isActive = (match: string[]) =>
     ></span>
     <span class="relative">{SITE.title}</span>
   </a>
+  <button
+    id="theme-btn"
+    type="button"
+    aria-label="Przełącz motyw"
+    title="Przełącz motyw"
+    class="ms-auto flex size-9 items-center justify-center rounded-full border border-border-strong text-muted transition-colors hover:border-accent hover:text-foreground md:order-last md:ms-0 md:size-8"
+  >
+    <IconSunHigh class="size-[18px] md:size-4 light:hidden" />
+    <IconMoon class="hidden size-[18px] md:size-4 light:block" />
+  </button>
   <button
     id="menu-btn"
     type="button"
@@ -53,7 +65,7 @@ const isActive = (match: string[]) =>
   <nav
     id="main-nav"
     aria-label="Główna nawigacja"
-    class="hidden w-full md:block md:w-auto"
+    class="hidden w-full max-md:order-last md:ms-auto md:block md:w-auto"
   >
     <ul
       class="flex flex-col gap-1 border-t border-border pt-3 md:flex-row md:flex-wrap md:items-center md:gap-x-[22px] md:gap-y-2 md:border-0 md:pt-0"
@@ -95,5 +107,30 @@ const isActive = (match: string[]) =>
     });
   }
 
+  function initThemeToggle() {
+    const btn = document.querySelector<HTMLButtonElement>("#theme-btn");
+    if (!btn) return;
+
+    const label = () => {
+      const next =
+        document.documentElement.dataset.theme === "light" ? "ciemny" : "jasny";
+      btn.setAttribute("aria-label", `Przełącz na ${next} motyw`);
+      btn.title = `Przełącz na ${next} motyw`;
+    };
+
+    label();
+    btn.addEventListener("click", () => {
+      const next =
+        document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
+      // Defined by the inline script in Layout.astro
+      (window as unknown as { applyTheme: () => void }).applyTheme();
+      label();
+    });
+  }
+
   document.addEventListener("astro:page-load", initMenu);
+  document.addEventListener("astro:page-load", initThemeToggle);
 </script>

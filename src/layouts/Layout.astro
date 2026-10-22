@@ -53,7 +53,6 @@ const structuredData = {
   dir={SITE.dir}
   lang=`${SITE.lang ?? "en"}`
   class={`${scrollSmooth && "scroll-smooth"}`}
-  data-theme="dark"
 >
   <head>
     <meta charset="UTF-8" />
@@ -135,6 +134,42 @@ const structuredData = {
     <!-- End Cloudflare Web Analytics -->
 
     <meta name="theme-color" content="#111318" />
+
+    <!-- Theme: saved choice, else the system preference. Runs before first paint -->
+    <script is:inline>
+      (() => {
+        const COLORS = { dark: "#111318", light: "#e4e7eb" };
+
+        function getTheme() {
+          try {
+            const saved = localStorage.getItem("theme");
+            if (saved === "light" || saved === "dark") return saved;
+          } catch {}
+          return matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+
+        function applyTheme(doc = document) {
+          const theme = getTheme();
+          doc.documentElement.dataset.theme = theme;
+          doc
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute("content", COLORS[theme]);
+        }
+
+        applyTheme();
+        window.applyTheme = applyTheme;
+
+        // View transitions replace <html> attributes; set the theme on the incoming page
+        if (!window.__themeSwapHook) {
+          window.__themeSwapHook = true;
+          document.addEventListener("astro:before-swap", e =>
+            applyTheme(e.newDocument)
+          );
+        }
+      })();
+    </script>
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
