@@ -1,4 +1,6 @@
 ---
+import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 /*
  * Fullscreen image viewer. Opens from:
  * - buttons with `data-photo` (photography grid), carrying data-large,
@@ -49,15 +51,17 @@
       <button
         data-viewer-prev
         aria-label="Poprzednie zdjęcie"
-        class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
-        >←</button
+        class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-surface/80 text-subtle transition-colors hover:border-accent hover:text-foreground sm:flex"
       >
+        <IconArrowLeft class="size-[18px] rtl:rotate-180" />
+      </button>
       <button
         data-viewer-next
         aria-label="Następne zdjęcie"
-        class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 rounded-full border border-border-strong bg-surface/80 text-base text-subtle transition-colors hover:border-accent hover:text-foreground sm:block"
-        >→</button
+        class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-surface/80 text-subtle transition-colors hover:border-accent hover:text-foreground sm:flex"
       >
+        <IconArrowRight class="size-[18px] rtl:rotate-180" />
+      </button>
     </div>
 
     <div class="flex min-h-13 justify-between gap-4 px-4 py-4 text-sm sm:px-6">
@@ -130,8 +134,8 @@
     let current = 0;
 
     // Navigation makes no sense with a single image
-    prev.classList.toggle("sm:block", !single);
-    next.classList.toggle("sm:block", !single);
+    prev.classList.toggle("sm:flex", !single);
+    next.classList.toggle("sm:flex", !single);
     counter.hidden = single;
 
     const preload = (i: number) => {

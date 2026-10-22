@@ -10,6 +10,8 @@ import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import PhotoViewer from "@/components/PhotoViewer.astro";
+import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import { formatDate, getBanner, getReadTime } from "@/utils/posts";
@@ -67,7 +69,7 @@ const layoutProps = {
   canonicalURL,
   ogImage,
   scrollSmooth: true,
-  shortFade: true,
+  reading: true,
 };
 
 /* ========== Prev/Next Posts ========== */
@@ -213,9 +215,12 @@ const nextPost =
         prevPost && (
           <a
             href={getPath(prevPost.id, prevPost.filePath)}
-            class="flex flex-col gap-1.5 card rounded-[14px] p-5 text-foreground hover:border-border-hover"
+            class="group flex flex-col gap-1.5 card rounded-[14px] p-5 text-foreground hover:border-border-hover"
           >
-            <span class="text-[13px] text-muted">← Poprzedni</span>
+            <span class="flex items-center gap-1.5 text-[13px] text-muted">
+              <IconArrowLeft class="size-4 transition-transform group-hover:-translate-x-0.5 rtl:rotate-180" />
+              Poprzedni
+            </span>
             <span class="font-serif text-[17px] leading-[1.35]">
               {prevPost.title}
             </span>
@@ -226,9 +231,12 @@ const nextPost =
         nextPost && (
           <a
             href={getPath(nextPost.id, nextPost.filePath)}
-            class="col-start-[-2] flex flex-col items-end gap-1.5 card rounded-[14px] p-5 text-right text-foreground hover:border-border-hover"
+            class="group col-start-[-2] flex flex-col items-end gap-1.5 card rounded-[14px] p-5 text-right text-foreground hover:border-border-hover"
           >
-            <span class="text-[13px] text-muted">Następny →</span>
+            <span class="flex items-center gap-1.5 text-[13px] text-muted">
+              Następny
+              <IconArrowRight class="size-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180" />
+            </span>
             <span class="font-serif text-[17px] leading-[1.35]">
               {nextPost.title}
             </span>
