@@ -1,0 +1,379 @@
+<!DOCTYPE html><html dir="ltr" lang="pl" class="scroll-smooth"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="canonical" href="https://homeverest.pl/posts/2026/programowanie-w-erze-ai/"><meta name="generator" content="Astro v5.18.1"><!-- Load Font --><style>@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ef6e5cba50d6d29c.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:400;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c254d9c96439e12.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ef6e5cba50d6d29c.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:500;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c254d9c96439e12.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:500;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ef6e5cba50d6d29c.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:600;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c254d9c96439e12.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:600;font-style:italic;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c5d8c6f4c8b7254.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:400;font-style:normal;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ea9ca6af40cb9c59.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c5d8c6f4c8b7254.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:500;font-style:normal;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ea9ca6af40cb9c59.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:500;font-style:normal;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/2c5d8c6f4c8b7254.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:600;font-style:normal;}@font-face{font-family:Literata-51a8d20580e634f8;src:url("/_astro/fonts/ea9ca6af40cb9c59.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:600;font-style:normal;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:400;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:400;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:500;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:500;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:600;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:600;font-style:italic;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:400;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:400;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:500;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:500;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:600;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}@font-face{font-family:"Literata-51a8d20580e634f8 fallback: Times New Roman";src:local("Times New Roman");font-display:swap;font-weight:600;font-style:normal;size-adjust:109.2923%;ascent-override:107.6928%;descent-override:28.1813%;line-gap-override:0%;}:root{--font-literata:Literata-51a8d20580e634f8,"Literata-51a8d20580e634f8 fallback: Times New Roman",Georgia,serif;}</style><style>@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/5cb1d7d29bb3f7ad.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:400;font-style:normal;}@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/502b9851e13aed9b.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/5cb1d7d29bb3f7ad.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:500;font-style:normal;}@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/502b9851e13aed9b.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:500;font-style:normal;}@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/5cb1d7d29bb3f7ad.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:600;font-style:normal;}@font-face{font-family:Geist-8d72fbbb0955fb12;src:url("/_astro/fonts/502b9851e13aed9b.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:600;font-style:normal;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:400;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:500;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:500;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:600;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}@font-face{font-family:"Geist-8d72fbbb0955fb12 fallback: Arial";src:local("Arial");font-display:swap;font-weight:600;font-style:normal;size-adjust:122.7005%;ascent-override:81.9067%;descent-override:24.0423%;line-gap-override:0%;}:root{--font-geist:Geist-8d72fbbb0955fb12,"Geist-8d72fbbb0955fb12 fallback: Arial",system-ui,sans-serif;}</style><link rel="preload" href="/_astro/fonts/502b9851e13aed9b.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"JetBrains Mono-34b2261efd89170c";src:url("/_astro/fonts/8b4098435b163fad.woff2") format("woff2");font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF;font-weight:400;font-style:normal;}@font-face{font-family:"JetBrains Mono-34b2261efd89170c";src:url("/_astro/fonts/ccfece03c51ce7f7.woff2") format("woff2");font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-weight:400;font-style:normal;}@font-face{font-family:"JetBrains Mono-34b2261efd89170c fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.9837%;ascent-override:102.0166%;descent-override:30.0049%;}@font-face{font-family:"JetBrains Mono-34b2261efd89170c fallback: Courier New";src:local("Courier New");font-display:swap;font-weight:400;font-style:normal;size-adjust:99.9837%;ascent-override:102.0166%;descent-override:30.0049%;}:root{--font-jetbrains-mono:"JetBrains Mono-34b2261efd89170c","JetBrains Mono-34b2261efd89170c fallback: Courier New",monospace;}</style><!-- General Meta Tags --><title>Programowanie w erze AI. Czy programiści przestali pisać kod? | homeverest</title><meta name="title" content="Programowanie w erze AI. Czy programiści przestali pisać kod? | homeverest"><meta name="description" content="Jak sztuczna inteligencja zmienia codzienną pracę programisty i co to oznacza dla tych, którzy dopiero zaczynają."><meta name="author" content="Mateusz Łysień"><link rel="sitemap" href="sitemap-index.xml"><!-- Open Graph / Facebook --><meta property="og:title" content="Programowanie w erze AI. Czy programiści przestali pisać kod? | homeverest"><meta property="og:description" content="Jak sztuczna inteligencja zmienia codzienną pracę programisty i co to oznacza dla tych, którzy dopiero zaczynają."><meta property="og:url" content="https://homeverest.pl/posts/2026/programowanie-w-erze-ai/"><meta property="og:image" content="https://homeverest.pl/_astro/og.3viT-GVO.jpg"><!-- Article Published/Modified time --><meta property="article:published_time" content="2026-10-21T00:00:00.000Z"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://homeverest.pl/posts/2026/programowanie-w-erze-ai/"><meta property="twitter:title" content="Programowanie w erze AI. Czy programiści przestali pisać kod? | homeverest"><meta property="twitter:description" content="Jak sztuczna inteligencja zmienia codzienną pracę programisty i co to oznacza dla tych, którzy dopiero zaczynają."><meta property="twitter:image" content="https://homeverest.pl/_astro/og.3viT-GVO.jpg"><!-- Google JSON-LD Structured data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Programowanie w erze AI. Czy programiści przestali pisać kod? | homeverest","image":"https://homeverest.pl/_astro/og.3viT-GVO.jpg","datePublished":"2026-10-21T00:00:00.000Z","author":[{"@type":"Person","name":"Mateusz Łysień","url":"https://homeverest.pl/about"}]}</script><!-- Enable RSS feed auto-discovery  --><!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery --><link rel="alternate" type="application/rss+xml" title="homeverest" href="https://homeverest.pl/rss.xml"><!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;ddee546674dc4abebc047a4191a2ec22&quot;}"></script><!-- End Cloudflare Web Analytics --><meta name="theme-color" content="#111318"><!-- Theme: saved choice, else the system preference. Runs before first paint --><script>
+      (() => {
+        const COLORS = { dark: "#111318", light: "#e4e7eb" };
+
+        function getTheme() {
+          try {
+            const saved = localStorage.getItem("theme");
+            if (saved === "light" || saved === "dark") return saved;
+          } catch {}
+          return matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+
+        function applyTheme(doc = document) {
+          const theme = getTheme();
+          doc.documentElement.dataset.theme = theme;
+          doc
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute("content", COLORS[theme]);
+        }
+
+        applyTheme();
+        window.applyTheme = applyTheme;
+
+        // View transitions replace <html> attributes; set the theme on the incoming page
+        if (!window.__themeSwapHook) {
+          window.__themeSwapHook = true;
+          document.addEventListener("astro:before-swap", e =>
+            applyTheme(e.newDocument)
+          );
+        }
+      })();
+    </script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js"></script><link rel="stylesheet" href="/_astro/index.DTwTaa4O.css">
+<style>@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0;mix-blend-mode:plus-lighter}to{opacity:1;mix-blend-mode:plus-lighter}}@keyframes astroFadeOut{0%{opacity:1;mix-blend-mode:plus-lighter}to{opacity:0;mix-blend-mode:plus-lighter}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media(prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+:where([data-astro-image]){object-fit:var(--fit);object-position:var(--pos);height:auto}:where([data-astro-image=full-width]){width:100%}:where([data-astro-image=constrained]){max-width:100%}
+</style><style>[data-astro-transition-scope="astro-plk3gbjq-1"] { view-transition-name: programowanie-w-erze-ai-czy-programisci-przestali-pisac-kod; }@layer astro { ::view-transition-old(programowanie-w-erze-ai-czy-programisci-przestali-pisac-kod) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(programowanie-w-erze-ai-czy-programisci-przestali-pisac-kod) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(programowanie-w-erze-ai-czy-programisci-przestali-pisac-kod) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(programowanie-w-erze-ai-czy-programisci-przestali-pisac-kod) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-plk3gbjq-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-plk3gbjq-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-plk3gbjq-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-plk3gbjq-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-plk3gbjq-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-plk3gbjq-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-plk3gbjq-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-plk3gbjq-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-2"] { view-transition-name: ai; }@layer astro { ::view-transition-old(ai) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(ai) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(ai) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(ai) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-36ssibgs-3"] { view-transition-name: programowanie; }@layer astro { ::view-transition-old(programowanie) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(programowanie) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(programowanie) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(programowanie) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-36ssibgs-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-36ssibgs-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <div class="app-shell" data-reading="true">  <a id="skip-to-content" href="#main-content" class="absolute start-16 -top-full z-50 rounded-md bg-surface px-3 py-2 text-accent-soft transition-all focus:top-4">
+Przejdź do treści
+</a> <header class="flex flex-wrap items-center justify-between gap-5 py-8"> <a href="/" class="group relative inline-block pb-1 text-2xl leading-none font-semibold tracking-[-0.02em] text-foreground [text-shadow:var(--logo-shadow)]"> <!-- Bold underline bar with rounded ends, like the buttons --> <span aria-hidden="true" class="absolute inset-x-0 -bottom-1 h-[6px] rounded-full bg-accent transition-colors group-hover:bg-accent-soft"></span> <span class="relative">homeverest</span> </a> <button id="theme-btn" type="button" aria-label="Przełącz motyw" title="Przełącz motyw" class="ms-auto flex size-9 items-center justify-center rounded-full border border-border-strong text-muted transition-colors hover:border-accent hover:text-foreground md:order-last md:ms-0 md:size-8"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-[18px] md:size-4 light:hidden"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M14.828 14.828a4 4 0 1 0 -5.656 -5.656a4 4 0 0 0 5.656 5.656z" /><path d="M6.343 17.657l-1.414 1.414" /><path d="M6.343 6.343l-1.414 -1.414" /><path d="M17.657 6.343l1.414 -1.414" /><path d="M17.657 17.657l1.414 1.414" /><path d="M4 12h-2" /><path d="M12 4v-2" /><path d="M20 12h2" /><path d="M12 20v2" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden size-[18px] md:size-4 light:block"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg> </button> <button id="menu-btn" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="main-nav" class="-me-2 p-2 text-muted transition-colors hover:text-foreground md:hidden"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6" id="menu-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 6h16" /><path d="M7 12h13" /><path d="M10 18h10" /></svg> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden size-6" id="close-icon"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg> </button> <nav id="main-nav" aria-label="Główna nawigacja" class="hidden w-full max-md:order-last md:ms-auto md:block md:w-auto"> <ul class="flex flex-col gap-1 border-t border-border pt-3 md:flex-row md:flex-wrap md:items-center md:gap-x-[22px] md:gap-y-2 md:border-0 md:pt-0"> <li> <a href="/" aria-current="page" class="block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm active-nav"> Wpisy </a> </li><li> <a href="/projects" class="block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm"> Projekty </a> </li><li> <a href="/media" class="block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm"> Media </a> </li><li> <a href="/photography" class="block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm"> Fotografia </a> </li><li> <a href="/about" class="block w-fit border-b border-transparent py-2.5 text-base text-muted transition-colors hover:text-foreground md:py-1 md:text-sm"> O mnie </a> </li> </ul> </nav> </header> <script type="module">function a(){const e=document.querySelector("#menu-btn"),n=document.querySelector("#main-nav"),t=document.querySelector("#menu-icon"),c=document.querySelector("#close-icon");!e||!n||!t||!c||e.addEventListener("click",()=>{const o=n.classList.toggle("hidden")===!1;e.setAttribute("aria-expanded",String(o)),e.setAttribute("aria-label",o?"Zamknij menu":"Otwórz menu"),t.classList.toggle("hidden",o),c.classList.toggle("hidden",!o)})}function i(){const e=document.querySelector("#theme-btn");if(!e)return;const n=()=>{const t=document.documentElement.dataset.theme==="light"?"ciemny":"jasny";e.setAttribute("aria-label",`Przełącz na ${t} motyw`),e.title=`Przełącz na ${t} motyw`};n(),e.addEventListener("click",()=>{const t=document.documentElement.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("theme",t)}catch{}window.applyTheme(),n()})}document.addEventListener("astro:page-load",a);document.addEventListener("astro:page-load",i);</script> <main id="main-content" class="pt-12 pb-24" data-pagefind-body> <header class="flex flex-col gap-12 pb-12"> <div class="flex flex-col gap-5"> <ul class="flex flex-wrap gap-1.5" aria-label="Tagi"> <li> <a href="/tags/ai/" class="inline-flex items-center gap-1 rounded-full border border-border-strong text-soft transition-colors hover:border-accent hover:text-foreground px-3 py-1 text-[13px]" data-astro-transition-scope="astro-36ssibgs-2"> <span class="font-mono text-muted">#</span>ai </a> </li><li> <a href="/tags/programowanie/" class="inline-flex items-center gap-1 rounded-full border border-border-strong text-soft transition-colors hover:border-accent hover:text-foreground px-3 py-1 text-[13px]" data-astro-transition-scope="astro-36ssibgs-3"> <span class="font-mono text-muted">#</span>programowanie </a> </li> </ul> <h1 class="m-0 font-serif text-[clamp(40px,5vw,48px)] leading-[1.12] font-medium tracking-[-0.02em] text-pretty" data-astro-transition-scope="astro-plk3gbjq-1">  Programowanie w erze AI. Czy programiści przestali pisać kod? </h1> <!-- Meta: author | date | reading time, each with a small label.
+             Mobile: author on its own row, date | reading time below --> <dl class="m-0 mt-7 grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-4 text-[15px] text-soft sm:flex sm:flex-wrap sm:items-center sm:gap-x-6" data-pagefind-ignore> <div class="col-span-2 flex items-center gap-3"> <a href="/about" class="group shrink-0 rounded-full" tabindex="-1" aria-hidden="true"> <img src="/_astro/avatar.DIEEIp_h_Z4fpSC.webp" srcset="/_astro/avatar.DIEEIp_h_Z4fpSC.webp 96w, /_astro/avatar.DIEEIp_h_MtCLi.webp 192w" alt loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 96px) 96px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="96" height="96" class="size-10 rounded-full bg-surface object-cover ring-2 ring-border-strong grayscale transition group-hover:ring-accent group-hover:grayscale-0"> </a> <div class="flex flex-col gap-1"> <dt class="meta-label">Autor</dt> <dd class="m-0"> <a href="/about" class="font-medium text-foreground transition-colors hover:text-accent-soft"> Mateusz Łysień </a> </dd> </div> </div> <span class="hidden h-10 w-px bg-hairline sm:block" aria-hidden="true"></span> <div class="flex flex-col gap-1"> <dt class="meta-label">Opublikowano</dt> <dd class="m-0"> <time datetime="2026-10-21T00:00:00.000Z">21 paź 2026</time> </dd> </div> <span class="hidden h-10 w-px bg-hairline sm:block" aria-hidden="true"></span> <div class="flex flex-col gap-1 border-l border-hairline pl-5 sm:border-0 sm:pl-0"> <dt class="meta-label">Czas czytania</dt> <dd class="m-0">5 min</dd> </div> </dl> </div> <div class="relative isolate">  <img src="/_astro/banner.DERulWe7_qiEjs.webp" srcset="/_astro/banner.DERulWe7_qiEjs.webp 160w, /_astro/banner.DERulWe7_1312Ba.webp 320w" alt aria-hidden="true" loading="eager" decoding="async" fetchpriority="auto" sizes="(min-width: 160px) 160px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="160" height="84" class="pointer-events-none absolute inset-0 -z-10 size-full rounded-2xl object-cover opacity-70 blur-[48px] saturate-150"> <figure class="m-0" data-zoomable> <img src="/_astro/banner.DERulWe7_2smqAQ.webp" srcset="/_astro/banner.DERulWe7_2htUg1.webp 640w, /_astro/banner.DERulWe7_p6Hvc.webp 1000w, /_astro/banner.DERulWe7_2qsYzF.webp 1400w, /_astro/banner.DERulWe7_2smqAQ.webp 1733w" alt sizes="(max-width: 1000px) 100vw, 904px" loading="eager" decoding="async" fetchpriority="auto" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="1733" height="907" class="h-auto w-full rounded-2xl border border-edge bg-surface"> <figcaption class="mt-3 flex flex-wrap items-center gap-x-2 text-[13px] text-muted" data-pagefind-ignore> <span>Baner wygenerowany przez AI</span> <span aria-hidden="true">·</span> <button type="button" data-prompt-open aria-haspopup="dialog" class="cursor-pointer text-accent-soft underline decoration-accent/40 underline-offset-4 transition-colors hover:text-accent-strong hover:decoration-accent">
+Zobacz prompt
+</button> </figcaption> <dialog data-prompt-dialog aria-labelledby="banner-prompt-title" data-pagefind-ignore class="m-auto w-[min(640px,calc(100vw-32px))] max-w-none rounded-2xl border border-border-strong bg-surface p-0 text-foreground shadow-2xl backdrop:bg-[#0b0c10]/70 backdrop:backdrop-blur-sm"> <div class="flex max-h-[80dvh] flex-col"> <div class="flex items-center justify-between gap-4 border-b border-border px-5 py-4"> <p id="banner-prompt-title" class="m-0 font-serif text-lg font-medium">
+Prompt użyty do wygenerowania banera
+</p> <button type="button" data-prompt-close aria-label="Zamknij" class="size-9 shrink-0 rounded-full border border-border-strong text-base text-subtle transition-colors hover:border-accent hover:text-foreground">✕</button> </div> <div data-prompt-text class="min-h-0 flex-1 overflow-y-auto bg-surface-sunken px-5 py-4 font-mono text-sm leading-relaxed whitespace-pre-wrap text-prose">A vibrant, wide editorial illustration about programming in the AI era, created entirely as a retro cut-paper collage. Feature a friendly cream-and-blue AI robot character in the foreground, with a dark charcoal screen and simple expressive eyes. Surround it with layered paper-cut mechanical gears, lightning bolts, circuit traces, processor chips, code editor windows with colorful syntax lines, flowchart symbols, and programming brackets. Add abstract neural network shapes to represent artificial intelligence and the evolving relationship between developers and AI. Use a tactile handmade paper aesthetic inspired by vintage European magazine covers and experimental editorial graphic design. Visible paper fibers, subtle grain, rough cut edges, overlapping construction-paper shapes, and natural depth from physical paper layering. Color palette: vivid turquoise, cyan blue, vermilion orange, warm cream, pale yellow, muted mint green, sky blue, and charcoal. Bold color contrasts, playful geometry, rich visual detail, sophisticated editorial art direction. Landscape composition, 1.91:1 aspect ratio, designed as a featured image for a personal programming blog. Keep the robot and key programming elements clearly recognizable at thumbnail size. Full-bleed collage background. No photography, no realistic humans, no people, no glossy 3D rendering, no generic corporate technology aesthetic, no purple-blue AI gradients, no logos, no watermark, no additional text.</div> <div class="flex justify-end border-t border-border px-5 py-3"> <button type="button" data-prompt-copy class="rounded-full border border-border-strong px-4 py-1.5 text-sm text-subtle transition-colors hover:border-accent hover:text-foreground">
+Kopiuj prompt
+</button> </div> </div> </dialog> <script type="module">function i(){const t=document.querySelector("[data-prompt-dialog]"),a=document.querySelector("[data-prompt-open]");if(!t||!a)return;const o=n=>t.querySelector(n),c=o("[data-prompt-text]"),e=o("[data-prompt-copy]"),r=e.textContent.trim();a.addEventListener("click",()=>t.showModal()),o("[data-prompt-close]").addEventListener("click",()=>t.close()),t.addEventListener("click",n=>{n.target===t&&t.close()}),e.addEventListener("click",async()=>{await navigator.clipboard.writeText(c.textContent.trim()),e.textContent="Skopiowano ✓",setTimeout(()=>e.textContent=r,1500)})}document.addEventListener("astro:page-load",i);</script> </figure> </div> </header> <article id="article" class="app-prose max-w-app" data-zoomable> <p>Ostatnio zastanawiałem się, czy programiści nie są trochę jak ludzie, którzy kiedyś zajmowali się transportem konnym. Przez lata wiedzieli, jak sprawnie przewozić ludzi i towary, aż pojawiły się samochody. Nagle okazało się, że można robić to inaczej, szybciej i na większą skalę.</p>
+<p>Pewnie nie każdy dorożkarz z dnia na dzień stracił pracę, ale sam sposób wykonywania tego zawodu zaczął się zmieniać. I mam wrażenie, że z programowaniem dzieje się teraz coś podobnego. Tylko zamiast samochodów mamy AI, a zamiast koni… no właśnie, nasze klawiatury.</p>
+<p>Jeszcze kilka miesięcy temu uważałem, że AI nie zastąpi programistów. Dziś nie jestem już tego taki pewien. Nie dlatego, że sztuczna inteligencja potrafi wszystko. Po prostu widzę, jak szybko zmienia się nasza praca.</p>
+<h2 id="kod-jest-narzędziem-nie-celem">Kod jest narzędziem, nie celem</h2>
+<p>Od wielu miesięcy praktycznie nie piszę ręcznie kodu. Opisuję problem, dostarczam kontekst i nadzoruję pracę agentów AI. A systemy nadal się rozwijają, błędy są naprawiane, nowe funkcjonalności trafiają do projektów. Czyli coś tam jednak powstaje.</p>
+<p>W projektach programistycznych nie chodzi przecież o samo pisanie kodu. Naszym zadaniem jest dostarczenie działającego systemu, który spełnia wymagania i da się utrzymywać przez kolejne lata.</p>
+<p>Jeśli AI potrafi przygotować dobre rozwiązanie, klientowi raczej nie robi różnicy, kto napisał poszczególne linijki.Dlatego coraz mniej przekonuje mnie argument, że programistów nie da się zastąpić, bo kod przecież musi napisać człowiek. Nie musi. Ważniejsze jest to, czy ktoś potrafi określić, co należy zbudować, a później ocenić, czy powstałe rozwiązanie ma sens.</p>
+<h2 id="moja-praca-wygląda-już-inaczej">Moja praca wygląda już inaczej</h2>
+<div class="media-left">
+<p><img alt="SpongeBob robiący naraz kilka rzeczy: prasuje, odkurza, myje okno i wiesza pranie" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 280px) 280px, 100vw"  data-astro-image="constrained" width="280" height="201" src="/_astro/wielozadaniowosc.BNlJA5cN_ZnyNww.webp" srcset="/_astro/wielozadaniowosc.BNlJA5cN_ZnyNww.webp 280w"></p>
+</div>
+<p>Zamiast samodzielnie implementować zmiany, staram się dostarczyć agentowi jak najwięcej kontekstu. Udostępniam kod źródłowy, opisuję zależności między serwisami i wskazuję miejsca, które mogą wymagać modyfikacji.</p>
+<p>Samo przygotowanie dobrego opisu potrafi zająć trochę czasu. Trzeba pomyśleć o szczegółach, które łatwo pominąć, i przewidzieć przypadki brzegowe. Ale kiedy agent dostanie odpowiednie informacje, potrafi wykonać sporą część pracy za mnie.</p>
+<p>Zmienia się też sposób komunikacji. Korzystając z Wispr Flow, coraz częściej po prostu mówię zamiast pisać długie prompty. Łatwiej mi przekazać kilka minut szczegółowych przemyśleń, niż próbować zmieścić wszystko w krótkim poleceniu.</p>
+<p>Moja rola coraz bardziej polega na kierowaniu pracą agenta i sprawdzaniu tego, co przygotował. Mniej klepania kodu, więcej zastanawiania się, czy to, co właśnie powstało, ma w ogóle sens.</p>
+<h2 id="istniejący-projekt-to-nie-to-samo-co-budowanie-od-zera">Istniejący projekt to nie to samo co budowanie od zera</h2>
+<p>Największe korzyści widzę przy rozwijaniu istniejących systemów i naprawianiu błędów. Agent ma już kod, na którym może się oprzeć. Widzi strukturę projektu i potrafi dopasować poprawkę do przyjętego stylu.</p>
+<p>Inaczej jest przy nowych projektach. Kiedy tworzyłem serwis w .NET od zera, agent generował tyle dodatkowych atrybutów w kontrolerach i elementów konfiguracji, że część z nich była dla mnie nowością.</p>
+<p>Nie twierdzę, że ten kod był błędny. Musiałem jednak zastanowić się, czy wszystkie te elementy są potrzebne i czy rzeczywiście chcę wprowadzać je do projektu.</p>
+<p>I tu pojawia się pewien haczyk. AI potrafi napisać kod, którego sam nie napisałbym w taki sposób. Czasami rozwiązanie jest całkiem dobre. Innym razem zastanawiam się, czy naprawdę potrzebujemy aż takiej kombinacji.</p>
+<p>W istniejącym systemie agent ma przynajmniej jakiś punkt odniesienia. W nowym sam proponuje wiele decyzji, a my musimy pilnować, żeby z prostej aplikacji nie zrobił małego promu kosmicznego.</p>
+<h2 id="kto-odpowiada-za-kod-wygenerowany-przez-ai">Kto odpowiada za kod wygenerowany przez AI?</h2>
+<p>Ostatecznie to ja zatwierdzam zmiany i dopuszczam je do wdrożenia. Nie mogę powiedzieć, że za błąd odpowiada agent, skoro to ja zaakceptowałem jego pracę.</p>
+<p>Dlatego code review jest dziś dla mnie równie ważne jak wcześniej, a być może nawet ważniejsze. Trzeba rozumieć, co zostało zmienione, i sprawdzić, czy poprawka nie wprowadza nowych problemów.</p>
+<p>Nadal staram się dzielić pracę na mniejsze zadania. Łatwiej wtedy ocenić zmiany i przetestować ich działanie. Nie ma sensu zlecać agentowi wszystkiego naraz, a potem patrzeć na ogromnego pull requesta i zastanawiać się, od czego właściwie zacząć.</p>
+<p>AI przyspiesza implementację, ale nie zwalnia nas z odpowiedzialności. Przynajmniej na razie nie widziałem, żeby agent sam poszedł na spotkanie z klientem i wyjaśnił, dlaczego coś nie działa.</p>
+<h2 id="czy-programowanie-traci-swoją-magię">Czy programowanie traci swoją magię?</h2>
+<div class="media-right">
+<p><img alt="Chłopiec powstrzymujący płacz, z drżącą brodą" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 280px) 280px, 100vw"  data-astro-image="constrained" width="280" height="280" src="/_astro/placz.C55EmgjV_1KOzQN.webp" srcset="/_astro/placz.C55EmgjV_1KOzQN.webp 280w"></p>
+</div>
+<p>To chyba najtrudniejsza część tej zmiany.</p>
+<p>Zawsze lubiłem rozwiązywać trudne problemy. Wielogodzinne debugowanie, odkrywanie nieoczywistych zależności i moment, w którym po długiej analizie w końcu znajdowałem rozwiązanie, dawały mi ogromną satysfakcję. Dziś agent AI potrafi czasem rozwiązać podobny problem podczas jednej sesji.</p>
+<p>Cieszę się, że system działa i że zadanie udało się szybko zamknąć. Jednocześnie coraz wyraźniej odczuwam, że tracę przyjemność z samego programowania. Brakuje mi części procesu tworzenia, eksperymentowania i samodzielnego dochodzenia do rozwiązania.</p>
+<p>Może z czasem się do tego przyzwyczaję. Na razie mam jednak poczucie, że wraz z automatyzacją tracimy coś, co dla wielu z nas było jedną z najciekawszych części tego zawodu.</p>
+<p>Trochę tak, jakby ktoś powiedział mi, że od jutra nie muszę już grać na instrumencie, bo komputer zrobi to szybciej i bez fałszowania. Niby świetnie, ale czy o sam efekt końcowy zawsze chodziło?</p>
+<h2 id="nie-bójmy-się-tej-zmiany">Nie bójmy się tej zmiany</h2>
+<p>Kiedyś pisaliśmy kod w prostych edytorach. Później pojawiły się IDE, inteligentne podpowiedzi i narzędzia takie jak ReSharper, które automatyzowały wiele powtarzalnych czynności. AI jest kolejnym krokiem, tyle że tym razem skala zmian jest znacznie większa.</p>
+<p>Nie widzę sensu w kurczowym trzymaniu się ręcznego pisania kodu tylko dlatego, że tak pracowaliśmy do tej pory. Z perspektywy biznesu liczy się przede wszystkim działający system i wartość, którą dostarczamy klientowi. To nie oznacza, że wiedza techniczna przestaje być potrzebna. Przeciwnie, bez niej trudno ocenić, czy agent rzeczywiście wykonał dobrą robotę.</p>
+<p>Pozostaje jeszcze kwestia kosztów. Dziś dostęp do AI może być stosunkowo przystępny, ale nie wiemy, jak zmienią się ceny, gdy firmy jeszcze mocniej uzależnią swoje procesy od tych narzędzi.</p>
+<p>Może więc zamiast zastanawiać się, czy AI zabierze nam pracę, lepiej sprawdzić, jak możemy z niej korzystać. Dorożkarze nie zatrzymali rozwoju motoryzacji, a my raczej nie zatrzymamy rozwoju AI. Możemy za to nauczyć się jeździć tym nowym samochodem, zanim ktoś inny zacznie nas nim wozić.</p>
+<h2 id="a-może-ai-zmienia-nie-tylko-programowanie">A może AI zmienia nie tylko programowanie?</h2>
+<p>Jest w tym wszystkim pewien paradoks. Piszę artykuł o tym, jak AI przejmuje pracę programisty, a sam tekst powstał dokładnie w podobny sposób.</p>
+<p>Cały artykuł został przeze mnie wypowiedziany. Następnie agent AI pomógł mi uporządkować myśli i przeredagować je w formę, którą właśnie czytasz.</p>
+<p>Nie musiałem zaczynać od pustej strony ani mozolnie układać każdego zdania. Musiałem za to wiedzieć, co chcę powiedzieć.</p>
+<p>I może właśnie na tym polega większa zmiana. AI nie tylko pomaga nam programować. Zmienia również sposób, w jaki piszemy, tworzymy i przekazujemy własne myśli.</p>
+<p>Czy programiści przestaną pisać kod? Być może część z nas już przestała. Ale czy to oznacza, że przestaliśmy programować?</p>
+<p>Tego jeszcze nie wiem. Za to wiem, że właśnie przeczytałeś artykuł, którego autor nie napisał ręcznie ani jednego zdania. No dobra, przynajmniej nie na klawiaturze.</p> </article> <div class="mt-16 flex max-w-app flex-col gap-6 border-t border-border pt-10" data-pagefind-ignore> <div class="flex flex-wrap items-center justify-between gap-4"> <div class="flex items-center gap-3 text-sm text-muted"><span>Udostępnij wpis</span><div class="flex gap-1"><a href="https://www.linkedin.com/sharing/share-offsite/?url=https://homeverest.pl/posts/2026/programowanie-w-erze-ai/" title="Udostępnij wpis na LinkedInie" class="group inline-flex items-center gap-1 hover:text-accent rounded-full border border-border-strong p-2 text-subtle transition-colors hover:border-accent hover:text-foreground"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M8 11v5" /><path d="M8 8v.01" /><path d="M12 16v-5" /><path d="M16 16v-3a2 2 0 1 0 -4 0" /><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" /></svg><span class="sr-only">Udostępnij wpis na LinkedInie</span> </a><a href="https://x.com/intent/post?url=https://homeverest.pl/posts/2026/programowanie-w-erze-ai/" title="Udostępnij wpis na X" class="group inline-flex items-center gap-1 hover:text-accent rounded-full border border-border-strong p-2 text-subtle transition-colors hover:border-accent hover:text-foreground"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block size-4 fill-transparent stroke-current stroke-2"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg><span class="sr-only">Udostępnij wpis na X</span> </a></div></div>  </div> </div> <div id="btt-btn-container" class="pointer-events-none fixed end-4 bottom-8 z-50 translate-y-14 opacity-0 transition duration-500 md:end-8"> <button data-button="back-to-top" aria-label="Do góry" class="group relative size-14 rounded-full bg-background px-2 py-1 shadow-xl"> <span id="progress-indicator" class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent"></span> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block rotate-90 transition-colors group-hover:text-accent"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M15 6l-6 6l6 6" /></svg> </button> </div> <script data-astro-rerun>
+  /** Scrolls the document to the top when
+   * the "Back to Top" button is clicked. */
+  function backToTop() {
+    const rootElement = document.documentElement;
+    const btnContainer = document.querySelector("#btt-btn-container");
+    const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+    const progressIndicator = document.querySelector("#progress-indicator");
+
+    if (!rootElement || !btnContainer || !backToTopBtn || !progressIndicator)
+      return;
+
+    // Attach click event handler for back-to-top button
+    backToTopBtn.addEventListener("click", () => {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    });
+
+    // Handle button visibility according to scroll position
+    let lastVisible = null;
+    function handleScroll() {
+      const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+      const scrollTop = rootElement.scrollTop;
+      const scrollPercent = Math.floor((scrollTop / scrollTotal) * 100);
+
+      progressIndicator.style.setProperty(
+        "background-image",
+        `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`
+      );
+
+      const isVisible = scrollTop / scrollTotal > 0.3;
+
+      if (isVisible !== lastVisible) {
+        btnContainer.classList.toggle("opacity-100", isVisible);
+        btnContainer.classList.toggle("translate-y-0", isVisible);
+        btnContainer.classList.toggle("opacity-0", !isVisible);
+        btnContainer.classList.toggle("translate-y-14", !isVisible);
+        btnContainer.classList.toggle("pointer-events-none", !isVisible);
+        lastVisible = isVisible;
+      }
+    }
+
+    let ticking = false;
+    document.addEventListener("scroll", () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  backToTop();
+</script> <dialog id="photo-viewer" aria-label="Przeglądarka zdjęć" data-pagefind-ignore class="m-0 h-dvh max-h-none w-screen max-w-none bg-transparent p-0 text-foreground backdrop:bg-[#0b0c10]/95 backdrop:backdrop-blur-sm"> <div class="flex h-full flex-col"> <div class="flex items-center justify-between gap-4 px-4 py-3 text-[13px] text-muted sm:px-6"> <span data-viewer-counter></span> <div class="flex items-center gap-2"> <a data-viewer-original href="#" target="_blank" rel="noopener" class="rounded-full border border-border-strong px-3.5 py-1.5 text-subtle transition-colors hover:border-accent hover:text-foreground">
+Oryginał ↗
+</a> <button data-viewer-close aria-label="Zamknij" class="size-9 rounded-full border border-border-strong text-base text-subtle transition-colors hover:border-accent hover:text-foreground">✕</button> </div> </div> <div data-viewer-stage class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20"> <img data-viewer-img alt="" class="max-h-full max-w-full rounded-lg object-contain shadow-2xl transition-opacity duration-200"> <button data-viewer-prev aria-label="Poprzednie zdjęcie" class="absolute top-1/2 left-4 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-surface/80 text-subtle transition-colors hover:border-accent hover:text-foreground sm:flex"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-[18px] rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg> </button> <button data-viewer-next aria-label="Następne zdjęcie" class="absolute top-1/2 right-4 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full border border-border-strong bg-surface/80 text-subtle transition-colors hover:border-accent hover:text-foreground sm:flex"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-[18px] rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg> </button> </div> <div class="flex min-h-13 justify-between gap-4 px-4 py-4 text-sm sm:px-6"> <span data-viewer-caption class="text-foreground"></span> <span data-viewer-year class="text-muted"></span> </div> </div> </dialog> <script type="module">const E=/^(image|img|banner|screenshot|obraz|zdjęcie)?(-\d+)?$/i;function L(){const r=Array.from(document.querySelectorAll("[data-photo]")).map(e=>({trigger:e,large:e.dataset.large,original:e.dataset.original,caption:e.dataset.caption,year:e.dataset.year})),n=Array.from(document.querySelectorAll("[data-zoomable] img")).filter(e=>!e.closest("a")).map(e=>{const s=e.alt.trim(),c=E.test(s)?void 0:s;return e.tabIndex=0,e.setAttribute("role","button"),e.setAttribute("aria-label",c?`Powiększ: ${c}`:"Powiększ obraz"),e.classList.add("cursor-zoom-in"),{trigger:e,large:e.src,caption:c}});return[...r,...n]}function k(){const r=document.querySelector("#photo-viewer");if(!r)return;const n=L();if(n.length===0)return;const e=t=>r.querySelector(t),s=e("[data-viewer-img]"),c=e("[data-viewer-original]"),h=e("[data-viewer-counter]"),p=e("[data-viewer-caption]"),w=e("[data-viewer-year]"),d=e("[data-viewer-stage]"),f=e("[data-viewer-prev]"),m=e("[data-viewer-next]"),i=n.length===1;let a=0;f.classList.toggle("sm:flex",!i),m.classList.toggle("sm:flex",!i),h.hidden=i;const g=t=>{new Image().src=n[(t+n.length)%n.length].large},l=t=>{a=(t+n.length)%n.length;const o=n[a];s.style.opacity="0",s.onload=()=>s.style.opacity="1",s.src=o.large,s.alt=o.caption??"",c.hidden=!o.original,c.href=o.original??"#",p.textContent=o.caption??"",w.textContent=o.year??"",h.textContent=`${a+1} / ${n.length}`,i||(g(a+1),g(a-1))},y=t=>{l(t),r.showModal(),document.documentElement.style.overflow="hidden"};n.forEach(({trigger:t},o)=>{t.addEventListener("click",()=>y(o)),t instanceof HTMLImageElement&&t.addEventListener("keydown",v=>{(v.key==="Enter"||v.key===" ")&&(v.preventDefault(),y(o))})}),r.addEventListener("close",()=>{document.documentElement.style.overflow="",n[a]?.trigger.focus()}),e("[data-viewer-close]").addEventListener("click",()=>r.close()),f.addEventListener("click",()=>l(a-1)),m.addEventListener("click",()=>l(a+1)),d.addEventListener("click",t=>{t.target===d&&r.close()}),r.addEventListener("keydown",t=>{i||(t.key==="ArrowLeft"&&l(a-1),t.key==="ArrowRight"&&l(a+1))});let u=null;d.addEventListener("touchstart",t=>u=t.touches[0].clientX,{passive:!0}),d.addEventListener("touchend",t=>{if(u===null||i)return;const o=t.changedTouches[0].clientX-u;Math.abs(o)>50&&l(a+(o<0?1:-1)),u=null})}document.addEventListener("astro:page-load",k);</script> <!-- Previous/Next Post Buttons --> <div data-pagefind-ignore class="mt-16 grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-3">  <a href="/posts/2025/wlasna-aplikacja-z-cursorem" class="group col-start-[-2] flex flex-col items-end gap-1.5 card rounded-[14px] p-5 text-right text-foreground hover:border-border-hover"> <span class="flex items-center gap-1.5 text-[13px] text-muted">
+Następny
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:translate-x-0.5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg> </span> <span class="font-serif text-[17px] leading-[1.35]"> Własna aplikacja z Cursorem </span> </a> </div> <div class="mt-10 flex justify-center" data-pagefind-ignore> <a id="back-button" href="/" class="group inline-flex items-center gap-1.5 rounded-full border border-border bg-surface/60 py-1.5 ps-2.5 pe-3.5 text-sm text-soft transition-colors hover:border-border-hover hover:text-foreground"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4 transition-transform group-hover:-translate-x-0.5 rtl:rotate-180"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+Wszystkie wpisy
+</a><script type="module">function o(){const t=document.querySelector("#back-button"),e=sessionStorage.getItem("backUrl");e&&t&&(t.href=e)}document.addEventListener("astro:page-load",o);o();</script> </div> </main> <footer class="flex flex-wrap justify-between gap-4 border-t border-border pt-7 pb-12 text-[13px] text-faint mt-auto"> <span>© 2026 Mateusz Łysień</span> <a href="/rss.xml" class="link">RSS</a> </footer>  </div> </body></html> <script data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 left-0 z-10 h-0.5 w-full";
+
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-0.5 w-0 bg-accent";
+    progressBar.id = "myBar";
+
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
+
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
+
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
+        }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline text-muted! opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Kopiuj";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      // Check if --file-name-offset custom property exists
+      const computedStyle = getComputedStyle(codeBlock);
+      const hasFileNameOffset =
+        computedStyle.getPropertyValue("--file-name-offset").trim() !== "";
+
+      // Determine the top positioning class
+      const topClass = hasFileNameOffset
+        ? "top-(--file-name-offset)"
+        : "-top-3";
+
+      const copyButton = document.createElement("button");
+      copyButton.className = `copy-code absolute end-3 ${topClass} rounded-md bg-surface-sunken border border-border-strong px-2 py-1 font-app text-xs leading-4 text-subtle hover:text-foreground`;
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
+      });
+    }
+
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
+
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Skopiowano";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
+    }
+  }
+  attachCopyButtons();
+
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
