@@ -44,5 +44,5 @@ export const SHARE_LINKS: Social[] = [
     href: "https://x.com/intent/post?url=",
     linkTitle: `Udostępnij wpis na X`,
     icon: IconBrandX,
-  }
+  },
 ] as const;

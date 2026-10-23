@@ -28,16 +28,16 @@ To, co wyróżnia Cursora, to głęboka integracja z modelem AI – od edycji ko
 **Najważniejsze funkcje Cursora:**
 
 - **Tryb Agenta**  
-    Tryb pracy Cursora, w którym wykonuje nasze polecenia na bieżąco analizując kod, pokazując przy tym swój tok myślenia i postęp prac. Ten tryb pozwala na automatyczne wdrażanie bardziej złożonych modyfikacji w projekcie. Zmiany wprowadzane są globalnie, często modyfikuje przy tym kilka plików jednocześnie.
+   Tryb pracy Cursora, w którym wykonuje nasze polecenia na bieżąco analizując kod, pokazując przy tym swój tok myślenia i postęp prac. Ten tryb pozwala na automatyczne wdrażanie bardziej złożonych modyfikacji w projekcie. Zmiany wprowadzane są globalnie, często modyfikuje przy tym kilka plików jednocześnie.
 
 - **Działa w kontekście całego projektu**  
-    Cursor analizuje cały kod źródłowy, dzięki czemu rozumie strukturę kodu i zależności między plikami. Dzięki czemu może odpowiadać na pytania dotyczące działania aplikacji. Można go traktować ja interaktywną dokumentację kodu.
+   Cursor analizuje cały kod źródłowy, dzięki czemu rozumie strukturę kodu i zależności między plikami. Dzięki czemu może odpowiadać na pytania dotyczące działania aplikacji. Można go traktować ja interaktywną dokumentację kodu.
 
 - **Obsługa terminala**  
-    Potrafi wykonywać polecenia terminalowe – może zbudować aplikację, odpalić serwer, zrobić `git commit` i `push`, przygotować wersję produkcyjną czy zainstalować zależności. Wszystko to można zlecić przy pomocy prostych poleceń w języku naturalnym.
+   Potrafi wykonywać polecenia terminalowe – może zbudować aplikację, odpalić serwer, zrobić `git commit` i `push`, przygotować wersję produkcyjną czy zainstalować zależności. Wszystko to można zlecić przy pomocy prostych poleceń w języku naturalnym.
 
 - **Analizowanie grafiki**  
-    Cursor może przeanalizować przesłany mu screenshot i na podstawie polecenia może wykonać potrzebne poprawki w kodzie. Na przykład: można przesłać screenshot przycisku i napisać: _"Zmień padding wewnątrz tego przycisku, bo wygląda zbyt ciasno"_ – Cursor zidentyfikuje odpowiedni fragment i zaproponuje poprawkę.
+   Cursor może przeanalizować przesłany mu screenshot i na podstawie polecenia może wykonać potrzebne poprawki w kodzie. Na przykład: można przesłać screenshot przycisku i napisać: _"Zmień padding wewnątrz tego przycisku, bo wygląda zbyt ciasno"_ – Cursor zidentyfikuje odpowiedni fragment i zaproponuje poprawkę.
 
 Więcej informacji znajduje się na [stronie internetowej](https://cursor.com/) Cursora.
 
@@ -45,8 +45,7 @@ Więcej informacji znajduje się na [stronie internetowej](https://cursor.com/) 
 
 Chcąc sprawdzić jak pracować z Cursorem miałem do wyboru dwie ścieżki:
 
-- **Utworzenie nowej aplikacji** – pozwoliłoby to sprawdzić, jak Cursor radzi sobie z projektowaniem struktury i budowaniem aplikacji od podstaw. Idealne, by przetestować cały proces tworzenia aplikacji od pierwszych linijek kodu aż do wdrożenia.  
-    
+- **Utworzenie nowej aplikacji** – pozwoliłoby to sprawdzić, jak Cursor radzi sobie z projektowaniem struktury i budowaniem aplikacji od podstaw. Idealne, by przetestować cały proces tworzenia aplikacji od pierwszych linijek kodu aż do wdrożenia.
 
 - **Wykorzystanie Cursora w istniejącej aplikacji -** dzięki czemu można sprawdzić, jak dobrze narzędzie rozumie już napisany kod i jak skutecznie potrafi wprowadzać nowe funkcjonalności, testy czy refaktoryzację.
 

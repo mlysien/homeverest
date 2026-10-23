@@ -60,19 +60,19 @@ jobs:
     name: 🎉 Release
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Getting newest source code
-      uses: actions/checkout@v2
+      - name: 🚚 Getting newest source code
+        uses: actions/checkout@v2
 
-    - name: 📂 File synchronization 
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
-      with:
-        server: ${{ secrets.FTP_SERVER_URL }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ${{ secrets.FTP_PROTOCOL }}
-        port: ${{ secrets.FTP_PORT }}
-        local-dir: ${{ secrets.FTP_LOCAL_DIR }}
-        server-dir: ${{ secrets.FTP_SERVER_DIR }}
+      - name: 📂 File synchronization
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_SERVER_URL }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ${{ secrets.FTP_LOCAL_DIR }}
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
 ```
 
 Workflow uruchamiane jest w środowisku Ubuntu Linux w najnowszej wersji. Eventem uruchamiającym workflow jest zdarzenie wrzucenia zmian do gałęzi dev, czyli po prostu merge**.** Workflow posiada jedno zadanie składające się z dwóch kroków - pobrania najnowszej wersji kodów źródłowych oraz wrzucenia ich na serwer FTP.

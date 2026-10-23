@@ -24,25 +24,24 @@ Działanie strategii OnPush polega na tym, że Angularowy ChangeDetector zostani
 Poniżej przedstawiam bardzo prosty komponent w którym zastosowana została strategia OnPush.
 
 ```ts
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
-  selector: 'app-example',
-  templateUrl: './example.component.html',
-  styleUrls: ['./example.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-example",
+  templateUrl: "./example.component.html",
+  styleUrls: ["./example.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleComponent implements OnInit {
-
   @Input() counter: { value: number };
-  
-  constructor() { }
-  
-  ngOnInit(): void { }
-  
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
   private updateCounter() {
     this.counter = {
-        value: 24
+      value: 24,
     };
   }
 }
@@ -92,19 +91,19 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class ExampleComponent implements OnInit {
 
   @Input() counter: { value: number };
-  
+
   constructor(private changeDetector : ChangeDetectorRef) {
    this.resetCoutner();
   }
-  
+
   ngOnInit(): void { }
-  
+
   private updateCounter() {
     this.counter = {
         value: 24
     };
   }
-  
+
   private resetCoutner() {
     setTimeout(() => {
       this.counter = {

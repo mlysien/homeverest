@@ -62,12 +62,12 @@ W tej zakładce mamy możliwość edycji informacji o naszej aplikacji, możemy 
 W tej zakładce możemy dodać zasoby graficzne dla naszej aplikacji. Warto tutaj zwrócić uwagę na fakt, że mamy bardzo duże możliwości jeśli chodzi o dostosowanie grafik, ponieważ jak widać z lewej strony zakładki, można ustalać wygląd dla poszczególnych wielkości kafelków, które pojawią się w menu Start po zainstalowaniu aplikacji. Możliwości mamy sporo, ale nie trzeba ręcznie tworzyć grafik pod każdy rozmiar kafelka, możemy wykonać to automatycznie na podstawie głównej ikony aplikacji. Należy wybrać źródło (pole **_Source_**) naszej ikonki a następnie nacisnąć przycisk _**Generate**_ - spowoduje to utworzenie grafik dla wszystkich rozmiarów kafelków - jeśli chcemy wygenerować automatycznie grafiki tylko dla konkretnych typów i rozmiarów kafelków należy wybrać je z pól **_Assets_** i **_Scales_**.
 
 3. **Edycja uprawnień aplikacji**
-![Zakładka edycji uprawnień aplikacji.](../../../assets/blog/2022/paczki-msix/image-8.png)
+   ![Zakładka edycji uprawnień aplikacji.](../../../assets/blog/2022/paczki-msix/image-8.png)
 
 W tej zakładce mamy możliwość zaznaczenia funkcjonalności systemu Windows do jakich nasza aplikacja będzie potrzebować dostępu - coś jak aplikacje, które mamy na telefonie, które również podczas instalacji wyświetlają listę funkcji systemu z których będą korzystać podczas działania. Warto poświęcić chwilę na zastanowienie się z jakich zasobów będzie korzystać nasza aplikacja, zanim wypuści się oficjalnego instalatora. Może okazać się później, że przez ominięcie którejś funkcjonalności aplikacja nie działa we właściwy sposób.
 
 4. **Pakowanie aplikacji**
-![Zakładka edycji danych o paczce.](../../../assets/blog/2022/paczki-msix/image-9.png)
+   ![Zakładka edycji danych o paczce.](../../../assets/blog/2022/paczki-msix/image-9.png)
 
 Ostatnią i najważniejszą zakładką jest zakładka z danymi o paczce. Podajemy w niej informacje na temat paczki jaka zostanie stworzona a następnie wysłana do klienta, czyli informacje o nazwie, o wersji paczki, a także o wydawcy. Na wydawcy chciałbym się teraz bardziej skupić, gdyż jest to kluczowa właściwość w tworzonej paczce. Nazwę wydawcy podajemy dowolną - zwykle będzie to nazwa firmy tworzącej oprogramowanie. Jednak aby oprogramowanie, które wyślemy do klienta w paczce było możliwe do zainstalowania, system Windows musi wiedzieć, że paczka pochodzi od zaufanego wydawcy. Do tego celu używa się certyfikatów, które można podpiąć do paczki - w tym celu należy nacisnąć przycisk _**Choose Certificate...**_, a następnie w okienku wybrać certyfikat.
 

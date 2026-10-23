@@ -26,7 +26,7 @@ internal interface ISecretService
 internal class SecretService : ISecretService
 {
     protected Guid Hash { get; } = Guid.NewGuid();
-    
+
     public string Generate(string password)
     {
         return $"{Hash}-{password}";
@@ -60,11 +60,11 @@ W celu zaprezentowania jak działa cykl życia Singleton wykorzystam prosty unit
         var secret = "my-secret";
         var secretService1 = _serviceProvider.GetService<ISecretService>();
         var secretService2 = _serviceProvider.GetService<ISecretService>();
-        
+
         // act
         var secret1 = secretService1.Generate(secret);
         var secret2 = secretService2.Generate(secret);
-        
+
         // assert
         Assert.That(secretService1, Is.SameAs(secretService2));
         Assert.That(secret1, Is.EqualTo(secret2));
@@ -97,11 +97,11 @@ Z kolei rejestrują nasz serwis `ISecretService` jako Transient sprawiamy, że z
         var secret = "my-secret";
         var secretService1 = _serviceProvider.GetService<ISecretService>();
         var secretService2 = _serviceProvider.GetService<ISecretService>();
-        
+
         // act
         var secret1 = secretService1.Generate(secret);
         var secret2 = secretService2.Generate(secret);
-        
+
         // assert
         Assert.That(secretService1, Is.Not.SameAs(secretService2));
         Assert.That(secret1, Is.Not.EqualTo(secret2));
@@ -132,39 +132,39 @@ To chyba najbardziej powszechnie stosowany cykl życia obiektów, szczególnie j
         var secret = "my-secret";
         ISecretService secretServiceScope1 = null;
         ISecretService secretServiceScope2 = null;
-        
+
         using (var scope = _serviceProvider.CreateScope())
         {
             // act
             var secretService1 = scope.ServiceProvider.GetService<ISecretService>();
             var secretService2 = scope.ServiceProvider.GetService<ISecretService>();
-            
+
             secretServiceScope1 = scope.ServiceProvider.GetService<ISecretService>();
 
             var secret1 = secretService1.Generate(secret);
             var secret2 = secretService2.Generate(secret);
-            
+
             // assert
             Assert.That(secretService1, Is.SameAs(secretService2));
             Assert.That(secret1, Is.EqualTo(secret2));
         }
-        
+
         using (var scope = _serviceProvider.CreateScope())
         {
             // act
             var secretService1 = scope.ServiceProvider.GetService<ISecretService>();
             var secretService2 = scope.ServiceProvider.GetService<ISecretService>();
-            
+
             secretServiceScope2 = scope.ServiceProvider.GetService<ISecretService>();
-            
+
             var secret1 = secretService1.Generate(secret);
             var secret2 = secretService2.Generate(secret);
-            
+
             // assert
             Assert.That(secretService1, Is.SameAs(secretService2));
             Assert.That(secret1, Is.EqualTo(secret2));
         }
-        
+
         // assert
         Assert.That(secretServiceScope1, Is.Not.SameAs(secretServiceScope2));
     }

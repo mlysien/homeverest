@@ -9,6 +9,7 @@ Site: https://homeverest.pl
 This repository contains the source code for the homeverest blog.
 
 Key goals:
+
 - Fast static pages
 - Clean writing experience in Markdown
 - Searchable content with Pagefind
@@ -70,6 +71,7 @@ The site runs on `http://localhost:4321`.
 Add a new Markdown file under `src/data/blog/<year>/`.
 
 Recommended steps:
+
 1. Create a file with a kebab-case slug.
 2. Add frontmatter (title, description, publish date, tags, etc.).
 3. Add related assets to `src/assets/blog/` when needed.

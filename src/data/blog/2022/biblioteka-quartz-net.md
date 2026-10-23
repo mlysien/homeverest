@@ -9,7 +9,6 @@ tags: [quartz.net, c#, library]
 description: Quartz.NET to biblioteka do planowania zadań w .NET, która robi dużo więcej niż zwykłe timery. Pokazuję jak działa i jak zacząć z niej korzystać na prostym przykładzie.
 ---
 
-
 Cześć! Dzisiejszy wpis będzie poświęcony bibliotece Quartz.NET, dzięki której w łatwy sposób można zarządzać wykonywaniem zadań w obrębie aplikacji. Biblioteka Quarts.NET to lekka i bardzo intuicyjna biblioteka oraz ma spore możliwości jeśli chodzi o planowanie zadań. Zaczynajmy!
 
 ![banner](../../../assets/blog/2022/biblioteka-quartz-net/quartz-bg.png)
@@ -38,7 +37,7 @@ W tym momencie można przejść do implementacji kodu aplikacji. Tak jak wspomin
 
 Zacznijmy od definicji serwisu temperatury. Poniżej jego definicja, jak widać jest to bardzo trywialny przykład, ale nie chodzi o tworzenie skomplikowanej struktury lecz o pokazanie działania biblioteki Quartz.NET.
 
-```csharp 
+```csharp
 internal interface ITemperatureService
 {
   double GetTemperature();
@@ -47,7 +46,7 @@ internal interface ITemperatureService
 
 Mając już zdefiniowany interfejs utworzymy jego implementacje. Przykładowo utworzymy serwis do pobierania temperatury jaka jest w kuchni, analogicznie można utworzyć implementacje dla innych źródeł.
 
-```csharp 
+```csharp
 internal class KitchenTemperatureService : ITemperatureService
 {
 	public double GetTemperature()
@@ -60,11 +59,11 @@ internal class KitchenTemperatureService : ITemperatureService
 
 Mając zaimplementowaną logikę biznesową powiedzmy, że potrzebujemy pobierać dane o temperaturze z różnych pomieszczeń o różnych porach dnia. W tym celu trzeba zdefiniować zadania (Joby), aby to zrobić wykorzystamy interfejs dostarczony przez Quartz.NET - **IJob**. Poniżej definicja Joba, którego zadaniem jest pobieranie informacji o temperaturze w kuchni.
 
-```csharp 
+```csharp
 internal class KitchenTemperatureJob : IJob
 {
 	private readonly ITemperatureService _temperatureService;
-    
+
 	public KitchenTemperatureJob()
     {
     	_temperatureService = new KitchenTemperatureService();
@@ -84,7 +83,7 @@ internal class KitchenTemperatureJob : IJob
 
 Jak widać wykorzystujemy w tym Jobie wcześniej zdefiniowany serwis do pobierania temperatury. Logika w Jobach może być dużo bardziej skomplikowana np. poprzez wykorzystywanie Dependency Injection. Mając gotową implementację Joba, możemy w startowym punkcie programu - w aplikacji konsolowej będzie to funkcja **Main** - zdefiniować pozostałe Joby. Analogicznie do Joba pobierającego temperaturę w kuchni, zdefiniowałem dwa inne:
 
-```csharp 
+```csharp
 // define jobs
 var kitchenJob = JobBuilder.Create<KitchenTemperatureJob>().Build();
 var bedroomJob = JobBuilder.Create<BedroomTemperatureJob>().Build();
@@ -93,7 +92,7 @@ var outsideJob = JobBuilder.Create<OutsideTemperatureJob>().Build();
 
 Zdefiniowane Joby będą wykonywane przez inny komponent biblioteki Quartz.NET - **Trigger**. Każdy Job będzie wykonywany przez osobny Trigger. Poniżej konfiguracja Triggerów, które będą uruchamiać wcześniej zdefiniowane Joby:
 
-```csharp 
+```csharp
 // define triggers
 var kitchenTrigger = TriggerBuilder.Create().WithCronSchedule("0 0 14 * * ?").Build();
 
@@ -108,7 +107,7 @@ var outsideTrigger = TriggerBuilder.Create()
 
 Konfigurowanie Triggerów jest bardzo intuicyjne, dzięki wielu zdefiniowanym w bibliotece metodom do ustawiania czasu wykonywania Jobów. Najciekawsza konfiguracja, która najbardziej zwraca uwagę to konfiguracja pierwszego Triggera.
 
-```csharp 
+```csharp
 var kitchenTrigger = TriggerBuilder.Create().WithCronSchedule("0 0 14 * * ?").Build();
 ```
 
@@ -117,7 +116,7 @@ Zapis ten oznacza, że Trigger będzie wykonywał przypisanego do niego Joba cod
 
 Po zdefiniowaniu Jobów oraz Triggerów możemy przejść do zdefiniowania głównego komponentu biblioteki Quartz.NET - **Schedulera**:
 
-```csharp 
+```csharp
 // create scheduler
 var factory = new StdSchedulerFactory();
 var scheduler = await factory.GetScheduler();
@@ -126,7 +125,7 @@ await scheduler.Start();
 
 W tym momencie mamy utworzony Scheduler, jak widać wykorzystany jest tutaj wzorzec fabryki. Na nasze potrzeby wystarczy nam wyprodukowanie standardowego Schedulara. Zaraz po utworzeniu uruchamiamy go i przechodzimy do kolejnego ważnego punktu - połączenia wcześniej utworzonych Jobów z Triggerami. Do tego celu wykorzystamy słownik, który będzie przyjmował jako klucz Joba, a wartość podpięte do niego Triggery.
 
-```csharp 
+```csharp
 var dictionary = new Dictionary<IJobDetail, IReadOnlyCollection<ITrigger>>();
 dictionary.Add(kitchenJob, new HashSet<ITrigger>() {kitchenTrigger});
 dictionary.Add(bedroomJob, new HashSet<ITrigger>() { bedroomTrigger });
@@ -135,7 +134,7 @@ dictionary.Add(outsideJob, new HashSet<ITrigger>() { outsideTrigger });
 
 Akurat w przykładowej aplikacji każdy Job ma własnego Triggera, jednak może się zdarzyć, że jeden Job będzie wywoływany przez kilka Triggerów - dlatego wymagane jest podanie kolekcji Triggerów. Na koniec dodajemy naszą definicje słownikową do zdefiniowanego Schedulera:
 
-```csharp 
+```csharp
 await scheduler.ScheduleJobs(dictionary, true);
 ```
 

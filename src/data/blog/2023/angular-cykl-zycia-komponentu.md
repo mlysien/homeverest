@@ -11,7 +11,6 @@ description: Angular ma 8 interfejsów opisujących cykl życia komponentu. Omaw
 
 ![banner](../../../assets/blog/2023/angular-cykl-zycia-komponentu/angular-life-cycle.png)
 
-
 Cześć! Nowy rok zaczynam wpisem trochę innym niż te z poprzedniego, pierwszy raz będzie to wpis poświęcony technologii frontendowej. Opowiem trochę o Angularze i o tym w jaki sposób działają komponenty. W projekcie jakim znajduję się obecnie wykorzystujemy Angulara, więc stał się on mi dość bliskim frameworkiem, dlatego zapraszam do zapoznania się z artykułem.
 
 ## Cykl życia komponentu
@@ -39,9 +38,17 @@ W Angularze istnieje **aż 8 interfejsów** opisujących cykl życia komponentu.
 Poniżej zamieszczam przykładowy komponent, który implementuje wszystkie wyżej wymienione interfejsy z cyklu życia komponentu i wyświetla w konsoli, kiedy zostały wywołane.
 
 ```ts
-export class AppComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, 
-  AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
-    
+export class AppComponent
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy
+{
   constructor() {
     console.info("constructor invoked");
   }

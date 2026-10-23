@@ -13,7 +13,6 @@ description: Technika Pomodoro to proste podejście do pracy – 25 minut skupie
 
 Cześć, zapraszam do lektury mojego kolejnego wpisu na blogu. Dziś opiszę moją ulubioną technikę na zwiększanie produktywności w pracy a mianowicie **technikę Pomodoro**. Jeśli interesują cię tematy związane z produktywnością na pewno już słyszałeś o tej technice, może nawet próbowałeś ją stosować. Jeśli pierwszy raz słyszysz o Pomodoro to tym lepiej! Postaram cię zachęcić do wykorzystania jej w swojej codziennej pracy.
 
-
 ## Technika Pomodoro - co to jest?
 
 Na początek troszeczkę historii, technika Pomodoro powstała w latach 80, jej autorem jest Włoch [Francesco Cirillo](https://francescocirillo.com/pages/francesco-cirillo). Skoro twórcą jest Włoch to nie powinno dziwić to, że w nazwie jest pomidor. We Włoszech jest on dość popularnym warzywem, na tyle popularnym, że pan Francessco do odmierzania czasu używał kuchennego minutnika w kształcie... pomidora! Nazwa wymyśliła się sama.

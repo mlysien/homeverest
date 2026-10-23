@@ -23,7 +23,7 @@ Co jest warte uwagi, to fakt, że dostęp do zmiennych z sekretami mają wszyscy
 
 Po dawce wiedzy teoretycznej teraz czas na wykorzystanie jej w praktyce. Przedstawię jak dodać własne sekrety na platformie GitHub.
 
-Po zalogowaniu się do GitHuba wchodzimy w projekt, w którym chcemy wykorzystać sekrety. Następnie wchodzimy w jego ustawienia i w zakładce "_Secrets_" klikamy w pozycję "_Actions_". Poniżej screen z przykładowego projektu, w którym zdefiniowałem nowy sekret o nazwie "_FTP\_PASSWORD_".
+Po zalogowaniu się do GitHuba wchodzimy w projekt, w którym chcemy wykorzystać sekrety. Następnie wchodzimy w jego ustawienia i w zakładce "_Secrets_" klikamy w pozycję "_Actions_". Poniżej screen z przykładowego projektu, w którym zdefiniowałem nowy sekret o nazwie "_FTP_PASSWORD_".
 
 ![image](../../../assets/blog/2022/github-secrets/image.png)
 

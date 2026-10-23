@@ -59,7 +59,7 @@ Zabrakło czasu również na zaimplementowanie realnej integracji. Po głowie ch
 
 ## Czego się nauczyłem?
 
-Byłoby głupio, gdyby po 100 dniach pracy nad projektem nic by mi nie zostało. Nie napiszę, że to 100 dni zmieniło moje życie, czy karierę zawodową. Jednak zdobyłem sporo doświadczenia.  
+Byłoby głupio, gdyby po 100 dniach pracy nad projektem nic by mi nie zostało. Nie napiszę, że to 100 dni zmieniło moje życie, czy karierę zawodową. Jednak zdobyłem sporo doświadczenia.
 
 **Rutyna** - zacznę od tego, bo w teorii powinienem wyrobić sobie nawyk. Prawda jest taka, że gdyby nie przypomnienia oraz dostęp do aplikacji GitHub na telefonie to odpadłbym po pierwszym miesiącu. Praca nad projektem w weekendy totalnie odpadała. W święta/majówkę również. Projekt realizowałem głównie w tygodniu, wieczorkiem, starając się przynajmniej godzinkę czasu spędzić nad rozwijaniem go.
 
@@ -73,7 +73,7 @@ Byłoby głupio, gdyby po 100 dniach pracy nad projektem nic by mi nie zostało.
 
 Chciałbym kontynuować prace nad projektem. Oczywiście już nie w tak absorbujący sposób jak podczas konkursu. Przede wszystkim chciałbym wykonać realną integrację pomiędzy sklepem a systemem ERP. Chciałbym utworzyć wtyczki do sklepu Shopify oraz systemu ERP jakim jest Subiekt GT. Możliwe, że kiedyś jeszcze jakieś inne wtyczki powstaną. Na pewno będę również aktualizował samą warstwę obszarów integracji, a wraz z nią dokumentację.
 
-* * *
+---
 
 Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Jeśli chciałbyś pomóc rozwijać narzędzie lub z niego skorzystać to wbijaj na [GitHuba projektu](https://github.com/mlysien/integrify). A jak chcesz do mnie napisać to możesz to zrobić przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Do następnego!
 
