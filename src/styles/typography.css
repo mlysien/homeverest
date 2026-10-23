@@ -65,6 +65,36 @@
       @apply mx-auto rounded-xl border border-border;
     }
 
+    /* Small image placed left/right with text wrapping it, or centered on its
+       own line; floats fall back to centered on phones.
+       Usage in markdown: <div class="media-right"> + blank line + image */
+    .media-left,
+    .media-right,
+    .media-center {
+      @apply mx-auto w-[240px] max-w-full;
+
+      p,
+      img {
+        @apply m-0;
+      }
+    }
+
+    @media (width >= 640px) {
+      .media-left {
+        @apply float-left mr-7 mb-3;
+      }
+
+      .media-right {
+        @apply float-right mb-3 ml-7;
+      }
+    }
+
+    h2,
+    h3,
+    hr {
+      clear: both;
+    }
+
     figcaption {
       @apply font-app text-[13px] text-muted;
     }

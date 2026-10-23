@@ -10,6 +10,7 @@ import ShareLinks from "@/components/ShareLinks.astro";
 import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import PhotoViewer from "@/components/PhotoViewer.astro";
+import BannerPrompt from "@/components/BannerPrompt.astro";
 import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getPath } from "@/utils/getPath";
@@ -35,6 +36,7 @@ const {
   modDatetime,
   tags,
   hideEditPost,
+  bannerPrompt,
 } = post.data;
 
 const { Content } = await render(post);
@@ -90,7 +92,7 @@ const nextPost =
 <Layout {...layoutProps}>
   <Header />
   <main id="main-content" class="pt-12 pb-24" data-pagefind-body>
-    <header class="flex flex-col gap-8 pb-12">
+    <header class="flex flex-col gap-12 pb-12">
       <div class="flex flex-col gap-5">
         <ul class="flex flex-wrap gap-1.5" aria-label="Tagi">
           {
@@ -111,7 +113,7 @@ const nextPost =
         <!-- Meta: author | date | reading time, each with a small label.
              Mobile: author on its own row, date | reading time below -->
         <dl
-          class="m-0 grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-4 text-[15px] text-soft sm:flex sm:flex-wrap sm:items-center sm:gap-x-6"
+          class="m-0 mt-7 grid grid-cols-[auto_minmax(0,1fr)] gap-x-5 gap-y-4 text-[15px] text-soft sm:flex sm:flex-wrap sm:items-center sm:gap-x-6"
           data-pagefind-ignore
         >
           <div class="col-span-2 flex items-center gap-3">
@@ -183,6 +185,7 @@ const nextPost =
                 class="h-auto w-full rounded-2xl border border-edge bg-surface"
                 loading="eager"
               />
+              {bannerPrompt && <BannerPrompt prompt={bannerPrompt} />}
             </figure>
           </div>
         )
