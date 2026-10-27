@@ -48,7 +48,7 @@ const recentPosts = posts.slice(1, 6);
                 ·{" "}
                 <a
                   href={`/tags/${slugifyStr(latest.data.tags[0])}/`}
-                  class="text-accent-soft hover:text-accent-strong"
+                  class="text-accent-soft underline underline-offset-2 hover:text-accent-strong"
                 >
                   {latest.data.tags[0]}
                 </a>
@@ -178,7 +178,7 @@ const recentPosts = posts.slice(1, 6);
           </a>
         </li>
       </ul>
-      <div class="flex justify-center gap-1.5">
+      <div class="flex justify-center">
         {
           [...recentPosts, null].map((post, i) => (
             <button
@@ -189,7 +189,7 @@ const recentPosts = posts.slice(1, 6);
                   : "Przejdź do wszystkich wpisów"
               }
               class:list={[
-                "size-1.5 rounded-full p-0 transition-colors",
+                "size-6 rounded-full bg-clip-content p-[9px] transition-colors",
                 i === 0 ? "bg-accent" : "bg-dot",
               ]}
             />

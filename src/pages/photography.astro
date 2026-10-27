@@ -64,8 +64,11 @@ const photos = await Promise.all(
               <Image
                 src={photo.src}
                 alt={`Zdjęcie: ${photo.caption}`}
-                widths={[452, 904]}
-                sizes="(max-width: 1000px) 50vw, 452px"
+                widths={[320, 452, 904]}
+                sizes="(max-width: 1000px) calc(50vw - 26px), 452px"
+                quality={70}
+                loading={i < 2 ? "eager" : "lazy"}
+                fetchpriority={i === 0 ? "high" : undefined}
                 class="w-full rounded-xl bg-surface"
               />
             </button>
