@@ -7,10 +7,14 @@ import Footer from "@/components/Footer.astro";
 import PhotoViewer from "@/components/PhotoViewer.astro";
 import { PHOTOS } from "@/content-data/photos";
 import { SITE } from "@/config";
+import { PHOTO_LINKS } from "@/constants";
+
+// Only a handful here; the rest live on Instagram and Lightroom (see PHOTO_LINKS)
+const SHOWN_PHOTOS = 10;
 
 // Large, web-friendly version for the viewer; the untouched file is linked as "Original"
 const photos = await Promise.all(
-  PHOTOS.map(async photo => {
+  PHOTOS.slice(0, SHOWN_PHOTOS).map(async photo => {
     const large = await getImage({
       src: photo.src,
       width: Math.min(2560, photo.src.width),
@@ -27,6 +31,22 @@ const photos = await Promise.all(
     pageTitle="Fotografia"
     pageDesc="Fotografia to jedno z moich ulubionych zajęć, lubię łapać momenty przez obiektyw aparatu. Oto kilka z nich, które najbardziej lubię."
   >
+    <div class="-mt-3 grid grid-cols-2 gap-2 sm:gap-3">
+      {
+        PHOTO_LINKS.map(link => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={link.linkTitle}
+            class="group flex w-full items-center gap-3 rounded-xl border border-border bg-surface px-4 py-3 transition-colors hover:border-accent"
+          >
+            <link.icon class="size-6 shrink-0 text-subtle transition-colors group-hover:text-accent" />
+            <span class="text-[15px] text-foreground">{link.cta}</span>
+          </a>
+        ))
+      }
+    </div>
     {
       photos.length === 0 && (
         <p class="m-0 text-[15px] text-muted">Nie ma jeszcze zdjęć.</p>

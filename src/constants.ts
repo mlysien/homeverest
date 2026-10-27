@@ -3,6 +3,8 @@ import IconMail from "@/assets/icons/IconMail.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
 import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
+import IconInstagram from "@/assets/icons/IconInstagram.svg";
+import IconLightroom from "@/assets/icons/IconLightroom.svg";
 
 interface Social {
   name: string;
@@ -29,6 +31,23 @@ export const SOCIALS: Social[] = [
     href: "mailto:mateusz.lysien@homeverest.pl",
     linkTitle: `Napisz do mnie`,
     icon: IconMail,
+  },
+] as const;
+
+export const PHOTO_LINKS: (Social & { cta: string })[] = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/mlysien.jpg/",
+    linkTitle: `Moje zdjęcia na Instagramie`,
+    cta: "Zobacz więcej na moim Instagramie",
+    icon: IconInstagram,
+  },
+  {
+    name: "Lightroom",
+    href: "https://lightroom.adobe.com/u/mateuszysie",
+    linkTitle: `Moje zdjęcia w Lightroomie`,
+    cta: "Przeglądaj moje albumy w Lightroomie",
+    icon: IconLightroom,
   },
 ] as const;
 
