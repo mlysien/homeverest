@@ -23,6 +23,20 @@ export default defineConfig({
     "/posts/2024/podsumowanie-konkursku-100commitow":
       "/posts/2024/podsumowanie-konkursu-100commitow",
   },
+    // Tags merged into a smaller set
+    "/tags/c": "/tags/dotnet",
+    "/tags/ioc": "/tags/dotnet",
+    "/tags/library": "/tags/dotnet",
+    "/tags/quartz.net": "/tags/dotnet",
+    "/tags/cicd": "/tags/ci-cd",
+    "/tags/github": "/tags/ci-cd",
+    "/tags/cursorai": "/tags/ai",
+    "/tags/programowanie": "/tags/ai",
+    "/tags/vibecoding": "/tags/ai",
+    "/tags/terminal": "/tags/narzedzia",
+    "/tags/tools": "/tags/narzedzia",
+    "/tags/challenge": "/tags/rozwoj",
+    "/tags/others": "/tags/rozwoj",
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),

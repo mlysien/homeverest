@@ -2,9 +2,10 @@ import kebabcase from "lodash.kebabcase";
 import slugify from "slugify";
 
 /**
- * Check if string contains non-Latin characters
+ * Check if string contains non-Latin characters.
+ * Latin-1 and Latin Extended-A (e.g. Polish ą, ł, ż) count as Latin, so slugify transliterates them.
  */
-const hasNonLatin = (str: string): boolean => /[^\x00-\x7F]/.test(str);
+const hasNonLatin = (str: string): boolean => /[^\x00-\u017F]/.test(str);
 
 /**
  * Slugify a string using a hybrid approach:

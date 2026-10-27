@@ -5,7 +5,7 @@ pubDatetime: 2023-03-30
 slug: cykl-zycia-obiektow-w-kontenerze-ioc
 featured: false
 draft: false
-tags: [ioc]
+tags: [dotnet]
 description: Singleton, Transient czy Scoped? Tłumaczę jak działają cykle życia obiektów w kontenerze IoC w .NET i pokazuję różnice na konkretnych unit testach.
 ---
 

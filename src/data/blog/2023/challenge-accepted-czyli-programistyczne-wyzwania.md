@@ -5,7 +5,7 @@ pubDatetime: 2023-02-27
 slug: challenge-accepted-czyli-programistyczne-wyzwania
 featured: false
 draft: false
-tags: [challenge]
+tags: [rozwój]
 description: Przegląd czterech platform z zadaniami programistycznymi – Codingame, SPOJ, Project Euler i Advent of Code. Idealne jeśli chcesz poćwiczyć algorytmy albo po prostu dobrze się bawić kodem.
 ---
 

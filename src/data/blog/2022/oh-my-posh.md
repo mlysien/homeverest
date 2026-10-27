@@ -5,7 +5,7 @@ pubDatetime: 2022-03-01
 slug: pozbadz-sie-nudy-w-konsoli-z-oh-my-posh
 featured: false
 draft: false
-tags: [terminal]
+tags: [narzędzia]
 description: Krok po kroku pokazuję jak zainstalować Oh My Posh w PowerShellu i Windows Terminal, ustawić własny motyw i dorzucić przydatne moduły do pracy z Gitem i ikonami plików.
 ---
 

@@ -5,7 +5,7 @@ pubDatetime: 2022-04-01
 slug: technika-pomodoro
 featured: false
 draft: false
-tags: [tools]
+tags: [narzędzia]
 description: Technika Pomodoro to proste podejście do pracy – 25 minut skupienia, 5 minut przerwy. Piszę jak stosować ją jako programista i dlaczego po kilku latach nadal mi działa.
 ---
 

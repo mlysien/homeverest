@@ -5,7 +5,7 @@ pubDatetime: 2022-05-16
 slug: github-actions
 featured: false
 draft: false
-tags: [github, ci/cd, tools]
+tags: [ci-cd]
 description: GitHub Actions to darmowe CI/CD wbudowane w GitHub. Tłumaczę podstawowe pojęcia – workflows, jobs, events, actions – i pokazuję przykładowy pipeline do deploymentu przez FTP.
 ---
 

@@ -2,6 +2,7 @@
 title: Zaczynam tworzyć bloga!
 author: Mateusz Łysień
 pubDatetime: 2021-05-05
+tags: [rozwój]
 slug: zaczynam-tworzyc-bloga
 featured: false
 draft: false

@@ -5,7 +5,7 @@ pubDatetime: 2022-08-29
 slug: github-secrets
 featured: false
 draft: false
-tags: [github, ci/cd]
+tags: [ci-cd]
 description: GitHub Secrets to zaszyfrowane zmienne do przechowywania haseł i kluczy API używanych w GitHub Actions. Pokazuję jak je dodać i jak poprawnie przekazywać je w workflow.
 ---
 

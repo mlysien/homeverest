@@ -5,7 +5,7 @@ pubDatetime: 2022-06-15
 slug: paczki-msix
 featured: false
 draft: false
-tags: [tools]
+tags: [dotnet]
 description: MSIX to format pakowania aplikacji desktopowych dla Windows, który przejmuje całą odpowiedzialność za instalację i aktualizacje. Pokazuję jak dodać go do istniejącej aplikacji WPF bez przebudowywania solucji.
 ---
 

@@ -5,7 +5,7 @@ pubDatetime: 2025-08-22
 slug: wlasna-aplikacja-z-cursorem
 featured: false
 draft: false
-tags: [ai, cursorai, vibecoding]
+tags: [ai]
 ogImage: ../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/og.jpg
 description: Zbudowałem od zera własny Pomodoro Timer w Tauri z pomocą Cursora. Jak wygląda programowanie z AI w praktyce, co mnie zaskoczyło i gdzie Cursor ma wpadki.
 ---

@@ -5,7 +5,7 @@ pubDatetime: 2026-10-21
 slug: programowanie-w-erze-ai
 featured: false
 draft: false
-tags: [ai, programowanie]
+tags: [ai]
 ogImage: ../../../assets/blog/2026/programowanie-w-erze-ai/og.jpg
 description: Jak AI zmienia codzienną pracę programisty, dlaczego coraz rzadziej piszę kod ręcznie i gdzie w tym wszystkim podziała się satysfakcja.
 bannerPrompt: |
