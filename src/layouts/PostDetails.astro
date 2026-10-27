@@ -11,6 +11,7 @@ import BackButton from "@/components/BackButton.astro";
 import BackToTopButton from "@/components/BackToTopButton.astro";
 import PhotoViewer from "@/components/PhotoViewer.astro";
 import BannerPrompt from "@/components/BannerPrompt.astro";
+import TableOfContents from "@/components/TableOfContents.astro";
 import IconArrowLeft from "@/assets/icons/IconArrowLeft.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { getPath } from "@/utils/getPath";
@@ -39,7 +40,7 @@ const {
   bannerPrompt,
 } = post.data;
 
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 
 const banner = getBanner(post);
 
@@ -191,6 +192,8 @@ const nextPost =
         )
       }
     </header>
+
+    <TableOfContents {headings} />
 
     <article id="article" class="app-prose max-w-app" data-zoomable>
       <Content />

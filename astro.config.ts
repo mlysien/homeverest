@@ -9,6 +9,7 @@ import {
   transformerNotationWordHighlight,
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
+import { transformerLightContrast } from "./src/utils/transformers/lightContrast";
 import { remarkStripBanner } from "./src/utils/remarkStripBanner";
 import { SITE } from "./src/config";
 
@@ -22,7 +23,6 @@ export default defineConfig({
     // Old address with a typo, kept so existing links still work
     "/posts/2024/podsumowanie-konkursku-100commitow":
       "/posts/2024/podsumowanie-konkursu-100commitow",
-  },
     // Tags merged into a smaller set
     "/tags/c": "/tags/dotnet",
     "/tags/ioc": "/tags/dotnet",
@@ -37,6 +37,7 @@ export default defineConfig({
     "/tags/tools": "/tags/narzedzia",
     "/tags/challenge": "/tags/rozwoj",
     "/tags/others": "/tags/rozwoj",
+  },
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),
@@ -58,6 +59,11 @@ export default defineConfig({
         transformerNotationHighlight(),
         transformerNotationWordHighlight(),
         transformerNotationDiff({ matchAlgorithm: "v3" }),
+        // min-light blue and green are just under 4.5:1 on the code surface
+        transformerLightContrast({
+          "#1976D2": "#1565C0",
+          "#22863A": "#1E7A34",
+        }),
       ],
     },
   },

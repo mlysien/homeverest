@@ -1,0 +1,49 @@
+---
+/*
+ * Collapsible table of contents built from the post's headings at build time.
+ * Shown only when the post has enough sections to be worth navigating.
+ *
+ * No heading elements inside on purpose: PostDetails attaches anchor links
+ * to every heading in the document.
+ */
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+};
+
+const MIN_SECTIONS = 3;
+
+const items = Astro.props.headings.filter(h => h.depth === 2 || h.depth === 3);
+const sections = items.filter(h => h.depth === 2).length;
+---
+
+{
+  sections >= MIN_SECTIONS && (
+    <nav aria-label="Spis treści" class="mb-12 max-w-app" data-pagefind-ignore>
+      <details open class="group card px-5 py-4">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+          <span class="meta-label">Spis treści</span>
+          <span
+            aria-hidden="true"
+            class="text-muted transition-transform group-open:rotate-180"
+          >
+            ▾
+          </span>
+        </summary>
+        <ol class="m-0 mt-3 flex list-none flex-col gap-1.5 p-0 text-[15px]">
+          {items.map(h => (
+            <li class={h.depth === 3 ? "ps-4 text-sm" : ""}>
+              <a
+                href={`#${h.slug}`}
+                class="text-subtle transition-colors hover:text-accent-soft"
+              >
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
+    </nav>
+  )
+}
