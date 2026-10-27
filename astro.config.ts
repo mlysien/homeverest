@@ -20,6 +20,29 @@ export default defineConfig({
   output: "static",
   outDir: "dist",
   redirects: {
+    // Addresses from the old blog, where posts lived at the domain root
+    "/strona-glowna": "/",
+    "/zaczynam-tworzyc-bloga": "/posts/2021/zaczynam-tworzyc-bloga",
+    "/pozbadz-sie-nudy-w-konsoli-z-oh-my-posh":
+      "/posts/2022/pozbadz-sie-nudy-w-konsoli-z-oh-my-posh",
+    "/github-secrets": "/posts/2022/github-secrets",
+    "/technika-pomodoro": "/posts/2022/technika-pomodoro",
+    "/github-actions": "/posts/2022/github-actions",
+    "/paczki-msix": "/posts/2022/paczki-msix",
+    "/biblioteka-quartz": "/posts/2022/biblioteka-quartz",
+    "/biblioteka-quartz-net": "/posts/2022/biblioteka-quartz",
+    "/challenge-accepted-czyli-programistyczne-wyzwania":
+      "/posts/2023/challenge-accepted-czyli-programistyczne-wyzwania",
+    "/angular-cykl-zycia-komponentu":
+      "/posts/2023/angular-cykl-zycia-komponentu",
+    "/angular-strategia-onpush": "/posts/2023/angular-strategia-onpush",
+    "/cykl-zycia-obiektow-w-kontenerze-ioc":
+      "/posts/2023/cykl-zycia-obiektow-w-kontenerze-ioc",
+    "/microsoft-powertoys": "/posts/2024/microsoft-powertoys",
+    "/100commitow-pierwszy-miesiac": "/posts/2024/100commitow-pierwszy-miesiac",
+    "/podsumowanie-konkursu-100commitow":
+      "/posts/2024/podsumowanie-konkursu-100commitow",
+    "/wlasna-aplikacja-z-cursorem": "/posts/2025/wlasna-aplikacja-z-cursorem",
     // Old address with a typo, kept so existing links still work
     "/posts/2024/podsumowanie-konkursku-100commitow":
       "/posts/2024/podsumowanie-konkursu-100commitow",
