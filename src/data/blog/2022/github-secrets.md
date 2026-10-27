@@ -15,7 +15,7 @@ Cześć! Po trochę dłuższej urlopowej przerwie serdecznie zapraszam do kolejn
 
 ## GitHub Secrets - teoria
 
-Standardowo na początku trochę teorii. Przechowywanie wrażliwych danych zawsze było problematyczne. Hasła do FTP, klucze API, login i hasła wymagane do autoryzacji - te dane nie powinny znaleźć się w niepowołanych rękach. Temat bezpieczeństwa danych występuje praktycznie w każdym projekcie, dlatego platforma GitHub świetnie zauważyła potrzebę przechowywania w bezpiecznym miejscu ważnych danych. I tak właśnie powstał [GitHub Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets). GitHub Secrets to po prostu zaszyfrowane zmienne, których możemy używać w plikach z definicjami workflows w GitHub Actions - czym są GitHub Actions już kiedyś opisywałem na blogu, więc [odsyłam do artykułu na ten temat](https://homeverest.pl/github-actions/).
+Standardowo na początku trochę teorii. Przechowywanie wrażliwych danych zawsze było problematyczne. Hasła do FTP, klucze API, login i hasła wymagane do autoryzacji - te dane nie powinny znaleźć się w niepowołanych rękach. Temat bezpieczeństwa danych występuje praktycznie w każdym projekcie, dlatego platforma GitHub świetnie zauważyła potrzebę przechowywania w bezpiecznym miejscu ważnych danych. I tak właśnie powstał [GitHub Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets). GitHub Secrets to po prostu zaszyfrowane zmienne, których możemy używać w plikach z definicjami workflows w GitHub Actions - czym są GitHub Actions już kiedyś opisywałem na blogu, więc [odsyłam do artykułu na ten temat](/posts/2022/github-actions/).
 
 Co jest warte uwagi, to fakt, że dostęp do zmiennych z sekretami mają wszyscy członkowie, którzy są dodani do projektu, jednak nikt nie ma możliwości zobaczenia co zawiera sekret, zawartość ta jest pobierana tylko i wyłącznie w momencie uruchomienia zdefiniowanego wcześniej workflow. Nie ma niestety możliwości, aby w tworzonym oprogramowaniu wykorzystywać sekrety, GitHub Secretes są wykorzystywane tylko przez GitHub Actions.
 
@@ -31,7 +31,7 @@ Jak widać nie ma opcji, aby podejrzeć sekret, możemy go ewentualnie zaktualiz
 
 ![image](../../../assets/blog/2022/github-secrets/image-1.png)
 
-Skoro wiadomo gdzie można zobaczyć istniejące sekrety oraz jak je dodawać, przychodzi kolej na wykorzystanie ich w praktyce. Do tego celu posłużę się istniejącym plikiem workflow, który służy mi do kopiowania plików z nową wersją aplikacji na serwer FTP - jeśli czytałeś mój artykuł o [GitHub Actions](https://homeverest.pl/github-actions/) to pewnie kojarzysz o co tam chodziło dokładnie. Nie trzeba jednak przeczytać tego artykułu, żeby zrozumieć jak wykorzystać sekrety.
+Skoro wiadomo gdzie można zobaczyć istniejące sekrety oraz jak je dodawać, przychodzi kolej na wykorzystanie ich w praktyce. Do tego celu posłużę się istniejącym plikiem workflow, który służy mi do kopiowania plików z nową wersją aplikacji na serwer FTP - jeśli czytałeś mój artykuł o [GitHub Actions](/posts/2022/github-actions/) to pewnie kojarzysz o co tam chodziło dokładnie. Nie trzeba jednak przeczytać tego artykułu, żeby zrozumieć jak wykorzystać sekrety.
 
 ![image](../../../assets/blog/2022/github-secrets/image-3.png)
 

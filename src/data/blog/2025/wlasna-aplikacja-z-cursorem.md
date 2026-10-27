@@ -122,5 +122,4 @@ Nie.
 
 ## Linki
 
-- Link do pomodoro timera: [https://github.com/mlysien/Pomodoro](https://github.com/mlysien/Pomodoro)
 - Strona Cursora: [https://cursor.com/](https://cursor.com/)

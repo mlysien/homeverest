@@ -18,6 +18,11 @@ export default defineConfig({
   base: "/",
   output: "static",
   outDir: "dist",
+  redirects: {
+    // Old address with a typo, kept so existing links still work
+    "/posts/2024/podsumowanie-konkursku-100commitow":
+      "/posts/2024/podsumowanie-konkursu-100commitow",
+  },
   integrations: [
     sitemap({
       filter: page => SITE.showArchives || !page.endsWith("/archives"),

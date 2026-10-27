@@ -111,7 +111,7 @@ Zapisujemy, przeładowujemy profil (lub po prostu uruchamiamy ponownie PowerShel
 
 ### Struktura pliku motywu
 
-Nie chcę się tutaj rozpisywać na ten temat, bo jest dość obszerny, dlatego odsyłam do [dokumentacji modułu Oh My Posh](https://ohmyposh.dev/docs/config-overview). Znajduje się tam obszerne wyjaśnienie w jaki sposób można dostosować motyw pod siebie. Możliwości jest naprawdę dużo. Sama struktura pliku to zwykły json, składa się z bloków, które z kolei zawierają segmenty - czyli w tym wypadku elementy składowe zawartość konsoli, np. aktualną ścieżkę, poziom baterii, lub informacje o systemie. Segmenty są łączone jeden po drugim, dzięki czemu możemy wyświetlać kilka informacji naraz.
+Nie chcę się tutaj rozpisywać na ten temat, bo jest dość obszerny, dlatego odsyłam do [dokumentacji modułu Oh My Posh](https://ohmyposh.dev/docs/configuration/general). Znajduje się tam obszerne wyjaśnienie w jaki sposób można dostosować motyw pod siebie. Możliwości jest naprawdę dużo. Sama struktura pliku to zwykły json, składa się z bloków, które z kolei zawierają segmenty - czyli w tym wypadku elementy składowe zawartość konsoli, np. aktualną ścieżkę, poziom baterii, lub informacje o systemie. Segmenty są łączone jeden po drugim, dzięki czemu możemy wyświetlać kilka informacji naraz.
 
 ## Dodatki do konsoli
 

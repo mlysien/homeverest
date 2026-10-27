@@ -15,7 +15,7 @@ Cześć, zapraszam do lektury mojego kolejnego wpisu na blogu. Dziś opiszę moj
 
 ## Technika Pomodoro - co to jest?
 
-Na początek troszeczkę historii, technika Pomodoro powstała w latach 80, jej autorem jest Włoch [Francesco Cirillo](https://francescocirillo.com/pages/francesco-cirillo). Skoro twórcą jest Włoch to nie powinno dziwić to, że w nazwie jest pomidor. We Włoszech jest on dość popularnym warzywem, na tyle popularnym, że pan Francessco do odmierzania czasu używał kuchennego minutnika w kształcie... pomidora! Nazwa wymyśliła się sama.
+Na początek troszeczkę historii, technika Pomodoro powstała w latach 80, jej autorem jest Włoch [Francesco Cirillo](https://www.francescocirillo.com/). Skoro twórcą jest Włoch to nie powinno dziwić to, że w nazwie jest pomidor. We Włoszech jest on dość popularnym warzywem, na tyle popularnym, że pan Francessco do odmierzania czasu używał kuchennego minutnika w kształcie... pomidora! Nazwa wymyśliła się sama.
 
 Technika opracowana przez pana Francessco Cirillo służy to zwiększania produktywności podczas wykonywania zadań. Nad zadaniem **pracujemy 25 minut**, po zakończeniu tego czasu mamy **5 minut przerwy** na oderwanie się od zadania. Po przerwie wracamy na kolejne 25 minut do pracy. **Po czterech takich cyklach pracy robimy dłuższą przerwę - 15 minut**.
 

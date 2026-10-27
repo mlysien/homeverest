@@ -2,7 +2,7 @@
 title: Podsumowanie konkursu 100commitow
 author: Mateusz Łysień
 pubDatetime: 2024-06-13
-slug: podsumowanie-konkursku-100commitow
+slug: podsumowanie-konkursu-100commitow
 featured: false
 draft: false
 tags: [100commitow]

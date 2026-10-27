@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://homeverest.pl/about",
   desc: "Notatki o oprogramowaniu, architekturze i budowaniu rzeczy.",
   title: "homeverest",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "",
   lightAndDarkMode: false,
   postPerIndex: 3,
   postPerPage: 5,
