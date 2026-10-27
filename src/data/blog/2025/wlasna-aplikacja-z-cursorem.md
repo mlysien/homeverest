@@ -6,10 +6,11 @@ slug: wlasna-aplikacja-z-cursorem
 featured: false
 draft: false
 tags: [ai, cursorai, vibecoding]
-description: Sprawdziłem Cursora w praktyce budując własny Pomodoro Timer od zera przy użyciu Tauri. Piszę jak wygląda praca z AI jako partnerem przy kodowaniu, co go zaskakuje i gdzie ma wpadki.
+ogImage: ../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/og.jpg
+description: Zbudowałem od zera własny Pomodoro Timer w Tauri z pomocą Cursora. Jak wygląda programowanie z AI w praktyce, co mnie zaskoczyło i gdzie Cursor ma wpadki.
 ---
 
-![banner](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/42c0a51e-2252-4a00-b114-0d8a712fb46c.png)
+![banner](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/banner.png)
 
 Tematy związane ze sztuczną inteligencją są teraz tak popularne jak Adam Małysz w sezonie 2000/2001 po zwycięstwie w Turnieju Czterech Skoczni oraz Pucharze Świata - cały świat o tym mówi.
 
@@ -53,9 +54,9 @@ Wybrałem pierwszą opcję. Interesowało mnie, na ile się dogadamy – czyli c
 
 ### Pomodoro Timer
 
-![pomodoro timer](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/pomodoro-2.gif)
+![Pomodoro Timer zbudowany z pomocą Cursora w Tauri](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/pomodoro-2.gif)
 
-Jakiś czas temu, [pisałem o technice Pomodoro](https://www.homeverest.pl/technika-pomodoro/) z której korzystam na co dzień. Przez ten czas nic się nie zmieniło – wciąż jej używam i to z dokładnie tą samą aplikacją co wcześniej. Uznałem, że to świetny projekt na zapoznanie się z możliwościami Cursora. Przy okazji w końcu stworzę swój własny Pomodoro Timer.
+Jakiś czas temu, [pisałem o technice Pomodoro](/posts/2022/technika-pomodoro/) z której korzystam na co dzień. Przez ten czas nic się nie zmieniło – wciąż jej używam i to z dokładnie tą samą aplikacją co wcześniej. Uznałem, że to świetny projekt na zapoznanie się z możliwościami Cursora. Przy okazji w końcu stworzę swój własny Pomodoro Timer.
 
 > Dla przypomnienia - Pomodoro to technika pracy nad zadaniami w której pracujemy (w rzeczywistości staramy się skupić) przez 25 minut, po zakończeniu tego czasu mamy 5 minut przerwy. Po czterech takich cyklach pracy robimy dłuższą przerwę – 15 minut. Oczywiście technikę można dostosować do siebie i dowolnie zmodyfikować czasy trwania przerw oraz czasu pracy.
 
@@ -87,7 +88,7 @@ Dużo rzeczy Cursor robi „przy okazji”. Na przykład przy dodawaniu przycisk
 
 Podtytuł _„Cursor – nowy kolega z zespołu”_ naprawdę dobrze oddaje moje odczucia. Tak jak kolega z zespołu, potrafi czasem coś zepsuć – np. dodając nowy element, przesunąć albo kompletnie „rozjechać” layout. I to zdarzało się kilkukrotnie. Ale kto nigdy nie popsuł czegoś przy dodawaniu nowego feature’a, niech pierwszy rzuci klawiaturą...
 
-![](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/vwI4mYEHP8k0w.webp)
+![Miś Fozzie z Muppetów przy stoliku w kawiarni](../../../assets/blog/2025/wlasna-aplikacja-z-cursorem/vwI4mYEHP8k0w.webp)
 
 Cursor potrafi też zaskoczyć. Nie jestem grafikiem i ciężko mi stworzyć naprawdę ładny interfejs, więc poprosiłem go, aby zmienił kolorystykę aplikacji na bardziej _„modern-aesthetic”_. Po przeładowaniu projektu zbierałem szczękę z podłogi – sam bym tego lepiej nie wymyślił.
 
@@ -119,7 +120,7 @@ Nie.
 
 > Ale tempo w jakim rozwija się AI może sprawić, że za kilka lat będę się lekko uśmiechał czytając taką odpowiedź.🙂
 
-## Linki:
+## Linki
 
 - Link do pomodoro timera: [https://github.com/mlysien/Pomodoro](https://github.com/mlysien/Pomodoro)
 - Strona Cursora: [https://cursor.com/](https://cursor.com/)

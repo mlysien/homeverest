@@ -6,16 +6,17 @@ slug: podsumowanie-konkursku-100commitow
 featured: false
 draft: false
 tags: [100commitow]
-description: 100 dni codziennego commitowania, 403 commity i 12k linii kodu – tak powstawał Integrify. Opisuję co udało się dowieźć, co odpadło i czego nauczyłem się przez ten czas.
+ogImage: ../../../assets/blog/2024/podsumowanie-konkursu-100commitow/og.jpg
+description: 100 dni codziennego commitowania, 403 commity i 12k linii kodu – tak powstał Integrify. Co udało się dowieźć, co odpadło i czego się nauczyłem.
 ---
 
-![banner](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/ChatGPT-Image-Apr-18-2025-03_07_05-PM-1.png)
+![banner](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/banner.png)
 
-Nie sądziłem, że dotrwam do końca i będę miał przyjemność napisać coś o moim pojekcie konkursowym. Wow. Konkurs "100commitow" zakończony. 100 dni codziennego commitowania. Ponad 12k linii kodu. 403 commity. 15 gwiazdek. Tak właśnie powstawało narzędzie nad którym pracowałem - **[integrify](https://github.com/mlysien/integrify)**.
+Nie sądziłem, że dotrwam do końca i będę miał przyjemność napisać coś o moim projekcie konkursowym. Wow. Konkurs "100commitow" zakończony. 100 dni codziennego commitowania. Ponad 12k linii kodu. 403 commity. 15 gwiazdek. Tak właśnie powstawało narzędzie nad którym pracowałem - **[integrify](https://github.com/mlysien/integrify)**.
 
 ## Jakie były założenia?
 
-Wróćmy do początku marca, kiedy prace nad integrify ruszyły. Oto co wtedy sobie założyłem. Swoją drogą pisałem o moich planach na projekt w [poprzednim wpisie](https://www.homeverest.pl/100commitow-pierwszy-miesiac/).
+Wróćmy do początku marca, kiedy prace nad integrify ruszyły. Oto co wtedy sobie założyłem. Swoją drogą pisałem o moich planach na projekt w [poprzednim wpisie](/posts/2024/100commitow-pierwszy-miesiac/).
 
 **Kluczowe założenia:**
 
@@ -45,11 +46,11 @@ Powstała dokumentacja z wykorzystaniem narzędzia **starlight**, która jest ho
 
 Wykorzystałem ostatecznie architekturę heksagonalną. W pewnym momencie przy projektowaniu pluginów, sama mi się w pewnym sensie "objawiła", zauważyłem, że zaczynam potrzebować czegoś w rodzaju portów, a pluginy byłby ich adapterami. Stąd przesiadka z modularnego monolitu na heksagonala. Tak teraz prezentuje się architektura aplikacji:
 
-![architektura](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/image-1.png)
+![Architektura heksagonalna integrify – obszary integracji z portami, adapterami i pluginami](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/image-1.png)
 
 Powstało również CLI, dzięki któremu można zarządzać procesami integracji w wybranych obszarach. Na koniec udało mi się wypuścić wersję demonstracyjną z wcześniej wspomnianymi dwoma wtyczkami. Poniżej nagranie z działania CLI:
 
-![demo](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/integrify.demo_.gif)
+![Demo działania integrify w terminalu](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/integrify.demo_.gif)
 
 ## Czego nie udało się skończyć?
 
@@ -75,6 +76,6 @@ Chciałbym kontynuować prace nad projektem. Oczywiście już nie w tak absorbuj
 
 ---
 
-Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Jeśli chciałbyś pomóc rozwijać narzędzie lub z niego skorzystać to wbijaj na [GitHuba projektu](https://github.com/mlysien/integrify). A jak chcesz do mnie napisać to możesz to zrobić przez [formularz kontaktowy](https://homeverest.pl/kontakt/). Do następnego!
+Dzięki za uwagę, jeśli masz jakieś pytania odnośnie projektu czy czegokolwiek innego to zapraszam do kontaktu. Jeśli chciałbyś pomóc rozwijać narzędzie lub z niego skorzystać to wbijaj na [GitHuba projektu](https://github.com/mlysien/integrify). A jak chcesz do mnie napisać to możesz to zrobić [mailowo](mailto:mateusz.lysien@homeverest.pl). Do następnego!
 
-![gif](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/goodbye-homer.gif)
+![Homer Simpson macha na pożegnanie](../../../assets/blog/2024/podsumowanie-konkursu-100commitow/goodbye-homer.gif)
