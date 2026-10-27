@@ -12,7 +12,7 @@ import { SITE } from "@/config";
 const posts = getSortedPosts(await getCollection("blog"));
 ---
 
-<Layout title={`Wszystkie wpisy | ${SITE.title}`}>
+<Layout title={`Wszystkie wpisy | ${SITE.title}`} schemaType="CollectionPage">
   <Header />
   <Main
     pageTitle="Wszystkie wpisy"

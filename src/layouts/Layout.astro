@@ -3,10 +3,16 @@ import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { SITE } from "@/config";
+import { PHOTO_LINKS, SOCIALS } from "@/constants";
+import avatar from "@/assets/about/avatar.jpeg";
 import "@/styles/global.css";
 
 type Props = {
   title?: string;
+  /** Post title without the site suffix, used as the BlogPosting headline */
+  headline?: string;
+  /** schema.org type of the page node in JSON-LD */
+  schemaType?: "WebPage" | "ProfilePage" | "CollectionPage";
   author?: string;
   profile?: string;
   description?: string;
@@ -21,6 +27,8 @@ type Props = {
 
 const {
   title = SITE.title,
+  headline,
+  schemaType = "WebPage",
   author = SITE.author,
   profile = SITE.profile,
   description = SITE.desc,
@@ -34,19 +42,107 @@ const {
 
 const socialImageURL = new URL(ogImage, Astro.url);
 
+/* ========== JSON-LD Structured data ========== */
+
+const siteURL = new URL("/", SITE.website).href;
+const pageURL = new URL(canonicalURL).href;
+const ids = {
+  website: `${siteURL}#website`,
+  person: `${siteURL}#person`,
+  blog: `${siteURL}posts/#blog`,
+  page: `${pageURL}#webpage`,
+  breadcrumb: `${pageURL}#breadcrumb`,
+};
+
+const website = {
+  "@type": "WebSite",
+  "@id": ids.website,
+  url: siteURL,
+  name: SITE.title,
+  description: SITE.desc,
+  inLanguage: SITE.lang,
+  publisher: { "@id": ids.person },
+};
+
+const person = {
+  "@type": "Person",
+  "@id": ids.person,
+  name: SITE.author,
+  url: SITE.profile,
+  image: new URL(avatar.src, SITE.website).href,
+  jobTitle: "Software System Engineer",
+  sameAs: [...SOCIALS, ...PHOTO_LINKS]
+    .map(({ href }) => href)
+    .filter(href => href.startsWith("http")),
+};
+
+const webPage = {
+  "@type": schemaType,
+  "@id": ids.page,
+  url: pageURL,
+  name: title,
+  description,
+  inLanguage: SITE.lang,
+  isPartOf: { "@id": ids.website },
+  primaryImageOfPage: { "@type": "ImageObject", url: `${socialImageURL}` },
+  ...(schemaType === "ProfilePage" && { mainEntity: { "@id": ids.person } }),
+};
+
+const postNodes = pubDatetime
+  ? [
+      {
+        "@type": "BlogPosting",
+        "@id": `${pageURL}#article`,
+        mainEntityOfPage: { "@id": ids.page },
+        isPartOf: { "@id": ids.blog },
+        headline: headline ?? title,
+        description,
+        image: `${socialImageURL}`,
+        inLanguage: SITE.lang,
+        datePublished: pubDatetime.toISOString(),
+        dateModified: (modDatetime ?? pubDatetime).toISOString(),
+        author: {
+          "@type": "Person",
+          ...(author === SITE.author && { "@id": ids.person }),
+          name: author,
+          url: profile,
+        },
+        publisher: { "@id": ids.person },
+      },
+      {
+        "@type": "Blog",
+        "@id": ids.blog,
+        url: new URL("posts/", siteURL).href,
+        name: SITE.title,
+        isPartOf: { "@id": ids.website },
+        publisher: { "@id": ids.person },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": ids.breadcrumb,
+        itemListElement: [
+          { name: "Strona główna", item: siteURL },
+          { name: "Wpisy", item: new URL("posts/", siteURL).href },
+          { name: headline ?? title, item: pageURL },
+        ].map((crumb, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          ...crumb,
+        })),
+      },
+    ]
+  : [];
+
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
+  "@graph": [
+    website,
+    person,
     {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
+      ...webPage,
+      ...(pubDatetime && { breadcrumb: { "@id": ids.breadcrumb } }),
     },
+    ...postNodes,
   ],
 };
 ---
