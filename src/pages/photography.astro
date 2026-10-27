@@ -9,12 +9,9 @@ import { PHOTOS } from "@/content-data/photos";
 import { SITE } from "@/config";
 import { PHOTO_LINKS } from "@/constants";
 
-// Only a handful here; the rest live on Instagram and Lightroom (see PHOTO_LINKS)
-const SHOWN_PHOTOS = 10;
-
 // Large, web-friendly version for the viewer; the untouched file is linked as "Original"
 const photos = await Promise.all(
-  PHOTOS.slice(0, SHOWN_PHOTOS).map(async photo => {
+  PHOTOS.map(async photo => {
     const large = await getImage({
       src: photo.src,
       width: Math.min(2560, photo.src.width),
